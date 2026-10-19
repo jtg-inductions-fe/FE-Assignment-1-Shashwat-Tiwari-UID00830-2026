@@ -1,0 +1,139 @@
+/// all the styles related to the header component are written here.
+
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+header {
+    width: 92.55%;
+    height: 120px;
+    margin-left: 3.7%;
+    @include m.align-center-flex;
+    position: relative;
+
+    .header__logo {
+        order: 1;
+    }
+    .header__menu-button {
+        width: 48px;
+        height: 48px;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        order: 2;
+        z-index: 10;
+        cursor: pointer;
+    }
+    .header__menu-icon {
+        position: absolute;
+        width: 39.98px;
+        height: 40px;
+        top: 4px;
+        left: 4px;
+    }
+    .header__navlinks {
+        display: none;
+        order: 4;
+    }
+    .header__button-container {
+        display: none;
+        order: 3;
+    }
+    .header__navlinks--active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 9;
+        top: 70%;
+        right: 1%;
+        a {
+            padding: 10px 35px;
+            text-align: center;
+            background-color: variables.$primary-color;
+            color: variables.$secondary-color;
+            border: 1px solid variables.$secondary-color;
+        }
+        a:hover {
+            background-color: #eeeeee;
+            color: variables.$primary-color;
+        }
+    }
+}
+
+@media (min-width: 431px) {
+    header {
+        width: 87.5%;
+        min-height: 113px;
+        height: auto;
+        margin-left: 6.25%;
+        @include m.align-center-flex;
+        position: relative;
+
+        .header__logo {
+            width: 40px;
+            height: 40px;
+            order: 2;
+        }
+        .header__button-container {
+            display: inline-block;
+            order: 3;
+        }
+        .header__menu-button {
+            position: relative;
+            top: auto;
+            left: auto;
+            order: 1;
+        }
+        .header__navlinks {
+            order: 4;
+        }
+        .header__navlinks--active {
+            right: auto;
+            left: 1%;
+            a {
+                padding: 20px 60px;
+                font-size: 20px;
+            }
+        }
+    }
+}
+@media (min-width: 590px) {
+    header {
+        .header__logo {
+            position: absolute;
+            top: auto;
+            right: 47.9%;
+        }
+    }
+}
+@media (min-width: 1025px) {
+    header {
+        @include m.align-center-flex;
+        height: 113px;
+        margin-top: 5.86vh;
+        padding-left: 3%;
+        padding-right: 1.4px;
+        position: relative;
+        .header__menu-button {
+            display: none;
+            order: 4;
+        }
+        .header__navlinks {
+            display: inline-block;
+            order: 2;
+            display: flex;
+            width: 46.5%;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        .header__logo {
+            position: static;
+            right: auto;
+            order: 1;
+            height: 52px;
+            width: 52px;
+        }
+        .header__button-container {
+            order: 3;
+        }
+    }
+}

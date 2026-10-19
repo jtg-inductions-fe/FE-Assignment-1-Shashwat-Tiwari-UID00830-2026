@@ -1,0 +1,28 @@
+// all the styles related to typography are written here.
+
+@use '../abstracts/variables';
+
+.btn-fonts {
+    font-family: variables.$font-family;
+    font-weight: variables.$font-weight;
+    font-style: bold;
+    font-size: variables.$font-size;
+}
+.anchor-fonts {
+    font-family: variables.$font-family;
+    font-weight: variables.$font-weight;
+    font-size: variables.$font-size;
+    text-decoration: none;
+    color: #19182580;
+    transition: color 0.2s ease;
+}
+
+.anchor-fonts:hover {
+    font-style: bold;
+    color: #222831;
+}
+@media (min-width: 1025px) {
+    .anchor-fonts {
+        font-size: 19px;
+    }
+}

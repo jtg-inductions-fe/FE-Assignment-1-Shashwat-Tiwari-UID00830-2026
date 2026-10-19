@@ -1,1 +1,13 @@
 // TODO: Add styles as per the requirement
+
+///Core global resets, boilerplate elements, and HTML element type stylings.
+@use 'base';
+
+///Layout structures like header,footer,sidebar etc.
+@use 'layout';
+
+///Reusable UI components like buttons.
+@use 'components';
+
+///Contains reusable elements like variables.
+@use 'abstracts';
