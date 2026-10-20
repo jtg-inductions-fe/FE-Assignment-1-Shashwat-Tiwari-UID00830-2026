@@ -61,7 +61,7 @@ window.addEventListener('resize', () => {
         btnContainer.classList.remove('header__button-container--active');
     }
     if (
-        window.innerWidth < 430 &&
+        window.innerWidth <= 430 &&
         navLinks.classList.contains('header__navlinks--active')
     ) {
         btnContainer.classList.add('header__button-container--active');
