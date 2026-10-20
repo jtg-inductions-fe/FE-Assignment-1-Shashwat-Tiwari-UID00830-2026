@@ -19,8 +19,8 @@ header {
         border: none;
         background-color: transparent;
         position: relative;
-        order: 2;
-        z-index: 10;
+        order: 3;
+        z-index: 15;
         cursor: pointer;
     }
     .header__menu-icon {
@@ -30,27 +30,50 @@ header {
         top: 4px;
         left: 4px;
     }
+    .header__menu-icon[alt='Close'] {
+        padding: 4px;
+    }
     .header__navlinks {
         display: none;
         order: 4;
     }
     .header__button-container {
         display: none;
-        order: 3;
+        order: 2;
+    }
+    .header__button-container--active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 54rem;
+        right: 0.5rem;
+        z-index: 10;
+        height: 7rem;
+        width: 13rem;
+        justify-content: space-between;
+        button {
+            width: 100%;
+            border-radius: 0;
+            border: 1px solid white;
+        }
     }
     .header__navlinks--active {
         display: flex;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
+        justify-content: flex-start;
         z-index: 9;
-        top: 70%;
-        right: 1%;
+        top: 0;
+        right: -6%;
+        height: 100vh;
+        width: 16rem;
+        padding-top: 6rem;
+        background-color: variables.$primary-color;
         a {
-            padding: 10px 35px;
-            text-align: center;
+            padding: 15px 50px 15px 20px;
             background-color: variables.$primary-color;
             color: variables.$secondary-color;
-            border: 1px solid variables.$secondary-color;
+            font-size: 20px;
         }
         a:hover {
             background-color: #eeeeee;
@@ -88,10 +111,15 @@ header {
         }
         .header__navlinks--active {
             right: auto;
-            left: 1%;
+            left: -1%;
+            height: 100vh;
+            top: 0;
+            width: 16rem;
             a {
-                padding: 20px 60px;
-                font-size: 20px;
+                padding: 10px 30px 10px 30px;
+                font-size: 22px;
+                display: flex;
+                justify-content: flex-end;
             }
         }
     }
