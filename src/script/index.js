@@ -18,7 +18,7 @@ const closeIconPath = 'src/assets/cross.png';
  */
 menuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('header__navlinks--active');
-    if (window.innerWidth < 430) {
+    if (window.innerWidth <= 430) {
         btnContainer.classList.toggle('header__button-container--active');
     }
     if (navLinks.classList.contains('header__navlinks--active')) {
