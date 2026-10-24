@@ -1,69 +1,132 @@
 /**
- * THis script handles the functionality part of the entire page.
+ * This script handles the functionality part of the entire page.
  */
+import * as c from './constants.js';
 
-const menuBtn = document.querySelector('.header__menu-button');
-const navLinks = document.getElementById('nav-links');
-const menuIcon = document.querySelector('.header__menu-icon');
-const btnContainer = document.querySelector('.header__button-container');
-
-const hamburgerIconPath = 'src/assets/menu.png';
-const closeIconPath = 'src/assets/cross.png';
-
+export const menuBtn = document.querySelector('.header__menu-button');
+export const navLinks = document.getElementById('nav-links');
+export const menuIcon = document.querySelector('.header__menu-icon');
+export const btnContainer = document.querySelector('.header__button-container');
+export const body = document.body;
 /**
- * Event listener for the menu button.
- * Toggles the visibility of the mobile navigation links and updates the menu icon and alt text accordingly.
- * Toggles the visibility of the button container for mobile viewports.
- * @listens click
+ * Toggles the mobile navigation menu and updates the menu icon.
+ * Also handles the button container visibility for narrow mobile viewports.
  */
-menuBtn.addEventListener('click', () => {
+function handleMenuToggle() {
     navLinks.classList.toggle('header__navlinks--active');
-    if (window.innerWidth <= 430) {
+
+    if (window.innerWidth <= c.mobilewidth) {
         btnContainer.classList.toggle('header__button-container--active');
     }
+
     if (navLinks.classList.contains('header__navlinks--active')) {
-        menuIcon.src = closeIconPath;
+        menuIcon.src = c.closeIconPath;
         menuIcon.alt = 'Close';
+        body.style.overflow = 'hidden';
     } else {
-        menuIcon.src = hamburgerIconPath;
+        menuIcon.src = c.hamburgerIconPath;
         menuIcon.alt = 'Menu';
+        body.style.overflow = '';
     }
-});
+}
 
 /**
- * Event listener for the navigation links.
- * Closes the mobile navigation menu when a link is clicked.
- * Resets the menu icon and alt text to the hamburger icon.
- * @listens click
+ * Closes the mobile navigation menu and resets the icon when a link is clicked.
+ * @param {Event} event - The click event object.
  */
-navLinks.addEventListener('click', (event) => {
+function handleNavLinkClick(event) {
     if (event.target.tagName === 'A') {
-        navLinks.classList.remove('header__navlinks--active');
-        btnContainer.classList.remove('header__button-container--active');
-        menuIcon.src = hamburgerIconPath;
-        menuIcon.alt = 'Menu';
+        closeMobileMenu();
     }
-});
+}
 
+function closeMobileMenu() {
+    navLinks.classList.remove('header__navlinks--active');
+    btnContainer.classList.remove('header__button-container--active');
+    menuIcon.src = c.hamburgerIconPath;
+    menuIcon.alt = 'Menu';
+    body.style.overflow = '';
+}
 /**
- * Event listener for the window resize event.
- * Resets the mobile menu visibility and icon if the viewport exceeds the tablet/mobile breakpoint.
- * Resets the button container visibility for larger viewports.
- * @listens resize
+ * Adjusts the navigation menu and button container visibility based on the viewport size.
  */
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024) {
+function handleWindowResize() {
+    if (window.innerWidth > c.tabletwidth) {
         navLinks.classList.remove('header__navlinks--active');
-        menuIcon.src = hamburgerIconPath;
+        menuIcon.src = c.hamburgerIconPath;
         menuIcon.alt = 'Menu';
     }
-    if (window.innerWidth > 430) {
+
+    if (window.innerWidth > c.mobilewidth) {
         btnContainer.classList.remove('header__button-container--active');
     }
+
     if (
-        window.innerWidth <= 430 &&
+        window.innerWidth <= c.mobilewidth &&
         navLinks.classList.contains('header__navlinks--active')
     ) {
         btnContainer.classList.add('header__button-container--active');
     }
-});
+}
+
+/**
+ * Locks the focus of the keyboard navigation within the mobile menu when it's open.
+ * @param {KeyboardEvent} e - The keyboard event object.
+ */
+function menuAccessibility(e) {
+    const isMenuOpen = navLinks.classList.contains('header__navlinks--active');
+    if (!isMenuOpen) {
+        return;
+    }
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        closeMobileMenu();
+        menuIcon.focus();
+        return;
+    }
+    if (e.key === 'Tab') {
+        const navElements = Array.from(navLinks.querySelectorAll('a'));
+        const buttonElements = Array.from(
+            btnContainer.querySelectorAll('button'),
+        );
+
+        const elements = [menuIcon, ...navElements, ...buttonElements];
+
+        const allFocusableElements = elements.filter(
+            (el) => el.offsetWidth > 0 || el.offsetHeight > 0,
+        );
+        if (allFocusableElements.length <= 1) return;
+
+        const firstElement = allFocusableElements[0];
+        const lastElement =
+            allFocusableElements[allFocusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+        }
+    }
+}
+/**
+ * Closes the mobile menu if the user clicks outside of it.
+ * @param {event} - The click event object.
+ */
+function outOfFocus(event) {
+    const isClickInsideMenu =
+        navLinks.contains(event.target) || menuBtn.contains(event.target);
+    if (
+        !isClickInsideMenu &&
+        navLinks.classList.contains('header__navlinks--active')
+    ) {
+        closeMobileMenu();
+    }
+}
+
+window.addEventListener('keydown', menuAccessibility);
+menuBtn.addEventListener('click', handleMenuToggle);
+navLinks.addEventListener('click', handleNavLinkClick);
+window.addEventListener('resize', handleWindowResize);
+document.addEventListener('click', outOfFocus);
