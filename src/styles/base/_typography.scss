@@ -15,6 +15,22 @@
     font-style: bold;
     color: variables.$anchor-font-hover-color;
 }
+.paragraph-fonts {
+    font-family: variables.$secondary-font-family;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    color: variables.$paragraph-fonts-color;
+}
+.h1-fonts {
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: 41px;
+    color: variables.$h1-fonts-color;
+}
+.font-color {
+    color: rgba(248, 94, 159, 1);
+}
 
 @media (min-width: 1025px) {
     .anchor-fonts {
