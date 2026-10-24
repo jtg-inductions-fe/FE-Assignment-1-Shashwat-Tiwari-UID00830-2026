@@ -3,6 +3,6 @@
  */
 
 export const hamburgerIconPath = 'src/assets/menu.svg';
-export const closeIconPath = 'src/assets/cross.png';
+export const closeIconPath = 'src/assets/cross.svg';
 export const tabletwidth = 1024;
 export const mobilewidth = 430;
