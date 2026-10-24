@@ -5,10 +5,10 @@
 @use '../abstracts/breakpoints' as b;
 
 .header {
+    @include m.align-center-flex;
     width: 92.55%;
     height: variables.$mobile-header-height;
     margin-left: 3.7%;
-    @include m.align-center-flex;
     position: relative;
 
     &__logo {
@@ -83,11 +83,11 @@
 }
 @media (b.$sm) {
     .header {
+        @include m.align-center-flex;
         width: 87.5%;
         min-height: variables.$tablet-header-height;
         height: auto;
         margin-left: 6.25%;
-        @include m.align-center-flex;
         position: relative;
 
         &__logo {

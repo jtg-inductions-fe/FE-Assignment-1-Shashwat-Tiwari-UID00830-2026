@@ -1,26 +1,21 @@
-// all the styles related to typography are written here.
+// All the styles related to typography are written here.
 
 @use '../abstracts/variables';
 
-.btn-fonts {
-    font-family: variables.$font-family;
-    font-weight: variables.$font-weight;
-    font-style: bold;
-    font-size: variables.$font-size;
-}
 .anchor-fonts {
-    font-family: variables.$font-family;
-    font-weight: variables.$font-weight;
-    font-size: variables.$font-size;
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: 14px;
     text-decoration: none;
-    color: #19182580;
+    color: variables.$anchor-font-color;
     transition: color 0.2s ease;
 }
 
 .anchor-fonts:hover {
     font-style: bold;
-    color: #222831;
+    color: variables.$anchor-font-hover-color;
 }
+
 @media (min-width: 1025px) {
     .anchor-fonts {
         font-size: 19px;
