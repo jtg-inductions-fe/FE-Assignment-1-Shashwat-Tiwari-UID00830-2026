@@ -1,0 +1,23 @@
+// All the styles related to typography are written here.
+
+@use '../abstracts/variables';
+
+.anchor-fonts {
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    color: variables.$anchor-font-color;
+    transition: color 0.2s ease;
+}
+
+.anchor-fonts:hover {
+    font-style: bold;
+    color: variables.$anchor-font-hover-color;
+}
+
+@media (min-width: 1025px) {
+    .anchor-fonts {
+        font-size: 19px;
+    }
+}

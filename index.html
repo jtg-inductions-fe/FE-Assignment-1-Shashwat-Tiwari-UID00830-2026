@@ -5,9 +5,34 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="src/styles/main.scss" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
-        <div>Hello World</div>
+        <header class="header">
+            <img src="src/assets/logo.svg" alt="Logo" class="header__logo" />
+            <nav class="header__navlinks" id="nav-links">
+                <a href="#Home" class="anchor-fonts">Home</a>
+                <a href="#Discover" class="anchor-fonts">Discover</a>
+                <a href="#SpecialDeals" class="anchor-fonts">Special Deals</a>
+                <a href="#Contact" class="anchor-fonts">Contact</a>
+            </nav>
+            <button class="header__menu-button">
+                <img
+                    src="src/assets/menu.svg"
+                    alt="Menu"
+                    class="header__menu-icon"
+                />
+            </button>
+            <div class="header__button-container">
+                <button class="btn-secondary btn-fonts">Log In</button
+                ><button class="btn-primary btn-fonts">Sign Up</button>
+            </div>
+        </header>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
