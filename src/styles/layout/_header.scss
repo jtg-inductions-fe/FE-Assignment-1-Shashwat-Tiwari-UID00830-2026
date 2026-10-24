@@ -2,18 +2,19 @@
 
 @use '../abstracts/variables';
 @use '../abstracts/mixins' as m;
+@use '../abstracts/breakpoints' as b;
 
-header {
+.header {
     width: 92.55%;
-    height: 120px;
+    height: variables.$mobile-header-height;
     margin-left: 3.7%;
     @include m.align-center-flex;
     position: relative;
 
-    .header__logo {
+    &__logo {
         order: 1;
     }
-    .header__menu-button {
+    &__menu-button {
         width: 48px;
         height: 48px;
         border: none;
@@ -23,41 +24,40 @@ header {
         z-index: 15;
         cursor: pointer;
     }
-    .header__menu-icon {
+    &__menu-icon {
         position: absolute;
         width: 39.98px;
         height: 40px;
         top: 4px;
         left: 4px;
     }
-    .header__menu-icon[alt='Close'] {
+    &__menu-icon[alt='Close'] {
         padding: 4px;
     }
-    .header__navlinks {
+    &__navlinks {
         display: none;
         order: 4;
     }
-    .header__button-container {
+    &__button-container {
         display: none;
         order: 2;
     }
-    .header__button-container--active {
+    &__button-container--active {
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 54rem;
-        right: 0.5rem;
+        top: 864px;
+        right: 8px;
         z-index: 10;
         height: 7rem;
         width: 13rem;
         justify-content: space-between;
         button {
             width: 100%;
-            border-radius: 0;
             border: 1px solid white;
         }
     }
-    .header__navlinks--active {
+    &__navlinks--active {
         display: flex;
         flex-direction: column;
         position: fixed;
@@ -81,35 +81,34 @@ header {
         }
     }
 }
-
-@media (min-width: 431px) {
-    header {
+@media (b.$sm) {
+    .header {
         width: 87.5%;
-        min-height: 113px;
+        min-height: variables.$tablet-header-height;
         height: auto;
         margin-left: 6.25%;
         @include m.align-center-flex;
         position: relative;
 
-        .header__logo {
+        &__logo {
             width: 40px;
             height: 40px;
             order: 2;
         }
-        .header__button-container {
+        &__button-container {
             display: inline-block;
             order: 3;
         }
-        .header__menu-button {
+        &__menu-button {
             position: relative;
             top: auto;
             left: auto;
             order: 1;
         }
-        .header__navlinks {
+        &__navlinks {
             order: 4;
         }
-        .header__navlinks--active {
+        &__navlinks--active {
             right: auto;
             left: -1%;
             height: 100vh;
@@ -124,28 +123,28 @@ header {
         }
     }
 }
-@media (min-width: 590px) {
-    header {
-        .header__logo {
+@media (b.$md) {
+    .header {
+        &__logo {
             position: absolute;
             top: auto;
             right: 47.9%;
         }
     }
 }
-@media (min-width: 1025px) {
-    header {
+@media (b.$lg) {
+    .header {
         @include m.align-center-flex;
-        height: 113px;
+        height: variables.$desktop-header-height;
         margin-top: 5.86vh;
         padding-left: 3%;
         padding-right: 1.4px;
         position: relative;
-        .header__menu-button {
+        &__menu-button {
             display: none;
             order: 4;
         }
-        .header__navlinks {
+        &__navlinks {
             display: inline-block;
             order: 2;
             display: flex;
@@ -153,14 +152,14 @@ header {
             justify-content: space-evenly;
             flex-wrap: wrap;
         }
-        .header__logo {
+        &__logo {
             position: static;
             right: auto;
             order: 1;
             height: 52px;
             width: 52px;
         }
-        .header__button-container {
+        &__button-container {
             order: 3;
         }
     }
