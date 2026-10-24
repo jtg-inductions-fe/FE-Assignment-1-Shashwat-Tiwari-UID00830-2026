@@ -1,13 +1,6 @@
 /// all the mixins used in the project are defined here.
 @use '../abstracts/variables' as v;
 
-/// centers an element vertically and adds space between the elements horizontally using flexbox.
-@mixin align-center-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 /// A mixin to use a specific breakpoint.
 @mixin up($breakpoint) {
     @if map-has-key(v.$breakpoints, $breakpoint) {
@@ -18,4 +11,18 @@
     } @else {
         @warn "Breakpoint not found.";
     }
+}
+
+/// centers an element vertically and adds space between the elements horizontally using flexbox.
+@mixin align-center-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// A mixin to center an element both vertically and horizontally using flexbox.
+@mixin align-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
