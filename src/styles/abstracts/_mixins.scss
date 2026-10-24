@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-// A mixin to center an element both vertically and horizontally using flexbox.
+/// centers an element vertically and horizontally using flexbox.
 @mixin align-flex {
     display: flex;
     justify-content: center;
