@@ -2,6 +2,18 @@
 
 $primary-color: #5d50c6;
 $secondary-color: #ffffff;
-$font-family: 'Roboto', sans-serif;
-$font-size: 14px;
-$font-weight: 700;
+$roboto-font-family: 'Roboto', sans-serif;
+$secondary-font-family: 'Inter', sans-serif;
+$anchor-font-color: #19182580;
+$anchor-font-hover-color: #222831;
+$desktop-header-height: 120px;
+$tablet-header-height: 113px;
+$mobile-header-height: 113px;
+
+$box-shadow-values:
+    0px 0px 0px 0px #0000001a,
+    0px 5px 11px 0px #0000001a,
+    0px 20px 20px 0px #00000017,
+    0px 45px 27px 0px #0000000d,
+    0px 81px 32px 0px #00000003,
+    0px 126px 35px 0px #00000000;
