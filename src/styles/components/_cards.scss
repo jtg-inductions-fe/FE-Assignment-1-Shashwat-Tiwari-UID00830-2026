@@ -1,3 +1,6 @@
+@use '../abstracts/breakpoints' as b;
+@use '../abstracts/variables';
+
 .card {
     width: 348px;
     height: 151px;
@@ -7,4 +10,17 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    h1 {
+        font-family: variables.$roboto-font-family;
+        font-weight: 700;
+        font-size: 37px;
+        color: #ff5722;
+        margin-top: 10px;
+    }
+    p {
+        font-family: variables.$inter-font-family;
+        font-weight: 400;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
 }

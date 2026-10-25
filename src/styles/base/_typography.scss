@@ -29,6 +29,15 @@
     font-size: 41px;
     color: variables.$h1-fonts-color;
 }
+.h2-fonts {
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: 31px;
+}
+.h3-fonts {
+    font-family: variables.$roboto-font-family;
+    font-size: 16px;
+}
 .font-color {
     color: variables.$pink;
 }
