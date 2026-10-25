@@ -48,7 +48,8 @@
 @media (b.$xs) {
     .travel-section {
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
         &__glow {
             display: inline-block;
             position: absolute;
@@ -107,6 +108,9 @@
 @media (b.$lg) {
     .travel-section {
         flex-direction: row;
-        margin-top: 200px;
+        margin-top: 203px;
+        &__image {
+            width: 92.5%;
+        }
     }
 }
