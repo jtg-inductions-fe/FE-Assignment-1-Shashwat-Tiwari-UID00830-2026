@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 1.7rem;
+    padding-top: 32px;
     &__glow {
         background-color: rgba(255, 87, 34, 1);
         width: 272px;
@@ -60,8 +60,8 @@
     }
     &__friends-icon {
         position: absolute;
-        top: 91%;
-        left: 289.6px;
+        top: 91.2%;
+        left: 228px;
         z-index: 1;
         height: 24%;
     }
@@ -84,7 +84,8 @@
         }
         p {
             text-align: center;
-            width: 24rem;
+            width: 23rem;
+            font-size: 16px;
             margin-top: 1.27rem;
             line-height: 1.65rem;
         }
