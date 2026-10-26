@@ -1,11 +1,13 @@
-@use '../abstracts/breakpoints' as b;
 @use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
 
 .travel-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    max-width: 1920px;
+    margin: auto;
     &__glow {
         display: none;
     }
@@ -48,7 +50,7 @@
     }
 }
 
-@media (b.$xs) {
+@include m.up('xs') {
     .travel-section {
         position: relative;
         overflow-x: hidden;
@@ -109,7 +111,7 @@
         }
     }
 }
-@media (b.$sm) {
+@include m.up('sm') {
     .travel-section {
         &__image {
             margin-top: 115px;
@@ -117,10 +119,10 @@
     }
 }
 
-@media (b.$lg) {
+@include m.up('lg') {
     .travel-section {
         flex-direction: row;
-        margin-top: 20px;
+        margin-top: 750px;
         &__image {
             width: 100%;
             margin-top: 0;
@@ -185,8 +187,12 @@
         }
     }
 }
-@media (b.$xl) {
+@include m.up('xl') {
     .travel-section {
+        position: absolute;
+        top: 1285px;
+        margin-top: 0;
+        place-self: center;
         &__star-icon {
             display: inline-block;
         }
