@@ -2,13 +2,13 @@
 
 $primary-color: #5d50c6;
 $secondary-color: #ffffff;
+$white: #eeeeee;
 $roboto-font-family: 'Roboto', sans-serif;
-$secondary-font-family: 'Inter', sans-serif;
+$Inter-font-family: 'Inter', sans-serif;
 $anchor-font-color: #19182580;
 $anchor-font-hover-color: #222831;
-$desktop-header-height: 120px;
-$tablet-header-height: 113px;
-$mobile-header-height: 113px;
+$lg-height: 120px;
+$sm-height: 113px;
 $max-width: 1920px;
 $breakpoints: (
     sm: 431px,

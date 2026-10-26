@@ -1,6 +1,7 @@
 ///All the styles related to buttons are written here.
 
 @use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
 
 .btn-primary {
     font-family: variables.$roboto-font-family;
@@ -34,7 +35,7 @@
     box-shadow: inset 0 0 0 1px #eeeeee;
 }
 
-@media (min-width: 1025px) {
+@include m.up('lg') {
     .btn-primary {
         width: 150px;
         height: 65px;

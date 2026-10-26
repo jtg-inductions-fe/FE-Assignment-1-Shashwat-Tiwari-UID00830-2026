@@ -7,7 +7,7 @@
     @include m.align-center-flex;
     width: 92.55%;
     max-width: variables.$max-width;
-    height: variables.$mobile-header-height;
+    height: variables.$sm-height;
     margin: auto;
     position: relative;
 
@@ -78,11 +78,10 @@
             padding: 15px 50px 15px 20px;
             background-color: variables.$primary-color;
             color: variables.$secondary-color;
-            font-size: 20px;
             max-height: 100vh;
         }
         a:hover {
-            background-color: #eeeeee;
+            background-color: variables.$white;
             color: variables.$primary-color;
         }
     }
@@ -91,7 +90,7 @@
     .header {
         @include m.align-center-flex;
         width: 87.5%;
-        min-height: variables.$tablet-header-height;
+        min-height: variables.$sm-height;
         height: auto;
         margin: auto;
         position: relative;
@@ -141,8 +140,8 @@
 @include m.up('lg') {
     .header {
         @include m.align-center-flex;
-        height: variables.$desktop-header-height;
-        margin-top: 5.3vh;
+        height: variables.$lg-height;
+        margin-top: 59px;
         padding-left: 3%;
         padding-right: 1.4px;
         position: relative;
