@@ -7,12 +7,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 32px;
+    padding-top: 28px;
     max-width: variables.$max-width;
     margin: auto;
     position: relative;
     &__glow {
-        background-color: #ff5722;
+        background-color: variables.$orange;
         width: 272px;
         height: 348px;
         position: absolute;
@@ -85,12 +85,21 @@
             margin-top: 1.1rem;
         }
         p {
+            display: block;
             text-align: center;
             width: 23rem;
             font-size: 16px;
             margin-top: 1.27rem;
             line-height: 1.65rem;
         }
+    }
+    &__paragraph-container {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        width: 23rem;
+        margin-inline: auto;
     }
     &__explore-icon {
         font-family: variables.$roboto-font-family;
@@ -216,11 +225,15 @@
                 margin-top: 2.8rem;
             }
             p {
-                width: 48%;
+                width: 100%;
                 font-size: 18px;
                 line-height: 1.8rem;
                 padding-top: 2%;
             }
+        }
+        &__paragraph-container {
+            width: 65%;
+            margin-top: 1rem;
         }
         &__explore-icon {
             width: 226px;
@@ -358,7 +371,7 @@
                 text-align: left;
                 width: 70%;
                 font-size: 14px;
-                margin-left: 16%;
+                margin-left: 19%;
                 margin-top: 3.5%;
             }
         }
@@ -455,6 +468,9 @@
                 font-size: 24px;
                 line-height: 2.5rem;
             }
+        }
+        &__paragraph-container {
+            width: 40rem;
         }
         &__arrows-icon {
             display: inline-block;

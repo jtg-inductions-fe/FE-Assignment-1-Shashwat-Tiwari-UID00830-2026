@@ -30,7 +30,7 @@
     color: variables.$h1-fonts-color;
 }
 .font-color {
-    color: rgba(248, 94, 159, 1);
+    color: variables.$pink;
 }
 
 @include m.up('lg') {
