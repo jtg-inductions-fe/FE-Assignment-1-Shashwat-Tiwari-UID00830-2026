@@ -2,21 +2,23 @@
 
 @use '../abstracts/variables';
 @use '../abstracts/mixins' as m;
-@use '../abstracts/breakpoints' as b;
 
 .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 32px;
+    max-width: variables.$max-width;
+    margin: auto;
+    position: relative;
     &__glow {
-        background-color: rgba(255, 87, 34, 1);
+        background-color: #ff5722;
         width: 272px;
         height: 348px;
         position: absolute;
-        top: -36px;
-        left: -33px;
-        opacity: 0.5;
+        top: -150px;
+        left: -50px;
+        opacity: 0.4;
         filter: blur(130px);
         z-index: -2;
     }
@@ -32,8 +34,8 @@
     &__rectangles {
         display: grid;
         position: relative;
-        top: -110.4px;
-        left: 48px;
+        top: -30%;
+        left: 12%;
         grid-template-columns: repeat(2, 1fr);
         gap: 15.8px;
         width: 296px;
@@ -54,21 +56,21 @@
     &__message-icon {
         position: absolute;
         top: 48.1%;
-        left: 14.4px;
+        left: 3.2%;
         z-index: 1;
         height: 24%;
     }
     &__friends-icon {
         position: absolute;
         top: 91.2%;
-        left: 228px;
+        right: 26.5%;
         z-index: 1;
         height: 24%;
     }
     &__location-icon {
         position: absolute;
-        top: 68.5%;
-        left: 289.6px;
+        top: 68.9%;
+        right: -1.5%;
         z-index: 1;
         height: 22.5%;
     }
@@ -149,17 +151,19 @@
     }
 }
 
-@media (b.$xs) {
+@include m.up('xs') {
     .hero-section {
         &__glow {
             width: 500px;
             height: 500px;
             top: -174px;
             left: -163px;
+            opacity: 0.5;
             filter: blur(250px);
         }
         &__images {
             width: 75.39%;
+            max-width: 1090px;
             height: 70vw;
         }
         &__airplane-image {
@@ -169,9 +173,9 @@
         &__rectangles {
             width: 74.48%;
             height: 89%;
-            top: -25%;
+            top: -26%;
             left: 12%;
-            gap: 5.7% 5%;
+            gap: 3% 5%;
         }
         &__rectangle-image1 {
             width: 272px;
@@ -186,25 +190,25 @@
             height: 63%;
         }
         &__message-icon {
-            height: 25%;
+            height: 27%;
             width: 17%;
-            top: 52.5%;
+            top: 51%;
             left: 3.1%;
         }
         &__friends-icon {
             height: 25%;
             width: 17%;
-            top: 95.5%;
+            top: 95%;
             left: 57%;
         }
         &__location-icon {
             height: 23%;
             width: 30%;
-            top: 73.5%;
+            top: 72.5%;
             left: 72.5%;
         }
         &__content {
-            margin-top: 6.1rem;
+            margin-top: 5.7rem;
             h1 {
                 width: 70%;
                 font-size: 58px;
@@ -266,7 +270,7 @@
     }
 }
 
-@media (b.$md) {
+@include m.up('sm') {
     .hero-section {
         &__arrows-icon {
             display: inline-block;
@@ -274,24 +278,24 @@
     }
 }
 
-@media (b.$lg) {
+@include m.up('lg') {
     .hero-section {
         display: grid;
-        height: 100vh;
+        height: 30vh;
         grid-template-rows: 10fr 1fr;
         grid-template-columns: 2fr 3fr;
         &__glow {
             width: 503.65px;
             height: 494.93px;
-            top: 100px;
-            left: 30px;
+            top: 0px;
+            left: 0px;
             filter: blur(250px);
         }
         &__images {
             grid-row: 1;
             grid-column: 2;
             width: 100%;
-            height: 70vw;
+            max-height: 1350px;
         }
         &__airplane-image {
             width: 90%;
@@ -339,6 +343,8 @@
             grid-row: 1;
             grid-column: 1;
             height: 100%;
+            max-height: 1080px;
+            margin-top: 0;
             justify-content: flex-start;
             h1 {
                 text-align: left;
@@ -359,7 +365,7 @@
         &__explore-icon {
             width: 226px;
             height: 56px;
-            margin-top: 6.2rem;
+            margin-top: 2.4rem;
             margin-right: 6.25rem;
             height: 5rem;
             width: 18rem;
@@ -417,7 +423,7 @@
         }
     }
 }
-@media (b.$xl) {
+@include m.up('xl') {
     .hero-section {
         &__airplane-image {
             position: relative;
@@ -452,7 +458,7 @@
         }
         &__arrows-icon {
             display: inline-block;
-            top: 67.3%;
+            top: 75.4%;
             left: 6.75%;
             height: 13.5rem;
         }

@@ -11,9 +11,11 @@ $lg-height: 120px;
 $sm-height: 113px;
 $max-width: 1920px;
 $breakpoints: (
-    sm: 431px,
-    md: 590px,
+    xs: 431px,
+    sm: 590px,
+    md: 966px,
     lg: 1025px,
+    xl: 1750px,
 );
 
 $box-shadow-values:
