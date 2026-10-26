@@ -43,22 +43,25 @@
         margin-top: 32px;
         gap: 16px;
     }
+    &__star-icon {
+        display: none;
+    }
 }
 
 @media (b.$xs) {
     .travel-section {
         position: relative;
         overflow-x: hidden;
-        overflow-y: hidden;
+        overflow-y: visible;
         &__glow {
             display: inline-block;
             position: absolute;
             height: 406px;
             width: 406px;
             opacity: 0.5;
-            top: -70px;
+            top: -30px;
             right: -300px;
-            background: rgba(250, 205, 73, 1);
+            background: #facd49;
             filter: blur(170px);
         }
         &__image {
@@ -96,6 +99,15 @@
             }
         }
     }
+    @supports (-moz-appearance: none) {
+        .travel-section {
+            &__glow {
+                opacity: 0.4;
+                filter: blur(500px);
+                width: 450px;
+            }
+        }
+    }
 }
 @media (b.$sm) {
     .travel-section {
@@ -108,9 +120,75 @@
 @media (b.$lg) {
     .travel-section {
         flex-direction: row;
-        margin-top: 203px;
+        margin-top: 20px;
         &__image {
-            width: 92.5%;
+            width: 100%;
+            margin-top: 0;
+            flex: 0.8;
+            img {
+                margin-top: 300px;
+            }
+        }
+        &__content {
+            flex: 0.5;
+            margin-top: 285px;
+        }
+        &__text {
+            margin-top: 0;
+            align-items: flex-start;
+            justify-content: flex-start;
+            h3 {
+                font-size: 30px;
+                letter-spacing: 6.5px;
+                margin-top: 0;
+                padding-right: 20px;
+            }
+            h2 {
+                text-align: left;
+                margin-top: 30px;
+                font-size: 55px;
+                width: 80%;
+                letter-spacing: 2px;
+            }
+            p {
+                text-align: left;
+                margin-top: 40px;
+                font-size: 20px;
+                width: 90%;
+                line-height: 2.5rem;
+                letter-spacing: 2px;
+            }
+        }
+        &__star-icon {
+            position: absolute;
+            top: -80px;
+            right: -235px;
+            width: 550px;
+            height: 450px;
+        }
+        &__cards {
+            margin: 0;
+            margin-top: 85px;
+            gap: 50px 15px;
+            place-items: start;
+            position: relative;
+            div {
+                height: 190px;
+                width: 270px;
+                h1 {
+                    font-size: 45px;
+                }
+                p {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+@media (b.$xl) {
+    .travel-section {
+        &__star-icon {
+            display: inline-block;
         }
     }
 }
