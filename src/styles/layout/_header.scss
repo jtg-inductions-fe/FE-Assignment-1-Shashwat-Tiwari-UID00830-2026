@@ -47,12 +47,13 @@
         display: flex;
         flex-direction: column;
         position: fixed;
-        bottom: 1%;
+        bottom: 0;
         right: 8px;
         z-index: 2;
-        height: 7rem;
+        height: 9rem;
         width: 13rem;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        background-color: variables.$primary-color;
         button {
             width: 100%;
             border: 1px solid white;
@@ -70,11 +71,15 @@
         width: 16rem;
         padding-top: 6rem;
         background-color: variables.$primary-color;
+        max-height: 100vh;
+        overflow-y: auto; // Enables vertical scrolling when links overflow
+        overflow-x: hidden;
         a {
             padding: 15px 50px 15px 20px;
             background-color: variables.$primary-color;
             color: variables.$secondary-color;
             font-size: 20px;
+            max-height: 100vh;
         }
         a:hover {
             background-color: #eeeeee;
