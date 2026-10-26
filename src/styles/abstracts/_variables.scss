@@ -9,6 +9,12 @@ $anchor-font-hover-color: #222831;
 $desktop-header-height: 120px;
 $tablet-header-height: 113px;
 $mobile-header-height: 113px;
+$max-width: 1920px;
+$breakpoints: (
+    sm: 431px,
+    md: 590px,
+    lg: 1025px,
+);
 
 $box-shadow-values:
     0px 0px 0px 0px #0000001a,
