@@ -1,0 +1,24 @@
+// All the styles related to typography are written here.
+
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+.anchor-fonts {
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+    color: variables.$anchor-font-color;
+    transition: color 0.2s ease;
+}
+
+.anchor-fonts:hover {
+    font-style: bold;
+    color: variables.$anchor-font-hover-color;
+}
+
+@include m.up('lg') {
+    .anchor-fonts {
+        font-size: 19px;
+    }
+}

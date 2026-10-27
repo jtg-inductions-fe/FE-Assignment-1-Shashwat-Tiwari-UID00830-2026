@@ -1,0 +1,171 @@
+/// all the styles related to the header component are written here.
+
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+.header {
+    @include m.align-center-flex;
+    width: 92.55%;
+    max-width: variables.$max-width;
+    height: variables.$sm-height;
+    margin: auto;
+    position: relative;
+
+    &__logo {
+        order: 1;
+        cursor: pointer;
+    }
+    &__menu-button {
+        width: 48px;
+        height: 48px;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        order: 3;
+        z-index: 3;
+        cursor: pointer;
+    }
+    &__menu-icon {
+        position: absolute;
+        width: 39.98px;
+        height: 40px;
+        top: 4px;
+        left: 4px;
+    }
+    &__menu-icon[alt='Close'] {
+        padding: 4px;
+    }
+    &__navlinks {
+        display: none;
+        order: 4;
+    }
+    &__button-container {
+        display: none;
+        order: 2;
+    }
+    &__button-container--active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        bottom: 0;
+        right: 8px;
+        z-index: 2;
+        height: 9rem;
+        width: 13rem;
+        justify-content: space-evenly;
+        background-color: variables.$primary-color;
+        button {
+            width: 100%;
+            border: 1px solid white;
+        }
+    }
+    &__navlinks--active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        justify-content: flex-start;
+        z-index: 2;
+        top: 0;
+        right: -6%;
+        height: 100vh;
+        width: 16rem;
+        padding-top: 6rem;
+        background-color: variables.$primary-color;
+        max-height: 100vh;
+        overflow-y: auto; // Enables vertical scrolling when links overflow
+        overflow-x: hidden;
+        a {
+            padding: 15px 50px 15px 20px;
+            background-color: variables.$primary-color;
+            color: variables.$secondary-color;
+            max-height: 100vh;
+        }
+        a:hover {
+            background-color: variables.$white;
+            color: variables.$primary-color;
+        }
+    }
+}
+@include m.up('sm') {
+    .header {
+        @include m.align-center-flex;
+        width: 87.5%;
+        min-height: variables.$sm-height;
+        height: auto;
+        margin: auto;
+        position: relative;
+
+        &__logo {
+            width: 40px;
+            height: 40px;
+            order: 2;
+        }
+        &__button-container {
+            display: inline-block;
+            order: 3;
+        }
+        &__menu-button {
+            position: relative;
+            top: auto;
+            left: auto;
+            order: 1;
+        }
+        &__navlinks {
+            order: 4;
+        }
+        &__navlinks--active {
+            right: auto;
+            left: -1%;
+            height: 100vh;
+            top: 0;
+            width: 16rem;
+            a {
+                padding: 10px 30px 10px 30px;
+                font-size: 22px;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+@include m.up('md') {
+    .header {
+        &__logo {
+            position: absolute;
+            top: auto;
+            right: 47.9%;
+        }
+    }
+}
+@include m.up('lg') {
+    .header {
+        @include m.align-center-flex;
+        height: variables.$lg-height;
+        margin-top: 59px;
+        padding-left: 3%;
+        padding-right: 1.4px;
+        position: relative;
+        &__menu-button {
+            display: none;
+            order: 4;
+        }
+        &__navlinks {
+            display: inline-block;
+            order: 2;
+            display: flex;
+            width: 46.5%;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        &__logo {
+            position: static;
+            right: auto;
+            order: 1;
+            height: 52px;
+            width: 52px;
+        }
+        &__button-container {
+            order: 3;
+        }
+    }
+}

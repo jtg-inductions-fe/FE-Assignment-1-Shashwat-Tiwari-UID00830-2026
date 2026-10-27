@@ -1,0 +1,49 @@
+///All the styles related to buttons are written here.
+
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+.btn-primary {
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 100px;
+    padding: 1rem 2rem;
+    background-color: variables.$primary-color;
+    height: 49px;
+    width: 115px;
+    border: none;
+    color: variables.$secondary-color;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    box-shadow: variables.$box-shadow-values;
+}
+.btn-secondary {
+    font-family: variables.$roboto-font-family;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 100px;
+    border: none;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    height: 49px;
+    width: 105px;
+    cursor: pointer;
+}
+.btn-secondary:hover {
+    box-shadow: inset 0 0 0 1px #eeeeee;
+}
+
+@include m.up('lg') {
+    .btn-primary {
+        width: 150px;
+        height: 65px;
+        font-size: 19px;
+    }
+    .btn-secondary {
+        width: 140px;
+        height: 65px;
+        font-size: 18px;
+    }
+}
