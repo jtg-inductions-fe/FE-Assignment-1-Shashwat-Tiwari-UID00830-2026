@@ -2,6 +2,8 @@
  * This script handles the functionality part of the entire page.
  */
 import * as c from './constants.js';
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/css/core';
 
 export const menuBtn = document.querySelector('.header__menu-button');
 export const navLinks = document.getElementById('nav-links');
@@ -125,8 +127,22 @@ function outOfFocus(event) {
     }
 }
 
+function initializeCarousel() {
+    const el = document.querySelector('.splide');
+    if (el) {
+        new Splide(el, {
+            type: 'loop',
+            perPage: 1,
+            perMove: 1,
+            arrows: true,
+            pagination: true,
+        }).mount();
+    }
+}
+
 window.addEventListener('keydown', menuAccessibility);
 menuBtn.addEventListener('click', handleMenuToggle);
 navLinks.addEventListener('click', handleNavLinkClick);
 window.addEventListener('resize', handleWindowResize);
 document.addEventListener('click', outOfFocus);
+document.addEventListener('DOMContentLoaded', initializeCarousel);

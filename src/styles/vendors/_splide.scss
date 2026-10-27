@@ -1,0 +1,50 @@
+@use '../abstracts/variables';
+
+.splide__arrow--prev svg {
+    transform: rotate(180deg);
+}
+.splide__arrow {
+    position: absolute;
+    top: 14.4%;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        height: 16px;
+        width: 16px;
+        max-width: none;
+    }
+}
+.splide__arrow--prev {
+    left: 3.2%;
+}
+.splide__arrow--next {
+    right: 3.2%;
+}
+.splide__pagination {
+    position: absolute;
+    bottom: -7.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 40px;
+    width: auto;
+}
+.splide__pagination__page {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: variables.$light-grey;
+    border: none;
+}
+.splide__pagination__page.is-active {
+    background-color: variables.$pink;
+}

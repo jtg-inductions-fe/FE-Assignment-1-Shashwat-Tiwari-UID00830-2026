@@ -1,0 +1,27 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables';
+
+.testimonials {
+    max-width: variables.$max-width;
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 133px;
+        height: 73px;
+        h3 {
+            letter-spacing: 3px;
+        }
+        h2 {
+            width: 230px;
+        }
+    }
+    &__container {
+        position: relative;
+        max-width: 430px;
+        height: auto;
+        margin: auto;
+        margin-top: 16px;
+    }
+}
