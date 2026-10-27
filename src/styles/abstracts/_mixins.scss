@@ -1,4 +1,4 @@
-/// all the mixins used in the project are defined here.
+/// All the mixins used in the project are defined here.
 @use '../abstracts/variables' as v;
 
 /// A mixin to use a specific breakpoint.
@@ -13,16 +13,24 @@
     }
 }
 
-/// centers an element vertically and adds space between the elements horizontally using flexbox.
+/// Centers an element vertically and adds space between the elements horizontally using flexbox.
 @mixin align-center-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/// centers an element vertically and horizontally using flexbox.
+/// Centers an element vertically and horizontally using flexbox.
 @mixin align-flex {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/// A mixin to apply a text clamp effect, limiting the number of lines displayed and adding an ellipsis for overflowed text.
+@mixin text-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

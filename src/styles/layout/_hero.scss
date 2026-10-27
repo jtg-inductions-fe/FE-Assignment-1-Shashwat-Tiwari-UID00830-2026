@@ -1,4 +1,4 @@
-/// this file contains the styles for the hero section of the landing page
+/// This file contains the styles for the hero section of the landing page
 
 @use '../abstracts/variables';
 @use '../abstracts/mixins' as m;
@@ -20,7 +20,7 @@
         left: -50px;
         opacity: 0.4;
         filter: blur(130px);
-        z-index: -2;
+        z-index: -1;
     }
     &__images {
         width: 398px;
@@ -94,10 +94,7 @@
         }
     }
     &__paragraph-container {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        @include m.text-clamp;
         width: 23rem;
         margin-inline: auto;
     }
