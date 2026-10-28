@@ -86,7 +86,7 @@
         }
     }
 }
-@include m.up('sm') {
+@include m.up('xs') {
     .header {
         @include m.align-center-flex;
         width: 87.5%;
@@ -128,7 +128,7 @@
         }
     }
 }
-@include m.up('md') {
+@include m.up('sm') {
     .header {
         &__logo {
             position: absolute;

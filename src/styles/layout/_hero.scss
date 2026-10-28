@@ -1,0 +1,483 @@
+/// This file contains the styles for the hero section of the landing page
+
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 28px;
+    max-width: variables.$max-width;
+    margin: auto;
+    position: relative;
+    &__glow {
+        background-color: variables.$orange;
+        width: 272px;
+        height: 348px;
+        position: absolute;
+        top: -150px;
+        left: -50px;
+        opacity: 0.4;
+        filter: blur(130px);
+        z-index: -1;
+    }
+    &__images {
+        width: 398px;
+        height: 366px;
+        position: relative;
+    }
+    &__airplane-image {
+        position: relative;
+        z-index: -2;
+    }
+    &__rectangles {
+        display: grid;
+        position: relative;
+        top: -30%;
+        left: 12%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15.8px;
+        width: 296px;
+    }
+    &__rectangle-image1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    &__rectangle-image2 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    &__rectangle-image3 {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        place-self: center;
+    }
+    &__message-icon {
+        position: absolute;
+        top: 48.1%;
+        left: 3.2%;
+        z-index: 1;
+        height: 24%;
+    }
+    &__friends-icon {
+        position: absolute;
+        top: 91.2%;
+        right: 26.5%;
+        z-index: 1;
+        height: 24%;
+    }
+    &__location-icon {
+        position: absolute;
+        top: 68.9%;
+        right: -1.5%;
+        z-index: 1;
+        height: 22.5%;
+    }
+    &__content {
+        @include m.align-flex;
+        position: relative;
+        flex-direction: column;
+        margin-top: 2rem;
+        h1 {
+            width: 23rem;
+            text-align: center;
+            margin-top: 1.1rem;
+        }
+        p {
+            display: block;
+            text-align: center;
+            width: 23rem;
+            font-size: 16px;
+            margin-top: 1.27rem;
+            line-height: 1.65rem;
+        }
+    }
+    &__paragraph-container {
+        @include m.text-clamp;
+        width: 23rem;
+        margin-inline: auto;
+    }
+    &__explore-icon {
+        font-family: variables.$roboto-font-family;
+        height: 56px;
+        width: 215px;
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 2.1%;
+        padding-right: 2.1%;
+        align-items: center;
+        border-radius: 100px;
+        font-style: normal;
+        font-size: 15px;
+        box-shadow: variables.$explore-button-shadow;
+    }
+    &__get-started-btn {
+        width: 25rem;
+        margin-top: 1.95rem;
+        height: 4rem;
+        font-size: 14px;
+    }
+    &__play-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+    }
+    &__watch-demo-btn {
+        @include m.align-flex;
+        width: 25rem;
+        margin-top: 1.6rem;
+        height: 4.5rem;
+        font-size: 15px;
+    }
+    &__companies-container {
+        @include m.align-flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 6.5rem;
+        margin-top: 3rem;
+        img {
+            padding: 0.6rem;
+            height: 40px;
+        }
+    }
+    &__arrows-icon {
+        display: none;
+    }
+    &__btn-container {
+        margin-top: 0.2rem;
+    }
+}
+@supports (-moz-appearance: none) {
+    .hero-section {
+        &__glow {
+            opacity: 0.3;
+            filter: blur(1000px);
+        }
+    }
+}
+
+@include m.up('xs') {
+    .hero-section {
+        &__glow {
+            width: 500px;
+            height: 500px;
+            top: -174px;
+            left: -163px;
+            opacity: 0.5;
+            filter: blur(250px);
+        }
+        &__images {
+            width: 75.39%;
+            max-width: 1090px;
+            height: 70vw;
+        }
+        &__airplane-image {
+            width: 772px;
+            top: 34.4px;
+        }
+        &__rectangles {
+            width: 74.48%;
+            height: 89%;
+            top: -26%;
+            left: 12%;
+            gap: 3% 5%;
+        }
+        &__rectangle-image1 {
+            width: 272px;
+            height: 100%;
+        }
+        &__rectangle-image2 {
+            width: 272px;
+            height: 100%;
+        }
+        &__rectangle-image3 {
+            width: 272px;
+            height: 63%;
+        }
+        &__message-icon {
+            height: 27%;
+            width: 17%;
+            top: 51%;
+            left: 3.1%;
+        }
+        &__friends-icon {
+            height: 25%;
+            width: 17%;
+            top: 95%;
+            left: 57%;
+        }
+        &__location-icon {
+            height: 23%;
+            width: 30%;
+            top: 72.5%;
+            left: 72.5%;
+        }
+        &__content {
+            margin-top: 5.7rem;
+            h1 {
+                width: 70%;
+                font-size: 58px;
+                padding-right: 1.5%;
+                margin-top: 2.8rem;
+            }
+            p {
+                width: 100%;
+                font-size: 18px;
+                line-height: 1.8rem;
+                padding-top: 2%;
+            }
+        }
+        &__paragraph-container {
+            width: 65%;
+            margin-top: 1rem;
+        }
+        &__explore-icon {
+            width: 226px;
+            padding-left: 2%;
+        }
+        &__btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.8rem;
+        }
+        &__get-started-btn {
+            width: 9rem;
+            height: 3rem;
+            margin-left: 0.4rem;
+            margin-right: 0.8rem;
+            font-size: 14px;
+        }
+        &__watch-demo-btn {
+            width: 12rem;
+            height: 3.5rem;
+            margin-top: 2rem;
+        }
+        &__arrows-icon {
+            position: absolute;
+            top: 72.8%;
+            left: -30px;
+        }
+        &__companies-container {
+            width: 60%;
+            height: 7.5rem;
+            margin-top: 7.3rem;
+
+            img {
+                height: 52.5px;
+            }
+        }
+    }
+    @supports (-moz-appearance: none) {
+        .hero-section {
+            &__glow {
+                top: 0px;
+                left: 0px;
+                opacity: 0.2;
+                filter: blur(2000px);
+            }
+        }
+    }
+}
+
+@include m.up('sm') {
+    .hero-section {
+        &__arrows-icon {
+            display: inline-block;
+        }
+    }
+}
+
+@include m.up('lg') {
+    .hero-section {
+        display: grid;
+        height: 30vh;
+        grid-template-rows: 10fr 1fr;
+        grid-template-columns: 2fr 3fr;
+        &__glow {
+            width: 503.65px;
+            height: 494.93px;
+            top: 0px;
+            left: 0px;
+            filter: blur(250px);
+        }
+        &__images {
+            grid-row: 1;
+            grid-column: 2;
+            width: 100%;
+            max-height: 1350px;
+        }
+        &__airplane-image {
+            width: 90%;
+            margin-top: 2.1rem;
+            margin-right: 4.5rem;
+        }
+        &__rectangles {
+            width: 70%;
+            top: -18.5%;
+            left: 9%;
+            gap: 15px;
+            height: 70%;
+        }
+        &__rectangle-image1 {
+            width: 94%;
+            height: 87%;
+        }
+        &__rectangle-image2 {
+            width: 94%;
+            height: 87%;
+        }
+        &__rectangle-image3 {
+            width: 95%;
+            height: 55%;
+        }
+        &__message-icon {
+            height: 17.5%;
+            width: 15%;
+            top: 39%;
+            left: 1.4%;
+        }
+        &__friends-icon {
+            height: 17.5%;
+            width: 15%;
+            top: 70%;
+            left: 50.5%;
+        }
+        &__location-icon {
+            height: 17.5%;
+            width: 27%;
+            top: 53.2%;
+            left: 64.3%;
+        }
+        &__content {
+            grid-row: 1;
+            grid-column: 1;
+            height: 100%;
+            max-height: 1080px;
+            margin-top: 0;
+            justify-content: flex-start;
+            h1 {
+                text-align: left;
+                width: 80%;
+                font-size: 60px;
+                margin-left: 25%;
+                margin-top: 7.7%;
+                overflow-wrap: normal;
+            }
+            p {
+                text-align: left;
+                width: 70%;
+                font-size: 14px;
+                margin-left: 19%;
+                margin-top: 3.5%;
+            }
+        }
+        &__explore-icon {
+            width: 226px;
+            height: 56px;
+            margin-top: 2.4rem;
+            margin-right: 6.25rem;
+            height: 5rem;
+            width: 18rem;
+            font-size: 19px;
+            font-weight: bold;
+            img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+        &__btn-container {
+            margin-top: 3%;
+            margin-left: 4.7%;
+        }
+        &__get-started-btn {
+            width: 11rem;
+            height: 3.8rem;
+            font-size: 19px;
+            margin-right: 1.5rem;
+        }
+        &__watch-demo-btn {
+            width: 14.65rem;
+            height: 4.57rem;
+            font-size: 20px;
+            margin-bottom: 6%;
+        }
+        &__arrows-icon {
+            display: none;
+            top: 67.3%;
+            left: 6.75%;
+            height: 13.5rem;
+        }
+        &__companies-container {
+            grid-row: 2;
+            grid-column: 1/3;
+            margin-top: 0;
+            justify-content: space-evenly;
+            width: 100%;
+            padding-left: 2.6%;
+            img {
+                height: 60px;
+            }
+        }
+    }
+    @supports (-moz-appearance: none) {
+        .hero-section {
+            &__glow {
+                top: 50px;
+                left: 0px;
+                width: 650px;
+                height: 650px;
+                opacity: 0.2;
+                filter: blur(2000px);
+            }
+        }
+    }
+}
+@include m.up('xl') {
+    .hero-section {
+        &__airplane-image {
+            position: relative;
+            left: -1.2%;
+        }
+        &__rectangle-image1 {
+            position: absolute;
+            height: 411px;
+            width: 355px;
+            top: -1.1%;
+        }
+        &__rectangle-image2 {
+            position: absolute;
+            height: 411px;
+            width: 355px;
+            top: 46%;
+        }
+        &__rectangle-image3 {
+            position: absolute;
+            top: 16.5%;
+            left: -0.5%;
+            height: 520px;
+        }
+        &__content {
+            h1 {
+                font-size: 95px;
+            }
+            p {
+                font-size: 24px;
+                line-height: 2.5rem;
+            }
+        }
+        &__paragraph-container {
+            width: 40rem;
+        }
+        &__arrows-icon {
+            display: inline-block;
+            top: 75.4%;
+            left: 6.75%;
+            height: 13.5rem;
+        }
+        &__companies-container {
+            position: relative;
+            top: -185.6px;
+        }
+    }
+}
