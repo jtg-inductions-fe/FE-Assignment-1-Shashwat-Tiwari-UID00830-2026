@@ -3,8 +3,8 @@
 @use '../abstracts/mixins' as m;
 
 .splide {
-    &__arrow--prev svg {
-        transform: rotate(180deg);
+    &__arrow--prev img {
+        filter: brightness(0);
     }
     &__arrow {
         position: absolute;
@@ -12,6 +12,7 @@
         z-index: 1;
         cursor: pointer;
         border-radius: 50%;
+        box-shadow: inset 0 0 0 1px variables.$white;
         height: 64px;
         width: 64px;
         display: flex;
@@ -25,9 +26,26 @@
     }
     &__arrow--prev {
         left: 3.2%;
+        &:hover {
+            background-color: variables.$primary-color;
+            box-shadow: variables.$box-shadow-values;
+            img {
+                filter: invert(1) brightness(2);
+            }
+        }
     }
     &__arrow--next {
         right: 3.2%;
+        img {
+            filter: brightness(0);
+        }
+        &:hover {
+            background-color: variables.$primary-color;
+            box-shadow: variables.$box-shadow-values;
+            img {
+                filter: none;
+            }
+        }
     }
     &__pagination {
         position: absolute;
