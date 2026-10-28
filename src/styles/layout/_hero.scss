@@ -94,7 +94,7 @@
         }
     }
     &__paragraph-container {
-        @include m.text-clamp;
+        @include m.text-clamp(4);
         width: 23rem;
         margin-inline: auto;
     }

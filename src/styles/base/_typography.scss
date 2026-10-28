@@ -3,7 +3,7 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins' as m;
 
-.anchor-fonts {
+.anchor {
     font-family: variables.$roboto-font-family;
     font-weight: 700;
     font-size: 20px;
@@ -12,38 +12,38 @@
     transition: color 0.2s ease;
 }
 
-.anchor-fonts:hover {
+.anchor:hover {
     font-style: bold;
     color: variables.$anchor-font-hover-color;
 }
-.paragraph-fonts {
+.paragraph {
     font-family: variables.$inter-font-family;
     font-weight: 400;
     font-size: 16px;
     font-style: normal;
     color: variables.$paragraph-fonts-color;
 }
-.h1-fonts {
+.h1 {
     font-family: variables.$roboto-font-family;
     font-weight: 700;
     font-size: 41px;
     color: variables.$h1-fonts-color;
 }
-.h2-fonts {
+.h2 {
     font-family: variables.$roboto-font-family;
     font-weight: 700;
     font-size: 31px;
 }
-.h3-fonts {
+.h3 {
     font-family: variables.$roboto-font-family;
     font-size: 16px;
 }
-.font-color {
+.pink-font-color {
     color: variables.$pink;
 }
 
 @include m.up('lg') {
-    .anchor-fonts {
+    .anchor {
         font-size: 19px;
     }
 }

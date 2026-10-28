@@ -39,7 +39,7 @@
         }
     }
     &__paragraph-container {
-        @include m.text-clamp;
+        @include m.text-clamp(4);
         margin-inline: auto;
     }
     &__cards {
