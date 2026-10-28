@@ -10,7 +10,7 @@
         display: none;
     }
     &__heading {
-        @include m.align-flex;
+        @include m.align-center-flex;
         flex-direction: column;
         margin-top: 133px;
         height: 73px;
