@@ -61,3 +61,49 @@
         color: variables.$orange;
     }
 }
+@include m.up('xs') {
+    .testimonials__card {
+        height: auto;
+        .stars {
+            margin-top: 30px;
+        }
+        h2 {
+            margin-top: 57px;
+            font-size: 26px;
+        }
+        p {
+            width: 60%;
+            font-size: 23px;
+            margin-top: 63px;
+            line-height: 1.65;
+        }
+    }
+}
+
+@include m.up('lg') {
+    .testimonials__card {
+        .profile {
+            width: 168px;
+            height: 168px;
+            margin-top: 58px;
+        }
+        h2 {
+            margin-top: 78px;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+        .stars {
+            margin-top: 45px;
+            width: 285px;
+            img {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        p {
+            margin-top: 80px;
+            max-width: 1020px;
+            font-size: 29px;
+        }
+    }
+}

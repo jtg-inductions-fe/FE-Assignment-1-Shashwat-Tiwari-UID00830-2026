@@ -130,13 +130,27 @@ function outOfFocus(event) {
 function initializeCarousel() {
     const el = document.querySelector('.splide');
     if (el) {
-        new Splide(el, {
+        const carousel = new Splide(el, {
             type: 'loop',
             perPage: 1,
             perMove: 1,
             arrows: true,
             pagination: true,
-        }).mount();
+        });
+        carousel.on('pagination:mounted', (data) => {
+            data.items.forEach((item) => {
+                item.button.setAttribute('tabindex', '0');
+            });
+        });
+
+        carousel.on('move', () => {
+            setTimeout(() => {
+                const dots = el.querySelectorAll('.splide__pagination__page');
+                dots.forEach((dot) => dot.setAttribute('tabindex', '0'));
+            }, 0);
+        });
+
+        carousel.mount();
     }
 }
 

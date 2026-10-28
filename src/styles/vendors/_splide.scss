@@ -1,51 +1,106 @@
 /// This file contains all the styling related to the Splide slider library.
 @use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
 
-.splide__arrow--prev svg {
-    transform: rotate(180deg);
-}
-.splide__arrow {
-    position: absolute;
-    top: 14.4%;
-    z-index: 1;
-    cursor: pointer;
-    border-radius: 50%;
-    height: 64px;
-    width: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-        height: 16px;
-        width: 16px;
-        max-width: none;
+.splide {
+    &__arrow--prev svg {
+        transform: rotate(180deg);
+    }
+    &__arrow {
+        position: absolute;
+        top: 14.4%;
+        z-index: 1;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 64px;
+        width: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 16px;
+            width: 16px;
+            max-width: none;
+        }
+    }
+    &__arrow--prev {
+        left: 3.2%;
+    }
+    &__arrow--next {
+        right: 3.2%;
+    }
+    &__pagination {
+        position: absolute;
+        bottom: -7.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        height: 40px;
+        width: auto;
+    }
+    &__pagination__page {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: variables.$light-grey;
+        border: none;
+    }
+    &__pagination__page.is-active {
+        background-color: variables.$pink;
     }
 }
-.splide__arrow--prev {
-    left: 3.2%;
+
+@include m.up('xs') {
+    .splide__pagination {
+        bottom: -17.5%;
+    }
 }
-.splide__arrow--next {
-    right: 3.2%;
+@include m.up('sm') {
+    .splide {
+        &__arrow {
+            top: 36.5%;
+            height: 100px;
+            width: 100px;
+            img {
+                height: 24px;
+                width: 24px;
+            }
+        }
+        &__arrow--prev {
+            left: 6.4%;
+        }
+        &__arrow--next {
+            right: 6.4%;
+        }
+    }
 }
-.splide__pagination {
-    position: absolute;
-    bottom: -7.5%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    height: 40px;
-    width: auto;
-}
-.splide__pagination__page {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: variables.$light-grey;
-    border: none;
-}
-.splide__pagination__page.is-active {
-    background-color: variables.$pink;
+@include m.up('lg') {
+    .splide {
+        &__arrow {
+            top: 36%;
+            height: 125px;
+            width: 125px;
+            img {
+                height: 24px;
+                width: 24px;
+            }
+        }
+        &__arrow--prev {
+            left: 7.9%;
+        }
+        &__arrow--next {
+            right: 7.9%;
+        }
+        &__pagination {
+            bottom: -17.7%;
+            gap: 30px;
+        }
+        &__pagination__page {
+            width: 32px;
+            height: 32px;
+        }
+    }
 }
