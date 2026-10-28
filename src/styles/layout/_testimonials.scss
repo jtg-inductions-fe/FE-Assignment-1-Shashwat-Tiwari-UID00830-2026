@@ -28,7 +28,7 @@
         margin-top: 16px;
     }
     &__paragraph {
-        @include m.text-clamp;
+        @include m.text-clamp(4);
     }
 }
 
