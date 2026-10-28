@@ -126,7 +126,18 @@ function outOfFocus(event) {
         closeMobileMenu();
     }
 }
+/**
+ * Makes all the dots in the carousel focusable.
+ * @param {containerElement}
+ */
+function keepAllDotsFocusable(containerElement) {
+    const dots = containerElement.querySelectorAll('.splide__pagination__page');
+    dots.forEach((dot) => dot.setAttribute('tabindex', '0'));
+}
 
+/**
+ * Initializes the Splide carousel with specified settings and ensures that all pagination dots are focusable for accessibility.
+ */
 function initializeCarousel() {
     const el = document.querySelector('.splide');
     if (el) {
@@ -144,10 +155,7 @@ function initializeCarousel() {
         });
 
         carousel.on('move', () => {
-            setTimeout(() => {
-                const dots = el.querySelectorAll('.splide__pagination__page');
-                dots.forEach((dot) => dot.setAttribute('tabindex', '0'));
-            }, 0);
+            setTimeout(() => keepAllDotsFocusable(el), 0);
         });
 
         carousel.mount();

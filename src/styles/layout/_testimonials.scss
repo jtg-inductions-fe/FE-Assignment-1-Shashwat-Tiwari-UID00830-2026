@@ -10,10 +10,8 @@
         display: none;
     }
     &__heading {
-        display: flex;
-        justify-content: space-between;
+        @include m.align-flex;
         flex-direction: column;
-        align-items: center;
         margin-top: 133px;
         height: 73px;
         h3 {
