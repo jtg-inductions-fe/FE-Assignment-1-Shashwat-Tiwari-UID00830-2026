@@ -38,10 +38,7 @@
         }
     }
     &__paragraph-container {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        @include m.text-clamp;
         margin-inline: auto;
     }
     &__cards {
