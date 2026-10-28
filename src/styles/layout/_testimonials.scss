@@ -15,12 +15,13 @@
         flex-direction: column;
         margin-top: 133px;
         height: 73px;
-        h3 {
-            letter-spacing: 3px;
-        }
         h2 {
             width: 230px;
         }
+    }
+    &__subtitle {
+        font-family: variables.$roboto-font-family;
+        letter-spacing: 3px;
     }
     &__container {
         position: relative;
@@ -50,15 +51,15 @@
         &__heading {
             margin-top: 30px;
             height: 88px;
-            h3 {
-                font-size: 22px;
-                letter-spacing: 5.8px;
-            }
             h2 {
                 font-size: 39px;
                 width: auto;
                 letter-spacing: 1px;
             }
+        }
+        &__subtitle {
+            font-size: 22px;
+            letter-spacing: 5.8px;
         }
     }
 }
@@ -87,14 +88,14 @@
             margin-top: 140px;
             margin-left: 62px;
             height: 125px;
-            h3 {
-                font-size: 32px;
-                letter-spacing: 5.8px;
-            }
             h2 {
                 font-size: 55px;
                 letter-spacing: 1.9px;
             }
+        }
+        &__subtitle {
+            font-size: 32px;
+            letter-spacing: 5.8px;
         }
         &__container {
             width: 100%;
