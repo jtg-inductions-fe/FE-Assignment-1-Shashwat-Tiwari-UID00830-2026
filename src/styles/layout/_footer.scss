@@ -7,7 +7,9 @@
     max-width: variables.$max-width;
     margin: auto;
     margin-top: 160px;
-
+    &__logo {
+        cursor: pointer;
+    }
     &__bg {
         display: none;
     }
