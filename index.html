@@ -36,10 +36,7 @@
         <main>
             <section class="hero-section" id="Home">
                 <div class="hero-section__glow"></div>
-                <div
-                    class="hero-section__images"
-                    aria-describedby="This image describes the theme of the website. It has travel related images"
-                >
+                <div class="hero-section__images">
                     <img
                         src="src/assets/airplanes.svg"
                         alt="airplanes"
@@ -49,19 +46,19 @@
                     <div class="hero-section__rectangles">
                         <img
                             src="src/assets/rectangle-1.svg"
-                            alt="Rectangle"
+                            alt="ocean-image"
                             class="hero-section__rectangle-image1"
                             aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-2.svg"
-                            alt="Rectangle"
+                            alt="mountain-image"
                             class="hero-section__rectangle-image2"
                             aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-3.svg"
-                            alt="Rectangle"
+                            alt="city-image"
                             class="hero-section__rectangle-image3"
                             aria-hidden="true"
                         />
@@ -95,13 +92,13 @@
                             aria-hidden="true"
                         />
                     </div>
-                    <h1 class="h1">
+                    <h1 class="h1" id="hero-title">
                         Travel
                         <span class="pink-font-color">top destination</span> of
                         the world
                     </h1>
                     <div class="hero-section__paragraph-container">
-                        <p class="paragraph">
+                        <p class="paragraph" id="hero-desc">
                             We always make our customer happy by providing
                             <br />
                             as many choices as possible
@@ -110,7 +107,7 @@
                     <div class="hero-section__btn-container">
                         <button
                             class="hero-section__get-started-btn btn-primary"
-                            aria-describedby="This button will take you to the sign up page"
+                            aria-describedby="hero-desc"
                         >
                             Get Started
                         </button>
@@ -147,7 +144,7 @@
                     <img
                         src="src/assets/travel.svg"
                         alt="Travel"
-                        aria-describedby="This image describes the discounted price of the website"
+                        aria-describedby="travel-paragraph-text"
                     />
                 </div>
                 <div class="travel-section__content">
@@ -159,7 +156,10 @@
                             We helping you find your dream location
                         </h2>
                         <div class="travel-section__paragraph-container">
-                            <p class="paragraph travel-section__paragraph">
+                            <p
+                                class="paragraph travel-section__paragraph"
+                                id="travel-paragraph-text"
+                            >
                                 Contrary to popular belief, Lorem Ipsum is not
                                 simply random text. It has roots in a piece of
                                 classical Latin literature from 45 BC.
@@ -172,15 +172,19 @@
                             <p class="paragraph">Holiday Package</p>
                         </div>
                         <div class="card" aria-describedby="stat-hotels">
-                            <span>100</span>
+                            <span id="stat-packages">100</span>
                             <p class="paragraph">Luxury Hotel</p>
                         </div>
                         <div class="card" aria-describedby="stat-airlines">
-                            <span>7</span>
+                            <span id="stat-hotels">100</span>
+                            <p class="paragraph">Luxury Hotel</p>
+                        </div>
+                        <div class="card" aria-describedby="stat-airlines">
+                            <span id="stat-airlines">7</span>
                             <p class="paragraph">Premium Airlines</p>
                         </div>
                         <div class="card" aria-describedby="stat-customers">
-                            <span>2k+</span>
+                            <span id="stat-customers">2k+</span>
                             <p class="paragraph">Happy Customer</p>
                         </div>
                         <img
