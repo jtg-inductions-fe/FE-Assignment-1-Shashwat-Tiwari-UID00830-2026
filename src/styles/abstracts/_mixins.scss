@@ -28,9 +28,9 @@
 }
 
 /// A mixin to apply a text clamp effect, limiting the number of lines displayed and adding an ellipsis for overflowed text.
-@mixin text-clamp {
+@mixin text-clamp($lines) {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: $lines;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

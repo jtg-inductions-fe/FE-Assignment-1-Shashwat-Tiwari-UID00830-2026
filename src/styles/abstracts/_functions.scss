@@ -1,0 +1,28 @@
+/// This file defines all the functions used in the project.
+
+@use '../abstracts/variables';
+@use 'sass:math';
+
+/// Strips the unit from a numeric value and returns it as a unitless number.
+/// If the value is already unitless or is not a number, it returns the value unmodified.
+///
+/// @param {Number} $value - The number with a unit (e.g., 16px, 2rem) to be stripped.
+/// @return {Number} A pure, unitless number.
+@function strip-unit($value) {
+    @if type-of($value) == 'number' and not unitless($value) {
+        @return math.div($value, ($value * 0 + 1));
+    }
+    @return $value;
+}
+
+/// Converts a pixel value into its equivalent rem value based on the global base font size.
+/// Accepts values both with or without the `px` unit.
+///
+/// @requires {function} strip-unit
+/// @requires {variable} variables.$base-font-size
+/// @param {Number} $value - The pixel value to convert.
+/// @return {Number} The calculated value appended with the rem unit.
+@function px-to-rem($value) {
+    @return math.div(strip-unit($value), strip-unit(variables.$base-font-size)) *
+        1rem;
+}

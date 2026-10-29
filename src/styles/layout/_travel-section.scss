@@ -1,0 +1,215 @@
+/// This file contains all the styling related to the travel section of the website.
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+.travel-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: variables.$max-width;
+    margin: auto;
+    &__glow {
+        display: none;
+    }
+    &__image {
+        margin-top: 112px;
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        h2 {
+            margin-top: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+    }
+    &__paragraph {
+        margin-top: 33px;
+        text-align: center;
+        font-size: 17px;
+        line-height: 25px;
+        width: 90%;
+        margin-inline: auto;
+    }
+    &__subtitle {
+        font-family: variables.$roboto-font-family;
+        font-weight: 700;
+        margin-top: 32px;
+        letter-spacing: 3.5px;
+    }
+    &__paragraph-container {
+        @include m.text-clamp(4);
+        margin-inline: auto;
+    }
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 32px;
+        gap: 16px;
+    }
+    &__star-icon {
+        display: none;
+    }
+}
+
+@include m.up('xs') {
+    .travel-section {
+        position: relative;
+        &__glow {
+            display: inline-block;
+            position: absolute;
+            height: 406px;
+            width: 406px;
+            opacity: 0.5;
+            top: -30px;
+            right: -300px;
+            background: variables.$yellow;
+            filter: blur(170px);
+            z-index: 1;
+        }
+        &__image {
+            margin-top: 200px;
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+        &__text {
+            margin-top: 32px;
+            h2 {
+                font-size: 40px;
+                letter-spacing: 0.8px;
+            }
+        }
+        &__paragraph {
+            font-size: 19px;
+            line-height: 1.7rem;
+            width: 86%;
+        }
+        &__subtitle {
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 5.6px;
+        }
+        &__cards {
+            width: 87%;
+            margin: auto;
+            margin-top: 64px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            place-items: center;
+            div {
+                width: 100%;
+            }
+        }
+    }
+    @supports (-moz-appearance: none) {
+        .travel-section {
+            &__glow {
+                opacity: 0.4;
+                filter: blur(500px);
+                width: 450px;
+            }
+        }
+    }
+}
+@include m.up('sm') {
+    .travel-section {
+        &__image {
+            margin-top: 115px;
+        }
+    }
+}
+
+@include m.up('lg') {
+    .travel-section {
+        flex-direction: row;
+        margin-top: 750px;
+        &__image {
+            width: 100%;
+            margin-top: 0;
+            flex: 0.8;
+            img {
+                margin-top: 300px;
+            }
+        }
+        &__content {
+            flex: 0.5;
+            margin-top: 285px;
+        }
+        &__text {
+            margin-top: 0;
+            align-items: flex-start;
+            justify-content: flex-start;
+            h3 {
+                font-size: 30px;
+                letter-spacing: 6.5px;
+                margin-top: 0;
+                padding-right: 20px;
+            }
+            h2 {
+                text-align: left;
+                margin-top: 30px;
+                font-size: 55px;
+                width: 80%;
+                letter-spacing: 2px;
+            }
+        }
+        &__paragraph {
+            text-align: left;
+            margin-top: 40px;
+            margin-left: 0;
+            font-size: 20px;
+            width: 90%;
+            line-height: 2.5rem;
+            letter-spacing: 2px;
+        }
+        &__subtitle {
+            font-size: 30px;
+            letter-spacing: 6.5px;
+            margin-top: 0;
+            padding-right: 20px;
+        }
+        &__paragraph-container {
+            margin-inline-start: 0;
+        }
+        &__star-icon {
+            position: absolute;
+            top: -80px;
+            right: -235px;
+            width: 550px;
+            height: 450px;
+        }
+        &__cards {
+            margin: 0;
+            margin-top: 85px;
+            gap: 50px 15px;
+            place-items: start;
+            position: relative;
+            div {
+                height: 190px;
+                width: 270px;
+                h1 {
+                    font-size: 45px;
+                }
+                p {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+@include m.up('xl') {
+    .travel-section {
+        margin-top: 0;
+        &__star-icon {
+            display: inline-block;
+        }
+    }
+}

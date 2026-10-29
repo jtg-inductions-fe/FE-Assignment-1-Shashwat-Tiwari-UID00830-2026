@@ -94,7 +94,7 @@
         }
     }
     &__paragraph-container {
-        @include m.text-clamp;
+        @include m.text-clamp(4);
         width: 23rem;
         margin-inline: auto;
     }
@@ -110,7 +110,7 @@
         border-radius: 100px;
         font-style: normal;
         font-size: 15px;
-        box-shadow: variables.$explore-button-shadow;
+        box-shadow: variables.$box-shadow-values;
     }
     &__get-started-btn {
         width: 25rem;
@@ -435,6 +435,7 @@
 }
 @include m.up('xl') {
     .hero-section {
+        height: 1105px;
         &__airplane-image {
             position: relative;
             left: -1.2%;
@@ -462,6 +463,7 @@
                 font-size: 95px;
             }
             p {
+                margin-top: 10px;
                 font-size: 24px;
                 line-height: 2.5rem;
             }

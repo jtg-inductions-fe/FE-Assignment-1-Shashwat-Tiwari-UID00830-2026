@@ -16,10 +16,10 @@
         <header class="header">
             <img src="src/assets/logo.svg" alt="Logo" class="header__logo" />
             <nav class="header__navlinks" id="nav-links">
-                <a href="#Home" class="anchor-fonts">Home</a>
-                <a href="#Discover" class="anchor-fonts">Discover</a>
-                <a href="#SpecialDeals" class="anchor-fonts">Special Deals</a>
-                <a href="#Contact" class="anchor-fonts">Contact</a>
+                <a href="#Home" class="anchor">Home</a>
+                <a href="#Discover" class="anchor">Discover</a>
+                <a href="#SpecialDeals" class="anchor">Special Deals</a>
+                <a href="#Contact" class="anchor">Contact</a>
             </nav>
             <button class="header__menu-button">
                 <img
@@ -41,56 +41,64 @@
                         src="src/assets/airplanes.svg"
                         alt="airplanes"
                         class="hero-section__airplane-image"
+                        aria-hidden="true"
                     />
                     <div class="hero-section__rectangles">
                         <img
                             src="src/assets/rectangle-1.svg"
-                            alt="Rectangle"
+                            alt="ocean-image"
                             class="hero-section__rectangle-image1"
+                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-2.svg"
-                            alt="Rectangle"
+                            alt="mountain-image"
                             class="hero-section__rectangle-image2"
+                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-3.svg"
-                            alt="Rectangle"
+                            alt="city-image"
                             class="hero-section__rectangle-image3"
+                            aria-hidden="true"
                         />
                     </div>
                     <img
                         src="src/assets/message-icon.svg"
                         alt="message"
                         class="hero-section__message-icon"
+                        aria-hidden="true"
                     />
                     <img
                         src="src/assets/friends-icon.svg"
                         alt="friends"
                         class="hero-section__friends-icon"
+                        aria-hidden="true"
                     />
                     <img
                         src="src/assets/location-icon.svg"
                         alt="location"
                         class="hero-section__location-icon"
+                        aria-hidden="true"
                     />
                 </div>
                 <div class="hero-section__content">
-                    <div class="hero-section__explore-icon font-color">
+                    <div class="hero-section__explore-icon pink-font-color">
                         Explore the world!
                         <img
                             src="src/assets/work.svg"
                             alt="work"
                             class="hero-section__work-icon"
+                            aria-hidden="true"
                         />
                     </div>
-                    <h1 class="h1-fonts">
+                    <h1 class="h1" id="hero-title">
                         Travel
-                        <span class="font-color">top destination</span> of the
-                        world
+                        <span class="pink-font-color">top destination</span> of
+                        the world
                     </h1>
                     <div class="hero-section__paragraph-container">
-                        <p class="paragraph-fonts">
+                        <p class="paragraph" id="hero-desc">
                             We always make our customer happy by providing
                             <br />
                             as many choices as possible
@@ -117,6 +125,7 @@
                         src="src/assets/arrows.svg"
                         alt="arrows"
                         class="hero-section__arrows-icon"
+                        aria-hidden="true"
                     />
                 </div>
                 <div class="hero-section__companies-container">
@@ -125,6 +134,60 @@
                     <img src="src/assets/booking.svg" alt="booking" />
                     <img src="src/assets/airbnb.svg" alt="airbnb" />
                     <img src="src/assets/orbitz.svg" alt="orbitz" />
+                </div>
+            </section>
+            <section class="travel-section" id="Discover">
+                <div class="travel-section__glow"></div>
+                <div class="travel-section__image">
+                    <img
+                        src="src/assets/travel.svg"
+                        alt="Travel"
+                        aria-describedby="travel-paragraph-text"
+                    />
+                </div>
+                <div class="travel-section__content">
+                    <div class="travel-section__text">
+                        <p class="travel-section__subtitle pink-font-color">
+                            TRAVEL POINT
+                        </p>
+                        <h2 class="h2">
+                            We helping you find your dream location
+                        </h2>
+                        <div class="travel-section__paragraph-container">
+                            <p
+                                class="paragraph travel-section__paragraph"
+                                id="travel-paragraph-text"
+                            >
+                                Contrary to popular belief, Lorem Ipsum is not
+                                simply random text. It has roots in a piece of
+                                classical Latin literature from 45 BC.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="travel-section__cards">
+                        <div class="card" aria-describedby="stat-packages">
+                            <span>500+</span>
+                            <p class="paragraph">Holiday Package</p>
+                        </div>
+                        <div class="card" aria-describedby="stat-airlines">
+                            <span id="stat-hotels">100</span>
+                            <p class="paragraph">Luxury Hotel</p>
+                        </div>
+                        <div class="card" aria-describedby="stat-airlines">
+                            <span id="stat-airlines">7</span>
+                            <p class="paragraph">Premium Airlines</p>
+                        </div>
+                        <div class="card" aria-describedby="stat-customers">
+                            <span id="stat-customers">2k+</span>
+                            <p class="paragraph">Happy Customer</p>
+                        </div>
+                        <img
+                            src="src/assets/star.svg"
+                            alt="star"
+                            class="travel-section__star-icon"
+                            aria-hidden="true"
+                        />
+                    </div>
                 </div>
             </section>
         </main>
