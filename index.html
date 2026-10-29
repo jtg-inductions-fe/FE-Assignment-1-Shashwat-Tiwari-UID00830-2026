@@ -36,43 +36,53 @@
         <main>
             <section class="hero-section" id="Home">
                 <div class="hero-section__glow"></div>
-                <div class="hero-section__images">
+                <div
+                    class="hero-section__images"
+                    aria-describedby="This image describes the theme of the website. It has travel related images"
+                >
                     <img
                         src="src/assets/airplanes.svg"
                         alt="airplanes"
                         class="hero-section__airplane-image"
+                        aria-hidden="true"
                     />
                     <div class="hero-section__rectangles">
                         <img
                             src="src/assets/rectangle-1.svg"
                             alt="Rectangle"
                             class="hero-section__rectangle-image1"
+                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-2.svg"
                             alt="Rectangle"
                             class="hero-section__rectangle-image2"
+                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-3.svg"
                             alt="Rectangle"
                             class="hero-section__rectangle-image3"
+                            aria-hidden="true"
                         />
                     </div>
                     <img
                         src="src/assets/message-icon.svg"
                         alt="message"
                         class="hero-section__message-icon"
+                        aria-hidden="true"
                     />
                     <img
                         src="src/assets/friends-icon.svg"
                         alt="friends"
                         class="hero-section__friends-icon"
+                        aria-hidden="true"
                     />
                     <img
                         src="src/assets/location-icon.svg"
                         alt="location"
                         class="hero-section__location-icon"
+                        aria-hidden="true"
                     />
                 </div>
                 <div class="hero-section__content">
@@ -82,6 +92,7 @@
                             src="src/assets/work.svg"
                             alt="work"
                             class="hero-section__work-icon"
+                            aria-hidden="true"
                         />
                     </div>
                     <h1 class="h1">
@@ -99,11 +110,13 @@
                     <div class="hero-section__btn-container">
                         <button
                             class="hero-section__get-started-btn btn-primary"
+                            aria-describedby="This button will take you to the sign up page"
                         >
                             Get Started
                         </button>
                         <button
                             class="hero-section__watch-demo-btn btn-secondary"
+                            aria-describedby="This button will take you to the demo video"
                         >
                             <img
                                 src="src//assets/play-circle.svg"
@@ -117,6 +130,7 @@
                         src="src/assets/arrows.svg"
                         alt="arrows"
                         class="hero-section__arrows-icon"
+                        aria-hidden="true"
                     />
                 </div>
                 <div class="hero-section__companies-container">
@@ -130,7 +144,11 @@
             <section class="travel-section" id="Discover">
                 <div class="travel-section__glow"></div>
                 <div class="travel-section__image">
-                    <img src="src/assets/travel.svg" alt="Travel" />
+                    <img
+                        src="src/assets/travel.svg"
+                        alt="Travel"
+                        aria-describedby="This image describes the discounted price of the website"
+                    />
                 </div>
                 <div class="travel-section__content">
                     <div class="travel-section__text">
@@ -149,26 +167,27 @@
                         </div>
                     </div>
                     <div class="travel-section__cards">
-                        <div class="card">
+                        <div class="card" aria-describedby="stat-packages">
                             <span>500+</span>
-                            <p>Holiday Package</p>
+                            <p class="paragraph">Holiday Package</p>
                         </div>
-                        <div class="card">
+                        <div class="card" aria-describedby="stat-hotels">
                             <span>100</span>
-                            <p>Luxury Hotel</p>
+                            <p class="paragraph">Luxury Hotel</p>
                         </div>
-                        <div class="card">
+                        <div class="card" aria-describedby="stat-airlines">
                             <span>7</span>
-                            <p>Premium Airlines</p>
+                            <p class="paragraph">Premium Airlines</p>
                         </div>
-                        <div class="card">
+                        <div class="card" aria-describedby="stat-customers">
                             <span>2k+</span>
-                            <p>Happy Customer</p>
+                            <p class="paragraph">Happy Customer</p>
                         </div>
                         <img
                             src="src/assets/star.svg"
                             alt="star"
                             class="travel-section__star-icon"
+                            aria-hidden="true"
                         />
                     </div>
                 </div>
