@@ -4,13 +4,13 @@
         <title>Title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="src/styles/main.scss" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
         <header class="header">
@@ -38,7 +38,11 @@
             </div>
         </header>
         <main>
-            <section class="hero-section" id="Home">
+            <section
+                class="hero-section"
+                id="Home"
+                aria-describedby="hero-desc"
+            >
                 <div class="hero-section__glow"></div>
                 <div class="hero-section__images">
                     <img
@@ -46,6 +50,7 @@
                         alt="airplanes"
                         class="hero-section__airplane-image"
                         aria-hidden="true"
+                        fetchpriority="high"
                     />
                     <div class="hero-section__rectangles">
                         <img
@@ -172,7 +177,7 @@
                     </div>
                     <div class="travel-section__cards">
                         <div class="card" aria-describedby="stat-packages">
-                            <span>500+</span>
+                            <span id="stat-packages">500+</span>
                             <p class="paragraph">Holiday Package</p>
                         </div>
                         <div class="card" aria-describedby="stat-airlines">
@@ -378,7 +383,7 @@
                 </div>
             </section>
         </main>
-        <footer class="footer" id="Contact">
+        <footer class="footer" id="Contact" aria-describedby="footer-desc">
             <div class="footer__content">
                 <div class="footer__heading">
                     <img
@@ -388,7 +393,7 @@
                     />
                     <h3 class="h3">Travlog</h3>
                 </div>
-                <p class="paragraph footer__paragraph">
+                <p class="paragraph footer__paragraph" id="footer-desc">
                     Contrary to popular belief, Lorem Ipsum is not simply random
                     text. It has roots in a piece of classical Latin literature
                     from 45 BC.

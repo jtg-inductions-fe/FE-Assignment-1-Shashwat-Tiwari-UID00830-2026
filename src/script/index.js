@@ -83,7 +83,8 @@ function menuAccessibility(e) {
     if (e.key === 'Escape') {
         e.preventDefault();
         closeMobileMenu();
-        menuIcon.focus();
+        const menuButton = menuIcon.closest('button') || menuIcon;
+        menuButton.focus();
         return;
     }
     if (e.key === 'Tab') {
@@ -91,8 +92,8 @@ function menuAccessibility(e) {
         const buttonElements = Array.from(
             btnContainer.querySelectorAll('button'),
         );
-
-        const elements = [menuIcon, ...navElements, ...buttonElements];
+        const menuButton = menuIcon.closest('button') || menuIcon;
+        const elements = [menuButton, ...navElements, ...buttonElements];
 
         const allFocusableElements = elements.filter(
             (el) => el.offsetWidth > 0 || el.offsetHeight > 0,
