@@ -1,0 +1,101 @@
+/// This file contains all the styles related to the footer section of the website.
+
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+.footer {
+    max-width: variables.$max-width;
+    margin: auto;
+    margin-top: 160px;
+
+    &__heading {
+        margin-left: 31px;
+        display: flex;
+        font-size: 2rem;
+        align-items: center;
+        h3 {
+            margin-left: 16px;
+        }
+    }
+    &__paragraph {
+        line-height: 1.6rem;
+        margin-left: 31px;
+        margin-top: 32px;
+        letter-spacing: 0.1px;
+    }
+    &__social-icons {
+        display: flex;
+        gap: 32px;
+        margin-left: 31px;
+        margin-top: 32px;
+        img {
+            cursor: pointer;
+        }
+    }
+    &__info {
+        width: 85%;
+        margin: auto;
+        margin-top: 65px;
+        height: 268px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__panel {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 0 20px 0;
+        a {
+            font-size: 1rem;
+            font-weight: 400;
+            padding-left: 10px;
+        }
+    }
+
+    &__section.is-open .footer__panel {
+        display: flex;
+    }
+
+    &__trigger img {
+        transition: transform 0.2s ease;
+    }
+    &__section.is-open &__trigger img {
+        transform: rotate(180deg);
+    }
+
+    &__trigger {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 15px 0;
+        font-family: variables.$roboto-font-family;
+        font-weight: bold;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+@include m.up('xs') {
+    .footer {
+        margin-top: 178px;
+        &__heading {
+            margin-left: 64px;
+        }
+        &__paragraph {
+            margin-left: 64px;
+            margin-top: 38px;
+            font-size: 1.5rem;
+            width: 88%;
+            line-height: 2.1rem;
+            letter-spacing: 0.125px;
+        }
+        &__social-icons {
+            margin-left: 64px;
+            margin-top: 32px;
+        }
+    }
+}
