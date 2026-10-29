@@ -8,6 +8,9 @@
     margin: auto;
     margin-top: 160px;
 
+    &__bg {
+        display: none;
+    }
     &__heading {
         margin-left: 31px;
         display: flex;
@@ -53,14 +56,14 @@
         }
     }
 
-    &__section.is-open .footer__panel {
+    &__section--active &__panel {
         display: flex;
     }
 
     &__trigger img {
         transition: transform 0.2s ease;
     }
-    &__section.is-open &__trigger img {
+    &__section--active &__trigger img {
         transform: rotate(180deg);
     }
 
@@ -79,9 +82,10 @@
     }
 }
 
-@include m.up('xs') {
+@include m.up('sm') {
     .footer {
         margin-top: 178px;
+        position: relative;
         &__heading {
             margin-left: 64px;
         }
@@ -96,6 +100,119 @@
         &__social-icons {
             margin-left: 64px;
             margin-top: 32px;
+        }
+        &__info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 55px;
+            margin-top: 50px;
+            margin-left: 62px;
+        }
+        &__trigger img {
+            display: none;
+        }
+        &__panel {
+            display: flex;
+            gap: 36px;
+            margin-top: 12px;
+            a {
+                font-size: 1.25rem;
+                margin-left: 0;
+                cursor: default;
+            }
+        }
+        &__trigger {
+            cursor: default;
+        }
+    }
+}
+@include m.up('md') {
+    .footer {
+        &__bg {
+            display: block;
+            position: absolute;
+            top: 28%;
+            right: 0;
+        }
+    }
+}
+
+@include m.up('lg') {
+    .footer {
+        display: flex;
+        margin-top: 320px;
+        &__bg {
+            display: none;
+        }
+        &__info {
+            margin-top: 0;
+        }
+    }
+}
+@include m.up('xl') {
+    .footer {
+        &__bg {
+            display: block;
+            top: 1.5%;
+            height: 440px;
+            right: -2%;
+        }
+        &__logo {
+            height: 54px;
+            width: 54px;
+        }
+        &__content {
+            margin-left: 70px;
+            margin-top: 10px;
+            width: 50%;
+            h3 {
+                font-size: 2.1rem;
+            }
+        }
+        &__heading {
+            margin-left: 100px;
+        }
+        &__paragraph {
+            font-size: 1.8rem;
+            line-height: 2.8rem;
+            margin-top: 43px;
+            letter-spacing: 0.85px;
+            margin-left: 100px;
+        }
+        &__social-icons {
+            margin-top: 90px;
+            margin-left: 100px;
+            gap: 45px;
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        &__info {
+            margin-left: 0px;
+            margin-top: 0;
+            gap: 10px;
+            max-width: 750px;
+            height: 300px;
+        }
+        &__section {
+            width: 67%;
+        }
+        &__panel {
+            gap: 55px;
+            a {
+                font-size: 1.5rem;
+                cursor: default;
+                padding-left: 0;
+            }
+        }
+        &__trigger {
+            font-size: 1.8rem;
+        }
+        &__meet-us {
+            a {
+                line-height: 2.5rem;
+            }
         }
     }
 }
