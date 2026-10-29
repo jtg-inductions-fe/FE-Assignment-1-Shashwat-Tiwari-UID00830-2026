@@ -6,7 +6,6 @@
 /// Strips the unit from a numeric value and returns it as a unitless number.
 /// If the value is already unitless or is not a number, it returns the value unmodified.
 ///
-/// @group Utilities
 /// @param {Number} $value - The number with a unit (e.g., 16px, 2rem) to be stripped.
 /// @return {Number} A pure, unitless number.
 @function strip-unit($value) {
