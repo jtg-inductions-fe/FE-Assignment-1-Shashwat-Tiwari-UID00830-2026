@@ -126,6 +126,10 @@ function outOfFocus(event) {
     }
 }
 
+document.querySelectorAll('.footer__trigger').forEach((button) => {
+    button.addEventListener('click', toggleFooterSection);
+});
+
 window.addEventListener('keydown', menuAccessibility);
 menuBtn.addEventListener('click', handleMenuToggle);
 navLinks.addEventListener('click', handleNavLinkClick);
