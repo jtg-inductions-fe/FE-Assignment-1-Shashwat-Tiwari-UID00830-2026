@@ -2,8 +2,7 @@
  * This script handles the functionality part of the entire page.
  */
 import * as c from './constants.js';
-import Splide from '@splidejs/splide';
-import '@splidejs/splide/css/core';
+import { initializeCarousel } from './splide.js';
 
 export const menuBtn = document.querySelector('.header__menu-button');
 export const navLinks = document.getElementById('nav-links');
@@ -124,41 +123,6 @@ function outOfFocus(event) {
         navLinks.classList.contains('header__navlinks--active')
     ) {
         closeMobileMenu();
-    }
-}
-/**
- * Makes all the dots in the carousel focusable.
- * @param {containerElement}
- */
-function keepAllDotsFocusable(containerElement) {
-    const dots = containerElement.querySelectorAll('.splide__pagination__page');
-    dots.forEach((dot) => dot.setAttribute('tabindex', '0'));
-}
-
-/**
- * Initializes the Splide carousel with specified settings and ensures that all pagination dots are focusable for accessibility.
- */
-function initializeCarousel() {
-    const el = document.querySelector('.splide');
-    if (el) {
-        const carousel = new Splide(el, {
-            type: 'loop',
-            perPage: 1,
-            perMove: 1,
-            arrows: true,
-            pagination: true,
-        });
-        carousel.on('pagination:mounted', (data) => {
-            data.items.forEach((item) => {
-                item.button.setAttribute('tabindex', '0');
-            });
-        });
-
-        carousel.on('move', () => {
-            setTimeout(() => keepAllDotsFocusable(el), 0);
-        });
-
-        carousel.mount();
     }
 }
 

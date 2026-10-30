@@ -4,10 +4,10 @@
 .testimonials {
     max-width: variables.$max-width;
     margin: auto;
-    &__bg {
+    &__tablet-bg {
         display: none;
     }
-    &__bg-2 {
+    &__desktop-bg {
         display: none;
     }
     &__heading {
@@ -20,8 +20,6 @@
         }
     }
     &__subtitle {
-        font-family: variables.$roboto-font-family;
-        font-weight: 700;
         letter-spacing: 3px;
     }
     &__container {
@@ -66,7 +64,7 @@
 }
 @include m.up('sm') {
     .testimonials {
-        &__bg {
+        &__tablet-bg {
             display: block;
         }
     }
@@ -74,10 +72,10 @@
 @include m.up('lg') {
     .testimonials {
         height: 1000px;
-        &__bg {
+        &__tablet-bg {
             display: none;
         }
-        &__bg-2 {
+        &__desktop-bg {
             display: block;
             width: 100%;
             position: absolute;

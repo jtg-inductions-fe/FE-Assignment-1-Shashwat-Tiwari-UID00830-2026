@@ -49,13 +49,12 @@
         margin: auto;
         margin-top: 75px;
     }
-    h2 {
+    h3 {
         margin-top: 70px;
         margin-inline: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 24px;
     }
     .card__name {
         color: variables.$orange;
@@ -67,7 +66,7 @@
         .stars {
             margin-top: 30px;
         }
-        h2 {
+        h3 {
             margin-top: 57px;
             font-size: 26px;
         }
@@ -87,7 +86,7 @@
             height: 168px;
             margin-top: 58px;
         }
-        h2 {
+        h3 {
             margin-top: 78px;
             font-size: 32px;
             letter-spacing: 1px;
