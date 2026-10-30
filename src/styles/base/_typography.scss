@@ -35,6 +35,17 @@
     font-weight: 700;
     font-size: f.px-to-rem(31px);
 }
+.h3 {
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: f.px-to-rem(24px);
+}
+.subtitle {
+    font-family: variables.$roboto-font-family;
+    font-weight: 700;
+    font-size: f.px-to-rem(16px);
+    color: variables.$paragraph-fonts-color;
+}
 .pink-font-color {
     color: variables.$pink;
 }

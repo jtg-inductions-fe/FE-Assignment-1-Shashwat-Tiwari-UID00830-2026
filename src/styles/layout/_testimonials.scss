@@ -1,0 +1,105 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables';
+
+.testimonials {
+    max-width: variables.$max-width;
+    margin: auto;
+    &__tablet-bg {
+        display: none;
+    }
+    &__desktop-bg {
+        display: none;
+    }
+    &__heading {
+        @include m.align-center-flex;
+        flex-direction: column;
+        margin-top: 133px;
+        height: 73px;
+        h2 {
+            width: 230px;
+        }
+    }
+    &__subtitle {
+        letter-spacing: 3px;
+    }
+    &__container {
+        position: relative;
+        height: auto;
+        margin: auto;
+        margin-top: 16px;
+    }
+    &__paragraph {
+        @include m.text-clamp(4);
+    }
+}
+
+@include m.up('xs') {
+    .testimonials {
+        height: 750px;
+        position: relative;
+        overflow: hidden;
+        &__bg {
+            position: absolute;
+            top: -205px;
+            z-index: -1;
+            opacity: 0.1;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+        }
+        &__heading {
+            margin-top: 30px;
+            height: 88px;
+            h2 {
+                font-size: 39px;
+                width: auto;
+                letter-spacing: 1px;
+            }
+        }
+        &__subtitle {
+            font-size: 22px;
+            letter-spacing: 5.8px;
+        }
+    }
+}
+@include m.up('sm') {
+    .testimonials {
+        &__tablet-bg {
+            display: block;
+        }
+    }
+}
+@include m.up('lg') {
+    .testimonials {
+        height: 1000px;
+        &__tablet-bg {
+            display: none;
+        }
+        &__desktop-bg {
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: -7.5%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        &__heading {
+            margin-top: 140px;
+            margin-left: 62px;
+            height: 125px;
+            h2 {
+                font-size: 55px;
+                letter-spacing: 1.9px;
+            }
+        }
+        &__subtitle {
+            font-size: 32px;
+            letter-spacing: 5.8px;
+        }
+        &__container {
+            width: 100%;
+            position: relative;
+            left: 23px;
+        }
+    }
+}

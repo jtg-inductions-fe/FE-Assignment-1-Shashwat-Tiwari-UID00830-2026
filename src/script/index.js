@@ -2,6 +2,7 @@
  * This script handles the functionality part of the entire page.
  */
 import * as c from './constants.js';
+import { initializeCarousel } from './splide.js';
 
 export const menuBtn = document.querySelector('.header__menu-button');
 export const navLinks = document.getElementById('nav-links');
@@ -130,3 +131,4 @@ menuBtn.addEventListener('click', handleMenuToggle);
 navLinks.addEventListener('click', handleNavLinkClick);
 window.addEventListener('resize', handleWindowResize);
 document.addEventListener('click', outOfFocus);
+document.addEventListener('DOMContentLoaded', initializeCarousel);
