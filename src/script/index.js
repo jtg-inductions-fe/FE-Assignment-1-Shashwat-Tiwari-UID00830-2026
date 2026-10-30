@@ -129,6 +129,16 @@ function outOfFocus(event) {
 }
 
 /**
+ * Toggles the open state of a footer section.
+ * @param {event} - The click event object.
+ */
+function toggleFooterSection(event) {
+    const clickedButton = event.currentTarget;
+    const currentSection = clickedButton.parentElement;
+    currentSection.classList.toggle('footer__section--active');
+}
+
+/**
  * This function handles the resizing of the footer section based on the current screen width.
  */
 function handleFooterResize() {

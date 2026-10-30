@@ -13,10 +13,10 @@
     &__heading {
         @include m.align-center-flex;
         flex-direction: column;
-        margin-top: 130px;
+        margin-top: 133px;
         height: 73px;
         h2 {
-            letter-spacing: 0.5px;
+            width: 230px;
         }
     }
     &__subtitle {
@@ -38,7 +38,7 @@
         height: 750px;
         position: relative;
         overflow: hidden;
-        &__bg {
+        &__tablet-bg {
             position: absolute;
             top: -205px;
             z-index: -1;
