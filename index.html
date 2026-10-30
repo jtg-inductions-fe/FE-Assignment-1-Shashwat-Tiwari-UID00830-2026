@@ -34,15 +34,16 @@
             </button>
             <div class="header__button-container">
                 <button class="btn-secondary header__login-btn">Log In</button>
-                <button class="btn-primary header__sign-up-btn">Sign Up</button>
+                <button
+                    class="btn-primary header__sign-up-btn"
+                    id="sign-up-btn"
+                >
+                    Sign Up
+                </button>
             </div>
         </header>
         <main>
-            <section
-                class="hero-section"
-                id="Home"
-                aria-describedby="hero-desc"
-            >
+            <section class="hero-section" id="Home">
                 <div class="hero-section__glow"></div>
                 <div class="hero-section__images">
                     <img
@@ -57,19 +58,16 @@
                             src="src/assets/rectangle-1.svg"
                             alt="ocean-image"
                             class="hero-section__rectangle-image1"
-                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-2.svg"
                             alt="mountain-image"
                             class="hero-section__rectangle-image2"
-                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-3.svg"
                             alt="city-image"
                             class="hero-section__rectangle-image3"
-                            aria-hidden="true"
                         />
                     </div>
                     <img
@@ -107,7 +105,7 @@
                         the world
                     </h1>
                     <div class="hero-section__paragraph-container">
-                        <p class="paragraph" id="hero-desc">
+                        <p class="paragraph">
                             We always make our customer happy by providing
                             <br />
                             as many choices as possible
@@ -116,6 +114,7 @@
                     <div class="hero-section__btn-container">
                         <button
                             class="hero-section__get-started-btn btn-primary"
+                            aria-describedby="sign-up-btn"
                         >
                             Get Started
                         </button>
@@ -383,7 +382,7 @@
                 </div>
             </section>
         </main>
-        <footer class="footer" id="Contact" aria-describedby="footer-desc">
+        <footer class="footer" id="Contact">
             <div class="footer__content">
                 <div class="footer__heading">
                     <img
@@ -393,19 +392,25 @@
                     />
                     <h4 class="h4">Travlog</h4>
                 </div>
-                <p class="paragraph footer__paragraph" id="footer-desc">
+                <p class="paragraph footer__paragraph">
                     Contrary to popular belief, Lorem Ipsum is not simply random
                     text. It has roots in a piece of classical Latin literature
                     from 45 BC.
                 </p>
                 <div class="footer__social-icons">
-                    <a href="https://www.facebook.com/">
+                    <a
+                        href="https://www.facebook.com/"
+                        aria-label="Follow us on Facebook"
+                    >
                         <img src="src/assets/facebook.svg" alt="Facebook" />
                     </a>
-                    <a href="https://x.com/">
+                    <a href="https://x.com/" aria-label="Follow us on Twitter">
                         <img src="src/assets/twitter.svg" alt="Twitter" />
                     </a>
-                    <a href="https://www.instagram.com/">
+                    <a
+                        href="https://www.instagram.com/"
+                        aria-label="Follow us on Instagram"
+                    >
                         <img src="src/assets/instagram.svg" alt="Instagram" />
                     </a>
                 </div>
