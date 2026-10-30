@@ -4,17 +4,21 @@
         <title>Title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="src/styles/main.scss" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
         <header class="header">
-            <img src="src/assets/logo.svg" alt="Logo" class="header__logo" />
+            <img
+                src="src/assets/logo.svg"
+                alt="Travel-Logo"
+                class="header__logo"
+            />
             <nav class="header__navlinks" id="nav-links">
                 <a href="#Home" class="anchor">Home</a>
                 <a href="#Discover" class="anchor">Discover</a>
@@ -30,7 +34,12 @@
             </button>
             <div class="header__button-container">
                 <button class="btn-secondary header__login-btn">Log In</button>
-                <button class="btn-primary header__sign-up-btn">Sign Up</button>
+                <button
+                    class="btn-primary header__sign-up-btn"
+                    id="sign-up-btn"
+                >
+                    Sign Up
+                </button>
             </div>
         </header>
         <main>
@@ -42,25 +51,23 @@
                         alt="airplanes"
                         class="hero-section__airplane-image"
                         aria-hidden="true"
+                        fetchpriority="high"
                     />
                     <div class="hero-section__rectangles">
                         <img
                             src="src/assets/rectangle-1.svg"
                             alt="ocean-image"
                             class="hero-section__rectangle-image1"
-                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-2.svg"
                             alt="mountain-image"
                             class="hero-section__rectangle-image2"
-                            aria-hidden="true"
                         />
                         <img
                             src="src/assets/rectangle-3.svg"
                             alt="city-image"
                             class="hero-section__rectangle-image3"
-                            aria-hidden="true"
                         />
                     </div>
                     <img
@@ -98,7 +105,7 @@
                         the world
                     </h1>
                     <div class="hero-section__paragraph-container">
-                        <p class="paragraph" id="hero-desc">
+                        <p class="paragraph">
                             We always make our customer happy by providing
                             <br />
                             as many choices as possible
@@ -107,6 +114,7 @@
                     <div class="hero-section__btn-container">
                         <button
                             class="hero-section__get-started-btn btn-primary"
+                            aria-describedby="sign-up-btn"
                         >
                             Get Started
                         </button>
@@ -168,7 +176,7 @@
                     </div>
                     <div class="travel-section__cards">
                         <div class="card" aria-describedby="stat-packages">
-                            <span>500+</span>
+                            <span id="stat-packages">500+</span>
                             <p class="paragraph">Holiday Package</p>
                         </div>
                         <div class="card" aria-describedby="stat-airlines">
@@ -374,6 +382,97 @@
                 </div>
             </section>
         </main>
+        <footer class="footer" id="Contact">
+            <div class="footer__content">
+                <div class="footer__heading">
+                    <img
+                        src="src/assets/logo.svg"
+                        alt="travel-logo"
+                        class="footer__logo"
+                    />
+                    <h4 class="h4">Travlog</h4>
+                </div>
+                <p class="paragraph footer__paragraph">
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a piece of classical Latin literature
+                    from 45 BC.
+                </p>
+                <div class="footer__social-icons">
+                    <a
+                        href="https://www.facebook.com/"
+                        aria-label="Follow us on Facebook"
+                    >
+                        <img src="src/assets/facebook.svg" alt="Facebook" />
+                    </a>
+                    <a href="https://x.com/" aria-label="Follow us on Twitter">
+                        <img src="src/assets/twitter.svg" alt="Twitter" />
+                    </a>
+                    <a
+                        href="https://www.instagram.com/"
+                        aria-label="Follow us on Instagram"
+                    >
+                        <img src="src/assets/instagram.svg" alt="Instagram" />
+                    </a>
+                </div>
+            </div>
+            <div class="footer__info">
+                <img
+                    src="src/assets/footer-bg.svg"
+                    alt="footer-bg"
+                    class="footer__bg"
+                />
+                <div class="footer__section">
+                    <button class="footer__trigger">
+                        Company
+                        <img
+                            src="src/assets/arrow-circle.svg"
+                            alt="arrow-circle"
+                            class="footer__icon"
+                        />
+                    </button>
+                    <div class="footer__panel">
+                        <a href="/" class="anchor">About</a>
+                        <a href="/" class="anchor">Career</a>
+                        <a href="/" class="anchor">Mobile</a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <button class="footer__trigger">
+                        Contact Us
+                        <img
+                            src="src/assets/arrow-circle.svg"
+                            alt="arrow-circle"
+                            class="footer__icon"
+                        />
+                    </button>
+                    <div class="footer__panel">
+                        <a href="/" class="anchor">Why Travlog?</a>
+                        <a href="/" class="anchor">Partner with us</a>
+                        <a href="/" class="anchor">FAQs</a>
+                        <a href="/" class="anchor">Blog</a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <button class="footer__trigger">
+                        Meet Us
+                        <img
+                            src="src/assets/arrow-circle.svg"
+                            alt="arrow-circle"
+                            class="footer__icon"
+                        />
+                    </button>
+                    <div class="footer__panel footer__meet-us">
+                        <a href="/" class="anchor">+00 92 1234 56789</a>
+                        <a href="/" class="anchor">info@travlog.com</a>
+                        <a href="/" class="anchor"
+                            >205. R Street, New York BD23200</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

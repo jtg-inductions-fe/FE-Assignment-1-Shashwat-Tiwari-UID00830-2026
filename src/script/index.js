@@ -4,11 +4,12 @@
 import * as c from './constants.js';
 import { initializeCarousel } from './splide.js';
 
-export const menuBtn = document.querySelector('.header__menu-button');
-export const navLinks = document.getElementById('nav-links');
-export const menuIcon = document.querySelector('.header__menu-icon');
-export const btnContainer = document.querySelector('.header__button-container');
-export const body = document.body;
+const menuBtn = document.querySelector('.header__menu-button');
+const navLinks = document.getElementById('nav-links');
+const menuIcon = document.querySelector('.header__menu-icon');
+const btnContainer = document.querySelector('.header__button-container');
+const body = document.body;
+const footerButtons = document.querySelectorAll('.footer__trigger');
 /**
  * Toggles the mobile navigation menu and updates the menu icon.
  * Also handles the button container visibility for narrow mobile viewports.
@@ -82,7 +83,8 @@ function menuAccessibility(e) {
     if (e.key === 'Escape') {
         e.preventDefault();
         closeMobileMenu();
-        menuIcon.focus();
+        const menuButton = menuIcon.closest('button') || menuIcon;
+        menuButton.focus();
         return;
     }
     if (e.key === 'Tab') {
@@ -90,8 +92,8 @@ function menuAccessibility(e) {
         const buttonElements = Array.from(
             btnContainer.querySelectorAll('button'),
         );
-
-        const elements = [menuIcon, ...navElements, ...buttonElements];
+        const menuButton = menuIcon.closest('button') || menuIcon;
+        const elements = [menuButton, ...navElements, ...buttonElements];
 
         const allFocusableElements = elements.filter(
             (el) => el.offsetWidth > 0 || el.offsetHeight > 0,
@@ -126,6 +128,41 @@ function outOfFocus(event) {
     }
 }
 
+/**
+ * Toggles the open state of a footer section.
+ * @param {event} - The click event object.
+ */
+function toggleFooterSection(event) {
+    const clickedButton = event.currentTarget;
+    const currentSection = clickedButton.parentElement;
+    currentSection.classList.toggle('footer__section--active');
+}
+
+/**
+ * This function handles the resizing of the footer section based on the current screen width.
+ */
+function handleFooterResize() {
+    const currentwidth = window.innerWidth;
+    footerButtons.forEach((button) => {
+        if (currentwidth > c.mobilewidth) {
+            document.querySelectorAll('.footer__section').forEach((section) => {
+                section.classList.remove('footer__section--active');
+            });
+            if (document.activeElement === button) {
+                button.blur();
+            }
+            button.setAttribute('tabindex', '-1');
+        } else {
+            button.setAttribute('tabindex', '0');
+        }
+    });
+}
+
+document.querySelectorAll('.footer__trigger').forEach((button) => {
+    button.addEventListener('click', toggleFooterSection);
+});
+
+window.addEventListener('resize', handleFooterResize);
 window.addEventListener('keydown', menuAccessibility);
 menuBtn.addEventListener('click', handleMenuToggle);
 navLinks.addEventListener('click', handleNavLinkClick);

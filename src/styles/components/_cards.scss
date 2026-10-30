@@ -1,5 +1,7 @@
+/// This file contains the styles for the card components
 @use '../abstracts/variables';
 @use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
 
 .card {
     width: 348px;
@@ -21,6 +23,7 @@
         font-size: 1.125rem;
         margin-bottom: 10px;
         color: variables.$black;
+        letter-spacing: 0.5px;
     }
 }
 
@@ -38,16 +41,17 @@
         justify-content: space-between;
         width: 220px;
         margin: auto;
-        margin-top: 32px;
+        margin-top: 35px;
     }
     p {
         text-align: center;
         color: variables.$black;
         line-height: 1.5;
-        font-size: 18px;
+        font-size: f.px-to-rem(18px);
         width: 370px;
         margin: auto;
-        margin-top: 75px;
+        margin-top: 70px;
+        letter-spacing: 0.1px;
     }
     h3 {
         margin-top: 70px;
@@ -68,11 +72,11 @@
         }
         h3 {
             margin-top: 57px;
-            font-size: 26px;
+            font-size: f.px-to-rem(26px);
         }
         p {
             width: 60%;
-            font-size: 23px;
+            font-size: f.px-to-rem(23px);
             margin-top: 63px;
             line-height: 1.65;
         }
@@ -88,7 +92,7 @@
         }
         h3 {
             margin-top: 78px;
-            font-size: 32px;
+            font-size: f.px-to-rem(32px);
             letter-spacing: 1px;
         }
         .stars {
@@ -102,7 +106,7 @@
         p {
             margin-top: 80px;
             max-width: 1020px;
-            font-size: 29px;
+            font-size: f.px-to-rem(29px);
         }
     }
 }
