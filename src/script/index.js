@@ -3,6 +3,8 @@
  */
 import * as c from './constants.js';
 import { initializeCarousel } from './splide.js';
+import { getDeals } from './api.js';
+getDeals();
 
 const menuBtn = document.querySelector('.header__menu-button');
 const navLinks = document.getElementById('nav-links');
