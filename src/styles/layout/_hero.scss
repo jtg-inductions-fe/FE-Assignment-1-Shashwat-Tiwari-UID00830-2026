@@ -86,16 +86,14 @@
         p {
             display: block;
             text-align: center;
-            width: 23rem;
+            width: 24rem;
             font-size: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 1.25rem;
             line-height: 1.65rem;
-            letter-spacing: 0.235px;
         }
     }
     &__paragraph-container {
         @include m.text-clamp(4);
-        width: 23rem;
         margin-inline: auto;
     }
     &__explore-icon {
@@ -109,7 +107,7 @@
         align-items: center;
         border-radius: 100px;
         font-style: normal;
-        font-size: f.px-to-rem(15px);
+        font-size: f.px-to-rem(14px);
         box-shadow: variables.$box-shadow-values;
     }
     &__get-started-btn {
