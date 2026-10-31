@@ -10,13 +10,15 @@ const menuIcon = document.querySelector('.header__menu-icon');
 const btnContainer = document.querySelector('.header__button-container');
 const body = document.body;
 const footerButtons = document.querySelectorAll('.footer__trigger');
+const desktopQuery = window.matchMedia(`(min-width: ${c.mobilewidth}px)`);
 /**
  * Toggles the mobile navigation menu and updates the menu icon.
  * Also handles the button container visibility for narrow mobile viewports.
  */
 function handleMenuToggle() {
     navLinks.classList.toggle('header__navlinks--active');
-
+    const menuButton = menuIcon.closest('button') || menuIcon;
+    menuButton.focus();
     if (window.innerWidth <= c.mobilewidth) {
         btnContainer.classList.toggle('header__button-container--active');
     }
@@ -42,6 +44,9 @@ function handleNavLinkClick(event) {
     }
 }
 
+/**
+ * Closes the mobile navigation menu and resets the menu icon to its default state.
+ */
 function closeMobileMenu() {
     navLinks.classList.remove('header__navlinks--active');
     btnContainer.classList.remove('header__button-container--active');
@@ -90,7 +95,7 @@ function menuAccessibility(e) {
     if (e.key === 'Tab') {
         const navElements = Array.from(navLinks.querySelectorAll('a'));
         const buttonElements = Array.from(
-            btnContainer.querySelectorAll('button'),
+            desktopQuery.matches ? [] : btnContainer.querySelectorAll('button'),
         );
         const menuButton = menuIcon.closest('button') || menuIcon;
         const elements = [menuButton, ...navElements, ...buttonElements];
@@ -99,18 +104,16 @@ function menuAccessibility(e) {
             (el) => el.offsetWidth > 0 || el.offsetHeight > 0,
         );
         if (allFocusableElements.length <= 1) return;
-
-        const firstElement = allFocusableElements[0];
-        const lastElement =
-            allFocusableElements[allFocusableElements.length - 1];
-
-        if (e.shiftKey && document.activeElement === firstElement) {
-            e.preventDefault();
-            lastElement.focus();
-        } else if (!e.shiftKey && document.activeElement === lastElement) {
-            e.preventDefault();
-            firstElement.focus();
+        e.preventDefault();
+        const index = allFocusableElements.indexOf(document.activeElement);
+        const last = allFocusableElements.length - 1;
+        let next;
+        if (e.shiftKey) {
+            next = index <= 0 ? last : index - 1;
+        } else {
+            next = index === last ? 0 : index + 1;
         }
+        allFocusableElements[next].focus();
     }
 }
 /**

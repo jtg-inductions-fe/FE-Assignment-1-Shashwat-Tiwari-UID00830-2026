@@ -1,0 +1,13 @@
+/// This file contains the font-face declarations for the local fonts used in the project.
+
+@font-face {
+    font-family: 'Circular Std';
+    src:
+        local('Circular Std Bold'),
+        local('Circular-Std-Bold'),
+        url('/assets/fonts/CircularStd-Bold.woff2') format('woff2'),
+        url('/assets/fonts/CircularStd-Bold.woff') format('woff'),
+        url('/assets/fonts/CircularStd-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}

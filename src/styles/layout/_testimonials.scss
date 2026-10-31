@@ -2,8 +2,6 @@
 @use '../abstracts/variables';
 
 .testimonials {
-    max-width: variables.$max-width;
-    margin: auto;
     &__tablet-bg {
         display: none;
     }
