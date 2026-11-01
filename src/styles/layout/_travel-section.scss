@@ -21,20 +21,21 @@
         h2 {
             margin-top: 20px;
             text-align: center;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
     }
     &__paragraph {
-        margin-top: 33px;
+        margin-top: 30px;
         text-align: center;
-        font-size: 17px;
+        font-size: 14px;
         line-height: 25px;
-        width: 90%;
+        width: 85%;
         margin-inline: auto;
+        letter-spacing: 0.9px;
     }
     &__subtitle {
-        margin-top: 32px;
-        letter-spacing: 3.5px;
+        margin-top: 35px;
+        letter-spacing: 3.1px;
     }
     &__paragraph-container {
         @include m.text-clamp(4);
@@ -79,18 +80,19 @@
             margin-top: 32px;
             h2 {
                 font-size: 40px;
-                letter-spacing: 0.8px;
+                letter-spacing: 0.1px;
             }
         }
         &__paragraph {
-            font-size: 19px;
-            line-height: 1.7rem;
-            width: 86%;
+            font-size: 1rem;
+            line-height: 1.74rem;
+            width: 84%;
+            letter-spacing: 1px;
         }
         &__subtitle {
             text-align: center;
             font-size: 22px;
-            letter-spacing: 5.6px;
+            letter-spacing: 5.1px;
         }
         &__cards {
             width: 87%;
@@ -126,49 +128,42 @@
 @include m.up('lg') {
     .travel-section {
         flex-direction: row;
-        margin-top: 750px;
+        margin-top: 142px;
+        &__glow {
+            top: -300px;
+        }
         &__image {
             width: 100%;
             margin-top: 0;
-            flex: 0.8;
-            img {
-                margin-top: 300px;
-            }
+            flex: 0.795;
         }
         &__content {
-            flex: 0.5;
-            margin-top: 285px;
+            flex: 0.505;
         }
         &__text {
             margin-top: 0;
             align-items: flex-start;
             justify-content: flex-start;
-            h3 {
-                font-size: 30px;
-                letter-spacing: 6.5px;
-                margin-top: 0;
-                padding-right: 20px;
-            }
             h2 {
                 text-align: left;
                 margin-top: 30px;
                 font-size: 55px;
                 width: 80%;
-                letter-spacing: 2px;
+                letter-spacing: 1.1px;
             }
         }
         &__paragraph {
             text-align: left;
-            margin-top: 40px;
+            margin-top: 38px;
             margin-left: 0;
-            font-size: 20px;
+            font-size: 22px;
             width: 90%;
-            line-height: 2.5rem;
-            letter-spacing: 2px;
+            line-height: 2.3rem;
+            letter-spacing: 1.1px;
         }
         &__subtitle {
             font-size: 30px;
-            letter-spacing: 6.5px;
+            letter-spacing: 6.1px;
             margin-top: 0;
             padding-right: 20px;
         }
@@ -191,11 +186,12 @@
             div {
                 height: 190px;
                 width: 270px;
-                h1 {
-                    font-size: 45px;
+                span {
+                    font-size: 44px;
                 }
                 p {
                     font-size: 24px;
+                    letter-spacing: 0px;
                 }
             }
         }
@@ -203,7 +199,6 @@
 }
 @include m.up('xl') {
     .travel-section {
-        margin-top: 0;
         &__star-icon {
             display: inline-block;
         }

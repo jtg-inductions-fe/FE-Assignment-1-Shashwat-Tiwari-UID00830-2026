@@ -17,13 +17,13 @@
         font-weight: 700;
         font-size: 2.3rem;
         color: variables.$orange;
-        margin-top: 10px;
+        margin-top: 12px;
     }
     p {
         font-size: 1.125rem;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         color: variables.$black;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
     }
 }
 
@@ -46,8 +46,8 @@
     p {
         text-align: center;
         color: variables.$black;
-        line-height: 1.5;
-        font-size: f.px-to-rem(18px);
+        line-height: 1.7;
+        font-size: f.px-to-rem(17px);
         width: 370px;
         margin: auto;
         margin-top: 70px;
@@ -55,7 +55,6 @@
     }
     h3 {
         margin-top: 70px;
-        margin-inline: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -104,9 +103,10 @@
             }
         }
         p {
-            margin-top: 80px;
-            max-width: 1020px;
-            font-size: f.px-to-rem(29px);
+            margin-top: 72px;
+            max-width: 1070px;
+            font-size: f.px-to-rem(31px);
+            letter-spacing: 0.05px;
         }
     }
 }

@@ -2,10 +2,9 @@
 
 @use '../abstracts/variables';
 @use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
 
 .footer {
-    max-width: variables.$max-width;
-    margin: auto;
     margin-top: 160px;
     &__logo {
         cursor: pointer;
@@ -22,17 +21,21 @@
             margin-left: 16px;
         }
     }
+    &__paragraph-container {
+        @include m.text-clamp(4);
+    }
     &__paragraph {
-        line-height: 1.6rem;
+        width: 94%;
+        line-height: 1.7rem;
         margin-left: 31px;
         margin-top: 32px;
-        letter-spacing: 0.1px;
+        font-size: f.px-to-rem(15.5px);
     }
     &__social-icons {
         display: flex;
         gap: 32px;
         margin-left: 31px;
-        margin-top: 32px;
+        margin-top: 29px;
         img {
             cursor: pointer;
         }
@@ -40,8 +43,8 @@
     &__info {
         width: 85%;
         margin: auto;
-        margin-top: 65px;
-        height: 268px;
+        margin-top: 62px;
+        height: 275px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -52,6 +55,7 @@
         gap: 12px;
         padding: 10px 0 20px 0;
         a {
+            font-family: variables.$inter-font-family;
             font-size: 1rem;
             font-weight: 400;
             padding-left: 10px;
@@ -79,25 +83,25 @@
         padding: 15px 0;
         font-family: variables.$roboto-font-family;
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         cursor: pointer;
     }
 }
 
 @include m.up('xs') {
     .footer {
-        margin-top: 178px;
+        margin-top: 182px;
         position: relative;
         &__heading {
-            margin-left: 50px;
+            margin-left: 54px;
         }
         &__paragraph {
             margin-left: 50px;
-            margin-top: 38px;
-            font-size: 1.5rem;
-            width: 88%;
-            line-height: 2.1rem;
-            letter-spacing: 0.125px;
+            margin-top: 32px;
+            font-size: f.px-to-rem(22.5px);
+            width: 85%;
+            line-height: 2.2rem;
+            letter-spacing: 0.14px;
         }
         &__social-icons {
             margin-left: 50px;
@@ -115,11 +119,10 @@
         }
         &__panel {
             display: flex;
-            gap: 36px;
+            gap: 40px;
             margin-top: 12px;
             a {
                 font-size: 1rem;
-                margin-left: 0;
             }
         }
         &__trigger {
@@ -130,13 +133,17 @@
 @include m.up('sm') {
     .footer {
         &__info {
-            gap: 55px;
+            gap: 60px;
         }
         &__panel {
             a {
-                font-size: 1.25rem;
-                margin-left: 0;
+                font-size: 1.1rem;
+                padding-left: 0;
+                letter-spacing: 0.3px;
             }
+        }
+        &__address {
+            line-height: 1.95rem;
         }
         &__paragraph {
             margin-left: 64px;
@@ -163,7 +170,7 @@
 @include m.up('lg') {
     .footer {
         display: flex;
-        margin-top: 320px;
+        margin-top: 330px;
         &__bg {
             display: none;
         }
@@ -197,13 +204,13 @@
         }
         &__paragraph {
             font-size: 1.8rem;
-            line-height: 2.8rem;
+            line-height: 2.9rem;
             margin-top: 43px;
-            letter-spacing: 0.85px;
+            letter-spacing: 0.95px;
             margin-left: 100px;
         }
         &__social-icons {
-            margin-top: 90px;
+            margin-top: 83px;
             margin-left: 100px;
             gap: 45px;
             img {
@@ -214,7 +221,7 @@
         &__info {
             margin-left: 0px;
             margin-top: 0;
-            gap: 10px;
+            gap: 8px;
             max-width: 750px;
             height: 300px;
         }
@@ -222,9 +229,9 @@
             width: 67%;
         }
         &__panel {
-            gap: 55px;
+            gap: 56px;
             a {
-                font-size: 1.5rem;
+                font-size: 1.45rem;
                 cursor: default;
                 padding-left: 0;
             }
@@ -234,8 +241,12 @@
         }
         &__meet-us {
             a {
-                line-height: 2.5rem;
+                line-height: 2rem;
             }
+        }
+        &__address {
+            line-height: 4rem;
+            width: 100%;
         }
     }
 }
