@@ -22,7 +22,7 @@
             <nav class="header__navlinks" id="nav-links">
                 <a href="#Home" class="anchor">Home</a>
                 <a href="#Discover" class="anchor">Discover</a>
-                <a href="#SpecialDeals" class="anchor">Special Deals</a>
+                <a href="#open-deals" class="anchor">Special Deals</a>
                 <a href="#Contact" class="anchor">Contact</a>
             </nav>
             <button class="header__menu-button">
@@ -479,6 +479,43 @@
                 </div>
             </div>
         </footer>
+        <dialog
+            class="deals-modal"
+            id="deals-modal"
+            aria-labelledby="deals-title"
+        >
+            <button
+                class="deals-modal__close"
+                id="close-deals"
+                type="button"
+                aria-label="Close"
+            >
+                <img
+                    src="src/assets/close-spin.svg"
+                    alt="close-spin"
+                    class="deals-modal__close-icon"
+                />
+            </button>
+            <div class="deals-modal__view" id="view-wheel">
+                <p class="deals-modal__tag">
+                    <img
+                        src="src/assets/Gift.svg"
+                        alt="gift"
+                        class="deals-modal__gift-icon"
+                    />
+                    SPECIAL DEALS
+                </p>
+                <h2 class="deals-modal__title" id="deals-title">
+                    Spin &amp; Win!
+                </h2>
+                <p class="deals-modal__subtitle">
+                    Tap the center of the wheel to spin
+                </p>
+            </div>
+            <div class="deals-modal__view" id="view-list" hidden>
+                <h2 class="deals-modal__title">Unlocked Deals</h2>
+            </div>
+        </dialog>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
