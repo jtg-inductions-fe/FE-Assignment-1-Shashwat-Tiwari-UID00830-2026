@@ -221,15 +221,16 @@
         &__info {
             margin-left: 0px;
             margin-top: 0;
-            gap: 8px;
-            max-width: 750px;
-            height: 300px;
+            gap: 17px;
+            max-width: 760px;
         }
         &__section {
             width: 67%;
         }
         &__panel {
-            gap: 56px;
+            gap: 52px;
+            padding: 0;
+            margin-top: 25px;
             a {
                 font-size: 1.45rem;
                 cursor: default;
@@ -239,14 +240,18 @@
         &__trigger {
             font-size: 1.8rem;
         }
-        &__meet-us {
-            a {
-                line-height: 2rem;
-            }
+        &__contact-us {
+            width: 200px;
         }
-        &__address {
-            line-height: 4rem;
-            width: 100%;
+        &__meet-us {
+            width: 200px;
+            margin-top: 20px;
+            gap: 35px;
+            a {
+                line-height: 2.5rem;
+                font-size: 1.42rem;
+                letter-spacing: 0.1px;
+            }
         }
     }
 }
