@@ -5,7 +5,7 @@
 @use '../abstracts/functions' as f;
 
 .anchor {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-weight: 700;
     font-size: f.px-to-rem(20px);
     text-decoration: none;
@@ -25,28 +25,28 @@
     color: variables.$paragraph-fonts-color;
 }
 .h1 {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-weight: 700;
     font-size: f.px-to-rem(41px);
     color: variables.$h1-fonts-color;
 }
 .h2 {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-weight: 700;
     font-size: f.px-to-rem(31px);
 }
 .h3 {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-weight: 700;
     font-size: f.px-to-rem(26px);
 }
 .h4 {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-weight: 700;
     font-size: f.px-to-rem(24px);
 }
 .subtitle {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-weight: 700;
     font-size: f.px-to-rem(16px);
     color: variables.$paragraph-fonts-color;
