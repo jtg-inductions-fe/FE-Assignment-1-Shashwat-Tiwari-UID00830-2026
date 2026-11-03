@@ -1,0 +1,135 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as m;
+
+.deals-modal {
+    background-color: variables.$secondary-color;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    inset: auto 0 0 0;
+    padding: 1.5rem 1rem 2rem;
+    border: none;
+    border-radius: 20px 20px 0 0;
+    overflow-y: auto;
+    text-align: center;
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    &__tag {
+        @include m.align-flex;
+        gap: 0.5rem;
+        color: variables.$pink;
+        font-family: variables.$inter-font-family;
+        margin-top: 2rem;
+    }
+    &__wheel {
+        @include m.align-flex;
+        position: relative;
+        width: 227px;
+        height: 227px;
+        margin: 30px auto 0;
+        border-radius: 50%;
+        background-color: variables.$white;
+    }
+
+    &__disc {
+        position: absolute;
+        inset: 0;
+        border: 4px solid variables.$white;
+        border-radius: 50%;
+        background: variables.$secondary-color;
+        transition: transform 4s ease-out;
+        background: conic-gradient(
+            red 0deg 90deg,
+            blue 90deg 180deg,
+            green 180deg 270deg,
+            yellow 270deg 360deg
+        );
+    }
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 75px;
+        color: variables.$white;
+        font-family: variables.$inter-font-family;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+        transform-origin: center;
+        &:nth-child(1) {
+            transform: translate(-50%, -50%) rotate(45deg) translateY(-65px)
+                rotate(180deg);
+        }
+        &:nth-child(2) {
+            transform: translate(-50%, -50%) rotate(135deg) translateY(-65px)
+                rotate(180deg);
+        }
+        &:nth-child(3) {
+            transform: translate(-50%, -50%) rotate(225deg) translateY(-65px)
+                rotate(180deg);
+        }
+        &:nth-child(4) {
+            transform: translate(-50%, -50%) rotate(315deg) translateY(-65px)
+                rotate(180deg);
+            color: variables.$black;
+        }
+    }
+
+    &__pointer {
+        position: absolute;
+        top: -3%;
+        z-index: 2;
+    }
+
+    &__loading-state {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: variables.$secondary-color;
+        font-size: 0.75rem;
+        z-index: 1;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    &__spin-btn {
+        position: relative;
+        z-index: 2;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 4px solid variables.$pink;
+        background-color: variables.$white;
+        color: variables.$pink;
+        cursor: pointer;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+    &__title {
+        font-family: variables.$inter-font-family;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 2rem;
+    }
+
+    &__subtitle {
+        font-family: variables.$inter-font-family;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-top: 2rem;
+    }
+}

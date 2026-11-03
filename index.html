@@ -22,7 +22,7 @@
             <nav class="header__navlinks" id="nav-links">
                 <a href="#Home" class="anchor">Home</a>
                 <a href="#Discover" class="anchor">Discover</a>
-                <a href="#open-deals" class="anchor">Special Deals</a>
+                <a href="#" id="openModalLink" class="anchor">Special Deals</a>
                 <a href="#Contact" class="anchor">Contact</a>
             </nav>
             <button class="header__menu-button">
@@ -479,24 +479,15 @@
                 </div>
             </div>
         </footer>
-        <dialog
-            class="deals-modal"
-            id="deals-modal"
-            aria-labelledby="deals-title"
-        >
-            <button
-                class="deals-modal__close"
-                id="close-deals"
-                type="button"
-                aria-label="Close"
-            >
+        <dialog class="deals-modal">
+            <button class="deals-modal__close" type="button">
                 <img
                     src="src/assets/close-spin.svg"
                     alt="close-spin"
                     class="deals-modal__close-icon"
                 />
             </button>
-            <div class="deals-modal__view" id="view-wheel">
+            <div class="deals-modal__view">
                 <p class="deals-modal__tag">
                     <img
                         src="src/assets/Gift.svg"
@@ -505,15 +496,56 @@
                     />
                     SPECIAL DEALS
                 </p>
-                <h2 class="deals-modal__title" id="deals-title">
+                <span class="deals-modal__title" id="deals-title">
                     Spin &amp; Win!
-                </h2>
-                <p class="deals-modal__subtitle">
+                </span>
+                <p class="deals-modal__subtitle paragraph">
                     Tap the center of the wheel to spin
                 </p>
+                <div class="deals-modal__wheel">
+                    <img
+                        src="src/assets/pointer.svg"
+                        alt=""
+                        class="deals-modal__pointer"
+                    />
+                    <div class="deals-modal__disc"></div>
+                    <div class="deals-modal__loading-state">Loading...</div>
+                    <button
+                        class="deals-modal__spin-btn"
+                        id="spin-btn"
+                        type="button"
+                        hidden
+                    >
+                        Spin
+                    </button>
+                </div>
+                <div class="deals-modal__result" hidden>
+                    <p class="deals-modal__won">You won!</p>
+                    <div class="deals-modal__result-deal"></div>
+                </div>
+
+                <button class="deals-modal__view-all" hidden>
+                    View All Unlocked Deals
+                    <span class="deals-modal__badge">0</span>
+                </button>
             </div>
-            <div class="deals-modal__view" id="view-list" hidden>
-                <h2 class="deals-modal__title">Unlocked Deals</h2>
+            <div class="deals-modal__listview" hidden>
+                <p class="deals-modal__tag">
+                    <img
+                        src="src/assets/Gift.svg"
+                        alt=""
+                        class="deals-modal__gift-icon"
+                    />
+                    SPECIAL DEALS
+                </p>
+                <span class="deals-modal__title">Unlocked Deals</span>
+                <p class="deals-modal__subtitle paragraph">
+                    All the deals you've unlocked yet!
+                </p>
+
+                <ul class="deals-modal__list"></ul>
+
+                <button class="deals-modal__back">Go Back</button>
             </div>
         </dialog>
         <script type="module" src="./src/script/index.js"></script>

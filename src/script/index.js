@@ -4,7 +4,7 @@
 import * as c from './constants.js';
 import { initializeCarousel } from './splide.js';
 import { getDeals } from './api.js';
-getDeals();
+import { isWon, addWonDeal, getWonCount, getWonDeals } from './state.js';
 
 const menuBtn = document.querySelector('.header__menu-button');
 const navLinks = document.getElementById('nav-links');
@@ -13,6 +13,180 @@ const btnContainer = document.querySelector('.header__button-container');
 const body = document.body;
 const footerButtons = document.querySelectorAll('.footer__trigger');
 const desktopQuery = window.matchMedia(`(min-width: ${c.mobilewidth}px)`);
+const openModalLink = document.getElementById('openModalLink');
+const closeModalBtn = document.querySelector('.deals-modal__close');
+const modal = document.querySelector('.deals-modal');
+const spinBtn = document.querySelector('.deals-modal__spin-btn');
+const loadingState = document.querySelector('.deals-modal__loading-state');
+const disc = document.querySelector('.deals-modal__disc');
+const resultElement = document.querySelector('.deals-modal__result');
+const resultDealElement = document.querySelector('.deals-modal__result-deal');
+const viewAllBtn = document.querySelector('.deals-modal__view-all');
+const badgeEl = document.querySelector('.deals-modal__badge');
+const viewWheel = document.querySelector('.deals-modal__view');
+const viewList = document.querySelector('.deals-modal__listview');
+const listEl = document.querySelector('.deals-modal__list');
+const backBtn = document.querySelector('.deals-modal__back');
+
+let allDeals = [];
+let wheelDeals = [];
+let currentRotation = 0;
+let winningDeal = null;
+function outofFocusModal(event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+function closeModal() {
+    modal.close();
+    body.style.overflow = '';
+}
+function openModal(e) {
+    e.preventDefault();
+    modal.showModal();
+    body.style.overflow = 'hidden';
+}
+
+async function initWheel() {
+    allDeals = await getDeals();
+    loadingState.hidden = true;
+    spinBtn.hidden = false;
+    if (allDeals.length === 0) {
+        loadingState.hidden = false;
+        spinBtn.hidden = true;
+        loadingState.textContent = 'No deals found';
+        return;
+    }
+    loadWheel();
+}
+
+function pickRandomDeal(list, n) {
+    const shuffled = [...list].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, n);
+}
+
+function renderWheel(deals) {
+    disc.innerHTML = '';
+    if (deals.length === 0) return;
+    deals.forEach((deal) => {
+        const label = document.createElement('span');
+        label.className = 'deals-modal__label';
+        label.textContent = deal.title;
+        disc.appendChild(label);
+    });
+}
+
+function loadWheel() {
+    const available = allDeals.filter((deal) => !isWon(deal));
+    wheelDeals = pickRandomDeal(available, 4);
+    renderWheel(wheelDeals);
+}
+
+function spinWheel() {
+    resultElement.hidden = true;
+    loadWheel();
+    if (wheelDeals.length === 0) {
+        return;
+    }
+    spinBtn.disabled = true;
+    const randomDegrees = Math.floor(Math.random() * 360);
+    const totalspinDegrees = 360 * 3 + randomDegrees;
+    currentRotation += totalspinDegrees;
+    disc.style.transform = `rotate(${currentRotation}deg)`;
+    setTimeout(() => {
+        spinBtn.disabled = false;
+        const stopDegrees = currentRotation % 360;
+        const pointerAngle = (360 - stopDegrees) % 360;
+        let winningIndex = 0;
+        if (pointerAngle >= 0 && pointerAngle < 90) {
+            winningIndex = 0;
+        } else if (pointerAngle >= 90 && pointerAngle < 180) {
+            winningIndex = 1;
+        } else if (pointerAngle >= 180 && pointerAngle < 270) {
+            winningIndex = 2;
+        } else {
+            winningIndex = 3;
+        }
+        winningDeal = wheelDeals[winningIndex];
+        showResult(addWonDeal(winningDeal));
+    }, 4000);
+}
+
+function getExpiryText(deal) {
+    const remaining =
+        deal.wonAt + deal.validityDays * (24 * 60 * 60 * 1000) - Date.now();
+    if (remaining <= 0) return 'Expired';
+    const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
+    if (days >= 1) return `Expires in ${days}d`;
+    return `Expires in ${Math.max(1, Math.floor(remaining / (60 * 60 * 1000)))}h`;
+}
+
+function showResult(won) {
+    resultDealElement.innerHTML = `
+    <div class="deal">
+      <div class="deal__info">
+        <p class="deal__title">${won.title}</p>
+        <p class="deal__expiry">${getExpiryText(won)}</p>
+      </div>
+      <code class="deal__code">${won.code}</code>
+      <button class="deal__copy" type="button" data-copy="${won.code}" aria-label="Copy code ${won.code}">
+        <img src="src/assets/copy.svg" alt="" />
+      </button>
+    </div>
+    `;
+    resultElement.hidden = false;
+    badgeEl.textContent = getWonCount();
+    viewAllBtn.hidden = false;
+}
+
+function getExpiry(deal) {
+    return deal.wonAt + deal.validityDays * (24 * 60 * 60 * 1000);
+}
+
+function sortDeals(deals) {
+    const now = Date.now();
+
+    const valid = deals.filter((deal) => getExpiry(deal) > now);
+    const expired = deals.filter((deal) => getExpiry(deal) <= now);
+
+    valid.sort((a, b) => getExpiry(a) - getExpiry(b));
+
+    return [...valid, ...expired];
+}
+
+function createList() {
+    const sorted = sortDeals(getWonDeals());
+    const now = Date.now();
+
+    listEl.innerHTML = sorted
+        .map((deal) => {
+            const expired = getExpiry(deal) <= now;
+            return `
+        <li class="deal">
+          <div class="deal__info">
+            <p class="deal__title">${deal.title}</p>
+            <p class="deal__expiry">${expired ? 'Deal expired' : getExpiryText(deal)}</p>
+          </div>
+          <code class="deal__code">${deal.code}</code>
+          <button class="deal__copy" type="button" data-copy="${deal.code}"
+                   ${deal.code}" ${expired ? 'disabled' : ''}>
+            <img src="src/assets/copy.svg" alt="" />
+          </button>
+        </li>`;
+        })
+        .join('');
+}
+
+function changeView() {
+    createList();
+    viewWheel.hidden = true;
+    viewList.hidden = false;
+}
+function changeBack() {
+    viewWheel.hidden = false;
+    viewList.hidden = true;
+}
 /**
  * Toggles the mobile navigation menu and updates the menu icon.
  * Also handles the button container visibility for narrow mobile viewports.
@@ -174,3 +348,10 @@ navLinks.addEventListener('click', handleNavLinkClick);
 window.addEventListener('resize', handleWindowResize);
 document.addEventListener('click', outOfFocus);
 document.addEventListener('DOMContentLoaded', initializeCarousel);
+openModalLink.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', outofFocusModal);
+openModalLink.addEventListener('click', initWheel);
+spinBtn.addEventListener('click', spinWheel);
+viewAllBtn.addEventListener('click', changeView);
+backBtn.addEventListener('click', changeBack);
