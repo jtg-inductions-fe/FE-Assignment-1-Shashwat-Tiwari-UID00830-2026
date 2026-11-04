@@ -4,7 +4,7 @@
 @use '../abstracts/mixins' as m;
 
 .btn-primary {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-weight: 700;
     font-size: 14px;
     border-radius: 100px;
@@ -20,7 +20,7 @@
     box-shadow: variables.$box-shadow-values;
 }
 .btn-secondary {
-    font-family: variables.$roboto-font-family;
+    font-family: variables.$CircularStd-font-family;
     font-size: 14px;
     font-weight: 700;
     border-radius: 100px;

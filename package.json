@@ -1,6 +1,6 @@
 {
-    "name": "static-html-base-template",
-    "description": "",
+    "name": "Travlog",
+    "description": "A travel themed website which sells travel packages and provides information about various travel destinations.",
     "keywords": [],
     "version": "0.0.0",
     "private": true,

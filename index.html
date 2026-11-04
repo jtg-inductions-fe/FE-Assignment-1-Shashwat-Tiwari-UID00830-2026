@@ -1,20 +1,24 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Travlog</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="src/styles/main.scss" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,700;1,700&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
         <header class="header">
-            <img src="src/assets/logo.svg" alt="Logo" class="header__logo" />
+            <img
+                src="src/assets/logo.svg"
+                alt="Travel-Logo"
+                class="header__logo"
+            />
             <nav class="header__navlinks" id="nav-links">
                 <a href="#Home" class="anchor">Home</a>
                 <a href="#Discover" class="anchor">Discover</a>
@@ -30,103 +34,109 @@
             </button>
             <div class="header__button-container">
                 <button class="btn-secondary header__login-btn">Log In</button>
-                <button class="btn-primary header__sign-up-btn">Sign Up</button>
+                <button
+                    class="btn-primary header__sign-up-btn"
+                    id="sign-up-btn"
+                >
+                    Sign Up
+                </button>
             </div>
         </header>
         <main>
             <section class="hero-section" id="Home">
                 <div class="hero-section__glow"></div>
-                <div class="hero-section__images">
-                    <img
-                        src="src/assets/airplanes.svg"
-                        alt="airplanes"
-                        class="hero-section__airplane-image"
-                        aria-hidden="true"
-                    />
-                    <div class="hero-section__rectangles">
+                <div class="hero-section__container">
+                    <div class="hero-section__images">
                         <img
-                            src="src/assets/rectangle-1.svg"
-                            alt="ocean-image"
-                            class="hero-section__rectangle-image1"
+                            src="src/assets/airplanes.svg"
+                            alt="airplanes"
+                            class="hero-section__airplane-image"
                             aria-hidden="true"
+                            fetchpriority="high"
                         />
-                        <img
-                            src="src/assets/rectangle-2.svg"
-                            alt="mountain-image"
-                            class="hero-section__rectangle-image2"
-                            aria-hidden="true"
-                        />
-                        <img
-                            src="src/assets/rectangle-3.svg"
-                            alt="city-image"
-                            class="hero-section__rectangle-image3"
-                            aria-hidden="true"
-                        />
-                    </div>
-                    <img
-                        src="src/assets/message-icon.svg"
-                        alt="message"
-                        class="hero-section__message-icon"
-                        aria-hidden="true"
-                    />
-                    <img
-                        src="src/assets/friends-icon.svg"
-                        alt="friends"
-                        class="hero-section__friends-icon"
-                        aria-hidden="true"
-                    />
-                    <img
-                        src="src/assets/location-icon.svg"
-                        alt="location"
-                        class="hero-section__location-icon"
-                        aria-hidden="true"
-                    />
-                </div>
-                <div class="hero-section__content">
-                    <div class="hero-section__explore-icon pink-font-color">
-                        Explore the world!
-                        <img
-                            src="src/assets/work.svg"
-                            alt="work"
-                            class="hero-section__work-icon"
-                            aria-hidden="true"
-                        />
-                    </div>
-                    <h1 class="h1" id="hero-title">
-                        Travel
-                        <span class="pink-font-color">top destination</span> of
-                        the world
-                    </h1>
-                    <div class="hero-section__paragraph-container">
-                        <p class="paragraph" id="hero-desc">
-                            We always make our customer happy by providing
-                            <br />
-                            as many choices as possible
-                        </p>
-                    </div>
-                    <div class="hero-section__btn-container">
-                        <button
-                            class="hero-section__get-started-btn btn-primary"
-                        >
-                            Get Started
-                        </button>
-                        <button
-                            class="hero-section__watch-demo-btn btn-secondary"
-                        >
+                        <div class="hero-section__rectangles">
                             <img
-                                src="src//assets/play-circle.svg"
-                                alt="play"
-                                class="hero-section__play-icon"
+                                src="src/assets/rectangle-1.svg"
+                                alt="ocean-image"
+                                class="hero-section__rectangle-image1"
                             />
-                            Watch Demo
-                        </button>
+                            <img
+                                src="src/assets/rectangle-2.svg"
+                                alt="mountain-image"
+                                class="hero-section__rectangle-image2"
+                            />
+                            <img
+                                src="src/assets/rectangle-3.svg"
+                                alt="city-image"
+                                class="hero-section__rectangle-image3"
+                            />
+                        </div>
+                        <img
+                            src="src/assets/message-icon.svg"
+                            alt="message"
+                            class="hero-section__message-icon"
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="src/assets/friends-icon.svg"
+                            alt="friends"
+                            class="hero-section__friends-icon"
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="src/assets/location-icon.svg"
+                            alt="location"
+                            class="hero-section__location-icon"
+                            aria-hidden="true"
+                        />
                     </div>
-                    <img
-                        src="src/assets/arrows.svg"
-                        alt="arrows"
-                        class="hero-section__arrows-icon"
-                        aria-hidden="true"
-                    />
+                    <div class="hero-section__content">
+                        <div class="hero-section__explore-icon pink-font-color">
+                            Explore the world!
+                            <img
+                                src="src/assets/work.svg"
+                                alt="work"
+                                class="hero-section__work-icon"
+                                aria-hidden="true"
+                            />
+                        </div>
+                        <h1 class="h1" id="hero-title">
+                            Travel
+                            <span class="pink-font-color">top destination</span>
+                            of the world
+                        </h1>
+                        <div class="hero-section__paragraph-container">
+                            <p class="paragraph">
+                                We always make our customer happy by providing
+                                <br />
+                                as many choices as possible
+                            </p>
+                        </div>
+                        <div class="hero-section__btn-container">
+                            <button
+                                class="hero-section__get-started-btn btn-primary"
+                                aria-describedby="sign-up-btn"
+                            >
+                                Get Started
+                            </button>
+                            <button
+                                class="hero-section__watch-demo-btn btn-secondary"
+                            >
+                                <img
+                                    src="src//assets/play-circle.svg"
+                                    alt="play"
+                                    class="hero-section__play-icon"
+                                />
+                                Watch Demo
+                            </button>
+                        </div>
+                        <img
+                            src="src/assets/arrows.svg"
+                            alt="arrows"
+                            class="hero-section__arrows-icon"
+                            aria-hidden="true"
+                        />
+                    </div>
                 </div>
                 <div class="hero-section__companies-container">
                     <img src="src/assets/tripadvisor.svg" alt="tripadvisor" />
@@ -168,7 +178,7 @@
                     </div>
                     <div class="travel-section__cards">
                         <div class="card" aria-describedby="stat-packages">
-                            <span>500+</span>
+                            <span id="stat-packages">500+</span>
                             <p class="paragraph">Holiday Package</p>
                         </div>
                         <div class="card" aria-describedby="stat-airlines">
@@ -239,7 +249,7 @@
                                     />
                                     <h3 class="h3">
                                         <span class="card__name"
-                                            >Laura Haddock
+                                            >Laura Haddock&nbsp;
                                         </span>
                                         <span class="card__title"
                                             >/ Designer</span
@@ -286,7 +296,7 @@
                                     />
                                     <h3 class="h3">
                                         <span class="card__name"
-                                            >Mark Smith</span
+                                            >Mark Smith&nbsp;</span
                                         >
                                         <span class="card__title">
                                             / Travel Enthusiast</span
@@ -332,7 +342,9 @@
                                         class="profile"
                                     />
                                     <h3 class="h3">
-                                        <span class="card__name">John Doe</span>
+                                        <span class="card__name"
+                                            >John Doe &nbsp;</span
+                                        >
                                         <span class="card__title">
                                             / Engineer</span
                                         >
@@ -374,6 +386,99 @@
                 </div>
             </section>
         </main>
+        <footer class="footer" id="Contact">
+            <div class="footer__content">
+                <div class="footer__heading">
+                    <img
+                        src="src/assets/logo.svg"
+                        alt="travel-logo"
+                        class="footer__logo"
+                    />
+                    <h4 class="h4">Travlog</h4>
+                </div>
+                <div class="footer__paragraph-container">
+                    <p class="paragraph footer__paragraph">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC.
+                    </p>
+                </div>
+                <div class="footer__social-icons">
+                    <a
+                        href="https://www.facebook.com/"
+                        aria-label="Follow us on Facebook"
+                    >
+                        <img src="src/assets/facebook.svg" alt="Facebook" />
+                    </a>
+                    <a href="https://x.com/" aria-label="Follow us on Twitter">
+                        <img src="src/assets/twitter.svg" alt="Twitter" />
+                    </a>
+                    <a
+                        href="https://www.instagram.com/"
+                        aria-label="Follow us on Instagram"
+                    >
+                        <img src="src/assets/instagram.svg" alt="Instagram" />
+                    </a>
+                </div>
+            </div>
+            <div class="footer__info">
+                <img
+                    src="src/assets/footer-bg.svg"
+                    alt="footer-bg"
+                    class="footer__bg"
+                />
+                <div class="footer__section">
+                    <button class="footer__trigger">
+                        Company
+                        <img
+                            src="src/assets/arrow-circle.svg"
+                            alt="arrow-circle"
+                            class="footer__icon"
+                        />
+                    </button>
+                    <div class="footer__panel footer__company">
+                        <a href="/" class="anchor">About</a>
+                        <a href="/" class="anchor">Career</a>
+                        <a href="/" class="anchor">Mobile</a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <button class="footer__trigger">
+                        Contact Us
+                        <img
+                            src="src/assets/arrow-circle.svg"
+                            alt="arrow-circle"
+                            class="footer__icon"
+                        />
+                    </button>
+                    <div class="footer__panel footer__contact-us">
+                        <a href="/" class="anchor">Why Travlog?</a>
+                        <a href="/" class="anchor">Partner with us</a>
+                        <a href="/" class="anchor">FAQs</a>
+                        <a href="/" class="anchor">Blog</a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <button class="footer__trigger">
+                        Meet Us
+                        <img
+                            src="src/assets/arrow-circle.svg"
+                            alt="arrow-circle"
+                            class="footer__icon"
+                        />
+                    </button>
+                    <div class="footer__panel footer__meet-us">
+                        <a href="/" class="anchor">+00 92 1234 56789</a>
+                        <a href="/" class="anchor">info@travlog.com</a>
+                        <a href="/" class="anchor footer__address"
+                            >205. R Street, New York BD23200</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

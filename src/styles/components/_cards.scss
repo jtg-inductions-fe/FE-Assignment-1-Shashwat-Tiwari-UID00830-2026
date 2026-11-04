@@ -1,5 +1,7 @@
+/// This file contains the styles for the card components
 @use '../abstracts/variables';
 @use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
 
 .card {
     width: 348px;
@@ -11,16 +13,17 @@
     justify-content: space-evenly;
     align-items: center;
     span {
-        font-family: variables.$roboto-font-family;
+        font-family: variables.$CircularStd-font-family;
         font-weight: 700;
         font-size: 2.3rem;
         color: variables.$orange;
-        margin-top: 10px;
+        margin-top: 12px;
     }
     p {
         font-size: 1.125rem;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         color: variables.$black;
+        letter-spacing: 0.3px;
     }
 }
 
@@ -38,20 +41,20 @@
         justify-content: space-between;
         width: 220px;
         margin: auto;
-        margin-top: 32px;
+        margin-top: 35px;
     }
     p {
         text-align: center;
         color: variables.$black;
-        line-height: 1.5;
-        font-size: 18px;
+        line-height: 1.7;
+        font-size: f.px-to-rem(17px);
         width: 370px;
         margin: auto;
-        margin-top: 75px;
+        margin-top: 70px;
+        letter-spacing: 0.1px;
     }
     h3 {
         margin-top: 70px;
-        margin-inline: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -68,11 +71,11 @@
         }
         h3 {
             margin-top: 57px;
-            font-size: 26px;
+            font-size: f.px-to-rem(26px);
         }
         p {
             width: 60%;
-            font-size: 23px;
+            font-size: f.px-to-rem(23px);
             margin-top: 63px;
             line-height: 1.65;
         }
@@ -88,7 +91,7 @@
         }
         h3 {
             margin-top: 78px;
-            font-size: 32px;
+            font-size: f.px-to-rem(32px);
             letter-spacing: 1px;
         }
         .stars {
@@ -100,9 +103,10 @@
             }
         }
         p {
-            margin-top: 80px;
-            max-width: 1020px;
-            font-size: 29px;
+            margin-top: 72px;
+            max-width: 1070px;
+            font-size: f.px-to-rem(31px);
+            letter-spacing: 0.05px;
         }
     }
 }

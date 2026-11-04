@@ -1,0 +1,8 @@
+/// This file is used to set the max-width of the body and center it on the page.
+
+@use '../abstracts/variables';
+
+body {
+    max-width: variables.$max-width;
+    margin: auto;
+}

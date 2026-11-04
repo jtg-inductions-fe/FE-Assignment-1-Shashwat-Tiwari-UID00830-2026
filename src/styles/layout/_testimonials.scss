@@ -2,8 +2,6 @@
 @use '../abstracts/variables';
 
 .testimonials {
-    max-width: variables.$max-width;
-    margin: auto;
     &__tablet-bg {
         display: none;
     }
@@ -13,14 +11,14 @@
     &__heading {
         @include m.align-center-flex;
         flex-direction: column;
-        margin-top: 133px;
+        margin-top: 130px;
         height: 73px;
         h2 {
-            width: 230px;
+            letter-spacing: 0.7px;
         }
     }
     &__subtitle {
-        letter-spacing: 3px;
+        letter-spacing: 3.2px;
     }
     &__container {
         position: relative;
@@ -38,7 +36,7 @@
         height: 750px;
         position: relative;
         overflow: hidden;
-        &__bg {
+        &__tablet-bg {
             position: absolute;
             top: -205px;
             z-index: -1;
@@ -48,17 +46,17 @@
             width: 100vw;
         }
         &__heading {
-            margin-top: 30px;
+            margin-top: 32px;
             height: 88px;
             h2 {
-                font-size: 39px;
+                font-size: 38px;
                 width: auto;
                 letter-spacing: 1px;
             }
         }
         &__subtitle {
             font-size: 22px;
-            letter-spacing: 5.8px;
+            letter-spacing: 5.5px;
         }
     }
 }
@@ -84,17 +82,17 @@
             opacity: 0.1;
         }
         &__heading {
-            margin-top: 140px;
+            margin-top: 150px;
             margin-left: 62px;
             height: 125px;
             h2 {
                 font-size: 55px;
-                letter-spacing: 1.9px;
+                letter-spacing: 1px;
             }
         }
         &__subtitle {
             font-size: 32px;
-            letter-spacing: 5.8px;
+            letter-spacing: 4.8px;
         }
         &__container {
             width: 100%;

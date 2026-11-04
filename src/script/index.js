@@ -4,18 +4,21 @@
 import * as c from './constants.js';
 import { initializeCarousel } from './splide.js';
 
-export const menuBtn = document.querySelector('.header__menu-button');
-export const navLinks = document.getElementById('nav-links');
-export const menuIcon = document.querySelector('.header__menu-icon');
-export const btnContainer = document.querySelector('.header__button-container');
-export const body = document.body;
+const menuBtn = document.querySelector('.header__menu-button');
+const navLinks = document.getElementById('nav-links');
+const menuIcon = document.querySelector('.header__menu-icon');
+const btnContainer = document.querySelector('.header__button-container');
+const body = document.body;
+const footerButtons = document.querySelectorAll('.footer__trigger');
+const desktopQuery = window.matchMedia(`(min-width: ${c.mobilewidth}px)`);
 /**
  * Toggles the mobile navigation menu and updates the menu icon.
  * Also handles the button container visibility for narrow mobile viewports.
  */
 function handleMenuToggle() {
     navLinks.classList.toggle('header__navlinks--active');
-
+    const menuButton = menuIcon.closest('button') || menuIcon;
+    menuButton.focus();
     if (window.innerWidth <= c.mobilewidth) {
         btnContainer.classList.toggle('header__button-container--active');
     }
@@ -41,6 +44,9 @@ function handleNavLinkClick(event) {
     }
 }
 
+/**
+ * Closes the mobile navigation menu and resets the menu icon to its default state.
+ */
 function closeMobileMenu() {
     navLinks.classList.remove('header__navlinks--active');
     btnContainer.classList.remove('header__button-container--active');
@@ -82,33 +88,32 @@ function menuAccessibility(e) {
     if (e.key === 'Escape') {
         e.preventDefault();
         closeMobileMenu();
-        menuIcon.focus();
+        const menuButton = menuIcon.closest('button') || menuIcon;
+        menuButton.focus();
         return;
     }
     if (e.key === 'Tab') {
         const navElements = Array.from(navLinks.querySelectorAll('a'));
         const buttonElements = Array.from(
-            btnContainer.querySelectorAll('button'),
+            desktopQuery.matches ? [] : btnContainer.querySelectorAll('button'),
         );
-
-        const elements = [menuIcon, ...navElements, ...buttonElements];
+        const menuButton = menuIcon.closest('button') || menuIcon;
+        const elements = [menuButton, ...navElements, ...buttonElements];
 
         const allFocusableElements = elements.filter(
             (el) => el.offsetWidth > 0 || el.offsetHeight > 0,
         );
         if (allFocusableElements.length <= 1) return;
-
-        const firstElement = allFocusableElements[0];
-        const lastElement =
-            allFocusableElements[allFocusableElements.length - 1];
-
-        if (e.shiftKey && document.activeElement === firstElement) {
-            e.preventDefault();
-            lastElement.focus();
-        } else if (!e.shiftKey && document.activeElement === lastElement) {
-            e.preventDefault();
-            firstElement.focus();
+        e.preventDefault();
+        const index = allFocusableElements.indexOf(document.activeElement);
+        const last = allFocusableElements.length - 1;
+        let next;
+        if (e.shiftKey) {
+            next = index <= 0 ? last : index - 1;
+        } else {
+            next = index === last ? 0 : index + 1;
         }
+        allFocusableElements[next].focus();
     }
 }
 /**
@@ -126,6 +131,41 @@ function outOfFocus(event) {
     }
 }
 
+/**
+ * Toggles the open state of a footer section.
+ * @param {event} - The click event object.
+ */
+function toggleFooterSection(event) {
+    const clickedButton = event.currentTarget;
+    const currentSection = clickedButton.parentElement;
+    currentSection.classList.toggle('footer__section--active');
+}
+
+/**
+ * This function handles the resizing of the footer section based on the current screen width.
+ */
+function handleFooterResize() {
+    const currentwidth = window.innerWidth;
+    footerButtons.forEach((button) => {
+        if (currentwidth > c.mobilewidth) {
+            document.querySelectorAll('.footer__section').forEach((section) => {
+                section.classList.remove('footer__section--active');
+            });
+            if (document.activeElement === button) {
+                button.blur();
+            }
+            button.setAttribute('tabindex', '-1');
+        } else {
+            button.setAttribute('tabindex', '0');
+        }
+    });
+}
+
+document.querySelectorAll('.footer__trigger').forEach((button) => {
+    button.addEventListener('click', toggleFooterSection);
+});
+
+window.addEventListener('resize', handleFooterResize);
 window.addEventListener('keydown', menuAccessibility);
 menuBtn.addEventListener('click', handleMenuToggle);
 navLinks.addEventListener('click', handleNavLinkClick);

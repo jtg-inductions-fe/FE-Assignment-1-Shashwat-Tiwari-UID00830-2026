@@ -6,7 +6,6 @@
 .header {
     @include m.align-center-flex;
     width: 92.55%;
-    max-width: variables.$max-width;
     height: variables.$sm-height;
     margin: auto;
     position: relative;
@@ -83,6 +82,9 @@
         a:hover {
             background-color: variables.$white;
             color: variables.$primary-color;
+        }
+        a:focus {
+            outline: 2px solid variables.$secondary-color;
         }
     }
 }
