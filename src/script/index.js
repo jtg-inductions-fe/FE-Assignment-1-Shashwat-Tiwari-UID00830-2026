@@ -27,6 +27,7 @@ const viewWheel = document.querySelector('.deals-modal__view');
 const viewList = document.querySelector('.deals-modal__listview');
 const listEl = document.querySelector('.deals-modal__list');
 const backBtn = document.querySelector('.deals-modal__back');
+const pointer = document.querySelector('.deals-modal__pointer');
 
 let allDeals = [];
 let wheelDeals = [];
@@ -34,6 +35,8 @@ let currentRotation = 0;
 let winningDeal = null;
 function outofFocusModal(event) {
     if (event.target === modal) {
+        viewWheel.hidden = false;
+        viewList.hidden = true;
         closeModal();
     }
 }
@@ -52,6 +55,7 @@ async function initWheel() {
     allDeals = await getDeals();
     loadingState.hidden = true;
     spinBtn.hidden = false;
+    pointer.src = c.redPointerPath;
     if (allDeals.length === 0) {
         loadingState.hidden = false;
         spinBtn.hidden = true;
@@ -94,6 +98,7 @@ function spinWheel() {
     const totalspinDegrees = 360 * 3 + randomDegrees;
     currentRotation += totalspinDegrees;
     disc.style.transform = `rotate(${currentRotation}deg)`;
+    spinBtn.style.transform = `rotate(${currentRotation}deg)`;
     setTimeout(() => {
         spinBtn.disabled = false;
         const stopDegrees = currentRotation % 360;
@@ -131,7 +136,7 @@ function showResult(won) {
       </div>
       <code class="deal__code">${won.code}</code>
       <button class="deal__copy" type="button" data-copy="${won.code}" aria-label="Copy code ${won.code}">
-        <img src="src/assets/copy.svg" alt="" />
+        <img src="src/assets/copy.svg" alt="" class="deal__copy-img" />
       </button>
     </div>
     `;
@@ -186,6 +191,16 @@ function changeView() {
 function changeBack() {
     viewWheel.hidden = false;
     viewList.hidden = true;
+}
+
+async function copyCode(e) {
+    const btn = e.target.closest('[data-copy]');
+    if (!btn || btn.disabled) return;
+    await navigator.clipboard.writeText(btn.dataset.copy);
+    btn.classList.add('deal__copy--done');
+    setTimeout(() => {
+        btn.classList.remove('deal__copy--done');
+    }, 2000);
 }
 /**
  * Toggles the mobile navigation menu and updates the menu icon.
@@ -355,3 +370,5 @@ openModalLink.addEventListener('click', initWheel);
 spinBtn.addEventListener('click', spinWheel);
 viewAllBtn.addEventListener('click', changeView);
 backBtn.addEventListener('click', changeBack);
+resultDealElement.addEventListener('click', copyCode);
+listEl.addEventListener('click', copyCode);

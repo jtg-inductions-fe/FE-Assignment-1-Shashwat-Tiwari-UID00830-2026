@@ -4,8 +4,8 @@
 .deals-modal {
     background-color: variables.$secondary-color;
     position: fixed;
-    width: 100%;
-    height: auto;
+    width: 360px;
+    max-height: 90vh;
     margin: 0 auto;
     inset: auto 0 0 0;
     padding: 1.5rem 1rem 2rem;
@@ -22,19 +22,21 @@
         font-size: 1.5rem;
         cursor: pointer;
     }
-    &__tag {
+    &__heading {
         @include m.align-flex;
         gap: 0.5rem;
         color: variables.$pink;
         font-family: variables.$inter-font-family;
-        margin-top: 2rem;
+        font-weight: 600;
+        margin-top: 0.6rem;
+        margin-bottom: 0.5rem;
     }
     &__wheel {
         @include m.align-flex;
         position: relative;
         width: 227px;
         height: 227px;
-        margin: 30px auto 0;
+        margin: 30px auto 40px;
         border-radius: 50%;
         background-color: variables.$white;
     }
@@ -42,16 +44,28 @@
     &__disc {
         position: absolute;
         inset: 0;
-        border: 4px solid variables.$white;
+        border: 5px solid variables.$secondary-color;
         border-radius: 50%;
         background: variables.$secondary-color;
         transition: transform 4s ease-out;
-        background: conic-gradient(
-            red 0deg 90deg,
-            blue 90deg 180deg,
-            green 180deg 270deg,
-            yellow 270deg 360deg
-        );
+        background:
+            linear-gradient(
+                    variables.$secondary-color,
+                    variables.$secondary-color
+                )
+                center / 5px 100% no-repeat,
+            linear-gradient(
+                    variables.$secondary-color,
+                    variables.$secondary-color
+                )
+                center / 100% 5px no-repeat,
+            conic-gradient(
+                variables.$red 0deg 90deg,
+                variables.$blue 90deg 180deg,
+                variables.$cyan 180deg 270deg,
+                variables.$yellow 270deg 360deg
+            );
+        box-shadow: variables.$disc-shadow-values;
     }
 
     &__label {
@@ -61,26 +75,22 @@
         width: 75px;
         color: variables.$white;
         font-family: variables.$inter-font-family;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 700;
         line-height: 1.2;
         text-align: center;
         transform-origin: center;
         &:nth-child(1) {
-            transform: translate(-50%, -50%) rotate(45deg) translateY(-65px)
-                rotate(180deg);
+            transform: translate(-50%, -50%) rotate(45deg) translateY(-65px);
         }
         &:nth-child(2) {
-            transform: translate(-50%, -50%) rotate(135deg) translateY(-65px)
-                rotate(180deg);
+            transform: translate(-50%, -50%) rotate(135deg) translateY(-65px);
         }
         &:nth-child(3) {
-            transform: translate(-50%, -50%) rotate(225deg) translateY(-65px)
-                rotate(180deg);
+            transform: translate(-50%, -50%) rotate(225deg) translateY(-65px);
         }
         &:nth-child(4) {
-            transform: translate(-50%, -50%) rotate(315deg) translateY(-65px)
-                rotate(180deg);
+            transform: translate(-50%, -50%) rotate(315deg) translateY(-65px);
             color: variables.$black;
         }
     }
@@ -92,11 +102,13 @@
     }
 
     &__loading-state {
+        @include m.align-flex;
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        background: variables.$secondary-color;
-        font-size: 0.75rem;
+        background: variables.$white;
+        font-size: 0.9rem;
+        color: variables.$black;
         z-index: 1;
 
         &[hidden] {
@@ -111,25 +123,76 @@
         height: 44px;
         border-radius: 50%;
         border: 4px solid variables.$pink;
-        background-color: variables.$white;
+        background-color: variables.$secondary-color;
         color: variables.$pink;
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-family: variables.$inter-font-family;
         cursor: pointer;
+        transition: transform 4s ease-out;
 
         &[hidden] {
             display: none;
         }
     }
     &__title {
+        @include m.align-flex;
         font-family: variables.$inter-font-family;
         font-size: 1.5rem;
         font-weight: 700;
-        margin-top: 2rem;
+        margin-top: 1rem;
+        letter-spacing: 10%;
     }
 
     &__subtitle {
         font-family: variables.$inter-font-family;
-        font-size: 1rem;
+        font-size: 0.8rem;
         font-weight: 400;
-        margin-top: 2rem;
+        margin-top: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    &__won {
+        font-family: variables.$inter-font-family;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    &__view-all {
+        @include m.align-flex;
+        width: 100%;
+        gap: 10px;
+        margin: auto;
+        margin-top: 30px;
+    }
+    &__badge {
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: variables.$primary-color;
+        width: 23px;
+        height: 23px;
+        color: variables.$white;
+    }
+    &__back {
+        @include m.align-flex;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    &__list {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+}
+@include m.up('lg') {
+    .deals-modal {
+        border-radius: 20px;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        &__wheel {
+            width: 236px;
+            height: 236px;
+        }
     }
 }

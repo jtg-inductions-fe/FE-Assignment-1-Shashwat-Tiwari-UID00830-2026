@@ -488,7 +488,7 @@
                 />
             </button>
             <div class="deals-modal__view">
-                <p class="deals-modal__tag">
+                <p class="deals-modal__heading">
                     <img
                         src="src/assets/Gift.svg"
                         alt="gift"
@@ -505,32 +505,27 @@
                 <div class="deals-modal__wheel">
                     <img
                         src="src/assets/pointer.svg"
-                        alt=""
+                        alt="pointer"
                         class="deals-modal__pointer"
                     />
                     <div class="deals-modal__disc"></div>
-                    <div class="deals-modal__loading-state">Loading...</div>
-                    <button
-                        class="deals-modal__spin-btn"
-                        id="spin-btn"
-                        type="button"
-                        hidden
-                    >
-                        Spin
-                    </button>
+                    <div class="deals-modal__loading-state paragraph">
+                        Loading...
+                    </div>
+                    <button class="deals-modal__spin-btn" hidden>Spin</button>
                 </div>
                 <div class="deals-modal__result" hidden>
                     <p class="deals-modal__won">You won!</p>
                     <div class="deals-modal__result-deal"></div>
                 </div>
 
-                <button class="deals-modal__view-all" hidden>
-                    View All Unlocked Deals
+                <button class="deals-modal__view-all btn-secondary" hidden>
+                    <span>View All Unlocked Deals</span>
                     <span class="deals-modal__badge">0</span>
                 </button>
             </div>
             <div class="deals-modal__listview" hidden>
-                <p class="deals-modal__tag">
+                <p class="deals-modal__heading">
                     <img
                         src="src/assets/Gift.svg"
                         alt=""
@@ -545,7 +540,7 @@
 
                 <ul class="deals-modal__list"></ul>
 
-                <button class="deals-modal__back">Go Back</button>
+                <button class="deals-modal__back btn-secondary">Go Back</button>
             </div>
         </dialog>
         <script type="module" src="./src/script/index.js"></script>

@@ -4,6 +4,7 @@
 
 export const hamburgerIconPath = 'src/assets/menu.svg';
 export const closeIconPath = 'src/assets/cross.svg';
+export const redPointerPath = 'src/assets/pointer-red.svg';
 export const tabletwidth = 1024;
 export const mobilewidth = 430;
 export const DEALS_URL =
