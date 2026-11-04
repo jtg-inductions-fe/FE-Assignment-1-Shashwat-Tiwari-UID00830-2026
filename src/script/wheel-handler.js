@@ -21,7 +21,7 @@ export function updateWheelStyles(discElement, dealCount) {
  * Gets the index of the winning deal based on the pointer angle and the number of deals.
  * @param {*} pointerAngle
  * @param {*} dealCount
- * @returns
+ * @returns {number} The index of the winning deal.
  */
 export function getWinningIndex(pointerAngle, dealCount) {
     if (dealCount === 3) {

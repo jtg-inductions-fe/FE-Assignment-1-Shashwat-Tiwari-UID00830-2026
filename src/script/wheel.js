@@ -97,7 +97,6 @@ function loadWheel() {
  *  Spins the deals wheel, randomly determining a winning deal based on the final position of the wheel after spinning.
  *  The function disables the spin button during the spin animation, calculates the winning deal based on the pointer's angle, and displays the result.
  *  If there are no available deals to spin, or if the wheel fails to load, the function will not proceed with spinning.
- *  @function spinWheel
  *
  */
 export function spinWheel() {
