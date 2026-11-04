@@ -11,7 +11,6 @@
     padding: 1.5rem 1rem 2rem;
     border: none;
     border-radius: 20px 20px 0 0;
-    overflow-y: auto;
     text-align: center;
     &__close {
         position: absolute;
@@ -66,6 +65,38 @@
                 variables.$yellow 270deg 360deg
             );
         box-shadow: variables.$disc-shadow-values;
+        &.has-3-deals {
+            background: conic-gradient(
+                    variables.$secondary-color 0deg 3deg,
+                    transparent 3deg 118.5deg,
+                    variables.$secondary-color 118.5deg 121.5deg,
+                    transparent 121.5deg 238.5deg,
+                    variables.$secondary-color 238.5deg 241.5deg,
+                    transparent 241.5deg 360deg
+                ),
+                conic-gradient(
+                    variables.$red 0deg 120deg,
+                    variables.$blue 120deg 240deg,
+                    variables.$cyan 240deg 360deg
+                );
+        }
+
+        &.has-2-deals {
+            background:
+                linear-gradient(
+                        variables.$secondary-color,
+                        variables.$secondary-color
+                    )
+                    center / 5px 100% no-repeat,
+                conic-gradient(
+                    variables.$red 0deg 180deg,
+                    variables.$blue 180deg 360deg
+                );
+        }
+
+        &.has-1-deal {
+            background: variables.$red;
+        }
     }
 
     &__label {
@@ -92,6 +123,54 @@
         &:nth-child(4) {
             transform: translate(-50%, -50%) rotate(315deg) translateY(-65px);
             color: variables.$black;
+        }
+
+        .has-3-deals & {
+            &:nth-child(1) {
+                transform: translate(-50%, -50%) rotate(60deg) translateY(-65px);
+                color: variables.$white;
+            }
+            &:nth-child(2) {
+                transform: translate(-50%, -50%) rotate(180deg)
+                    translateY(-65px);
+                color: variables.$white;
+            }
+            &:nth-child(3) {
+                transform: translate(-50%, -50%) rotate(300deg)
+                    translateY(-65px);
+                color: variables.$white;
+            }
+            &:nth-child(4) {
+                display: none;
+            }
+        }
+
+        .has-2-deals & {
+            &:nth-child(1) {
+                transform: translate(-50%, -50%) rotate(90deg) translateY(-65px);
+                color: variables.$white;
+            }
+            &:nth-child(2) {
+                transform: translate(-50%, -50%) rotate(270deg)
+                    translateY(-65px);
+                color: variables.$white;
+            }
+            &:nth-child(3),
+            &:nth-child(4) {
+                display: none;
+            }
+        }
+
+        .has-1-deal & {
+            &:nth-child(1) {
+                transform: translate(-50%, -50%) rotate(0deg) translateY(0px);
+                color: variables.$white;
+            }
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4) {
+                display: none;
+            }
         }
     }
 
@@ -166,8 +245,7 @@
         margin-top: 30px;
     }
     &__badge {
-        display: flex;
-        justify-content: center;
+        @include m.align-flex;
         border-radius: 50%;
         background-color: variables.$primary-color;
         width: 23px;
@@ -187,12 +265,37 @@
 }
 @include m.up('lg') {
     .deals-modal {
+        width: 470px;
+        min-height: 580px;
         border-radius: 20px;
-        inset: 50% auto auto 50%;
+        inset: 52.5% auto auto 51%;
         transform: translate(-50%, -50%);
         &__wheel {
-            width: 236px;
-            height: 236px;
+            width: 300px;
+            height: 300px;
+        }
+        &__label {
+            font-size: 15px;
+            line-height: 1.1;
+            &:nth-child(1) {
+                transform: translate(-50%, -50%) rotate(45deg) translateY(-85px);
+            }
+            &:nth-child(2) {
+                transform: translate(-50%, -50%) rotate(135deg)
+                    translateY(-85px);
+            }
+            &:nth-child(3) {
+                transform: translate(-50%, -50%) rotate(225deg)
+                    translateY(-85px);
+            }
+            &:nth-child(4) {
+                transform: translate(-50%, -50%) rotate(315deg)
+                    translateY(-85px);
+                color: variables.$black;
+            }
+        }
+        &__badge {
+            align-items: flex-start;
         }
     }
 }
