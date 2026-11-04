@@ -7,7 +7,7 @@ const wonDeals = [];
 /**
  * Adds a new won deal to the list of won deals.
  * @param {*} deal
- * @returns
+ * @returns {Object} The added won deal object.
  */
 export function addWonDeal(deal) {
     const won = { ...deal, wonAt: Date.now() };
