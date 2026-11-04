@@ -4,6 +4,10 @@
         <title>Travlog</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Travlog helps you discover top travel destinations around the world. Explore places, unlock special deals and plan your next trip."
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -19,17 +23,22 @@
                 alt="Travel-Logo"
                 class="header__logo"
             />
-            <nav class="header__navlinks" id="nav-links">
+            <nav
+                class="header__navlinks"
+                id="nav-links"
+                aria-label="Main Navigation"
+            >
                 <a href="#Home" class="anchor">Home</a>
                 <a href="#Discover" class="anchor">Discover</a>
                 <a href="#" id="openModalLink" class="anchor">Special Deals</a>
                 <a href="#Contact" class="anchor">Contact</a>
             </nav>
-            <button class="header__menu-button">
+            <button class="header__menu-button" aria-label="Open Menu">
                 <img
                     src="src/assets/menu.svg"
                     alt="Menu"
                     class="header__menu-icon"
+                    aria-hidden="true"
                 />
             </button>
             <div class="header__button-container">
@@ -181,7 +190,7 @@
                             <span id="stat-packages">500+</span>
                             <p class="paragraph">Holiday Package</p>
                         </div>
-                        <div class="card" aria-describedby="stat-airlines">
+                        <div class="card" aria-describedby="stat-hotels">
                             <span id="stat-hotels">100</span>
                             <p class="paragraph">Luxury Hotel</p>
                         </div>
@@ -219,10 +228,14 @@
                     </p>
                     <h2 class="h2">Trust our clients</h2>
                 </div>
-                <div class="testimonials__container splide">
+                <div
+                    class="testimonials__container splide"
+                    aria-label="Customer Testimonials"
+                >
                     <div class="splide__arrows">
                         <button
                             class="splide__arrow splide__arrow--prev btn-secondary"
+                            aria-label="Previous testimonial"
                         >
                             <img
                                 src="src/assets/arrow-left.svg"
@@ -231,6 +244,7 @@
                         </button>
                         <button
                             class="btn-secondary splide__arrow splide__arrow--next"
+                            aria-label="Next testimonial"
                         >
                             <img
                                 src="src/assets/arrow-right.svg"
@@ -479,8 +493,11 @@
                 </div>
             </div>
         </footer>
-        <dialog class="deals-modal">
-            <button class="deals-modal__close" type="button">
+        <dialog class="deals-modal" aria-describedby="deals-desc">
+            <button
+                class="deals-modal__close"
+                aria-label="Close special deals dialog"
+            >
                 <img
                     src="src/assets/close-spin.svg"
                     alt="close-spin"
@@ -499,7 +516,7 @@
                 <span class="deals-modal__title" id="deals-title">
                     Spin &amp; Win!
                 </span>
-                <p class="deals-modal__subtitle paragraph">
+                <p class="deals-modal__subtitle paragraph" id="deals-desc">
                     Tap the center of the wheel to spin
                 </p>
                 <div class="deals-modal__wheel">

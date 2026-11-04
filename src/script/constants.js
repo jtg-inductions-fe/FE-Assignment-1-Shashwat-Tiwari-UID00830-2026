@@ -2,9 +2,11 @@
  * This file contains all the constants used in the script.js file.
  */
 
-export const hamburgerIconPath = 'src/assets/menu.svg';
-export const closeIconPath = 'src/assets/cross.svg';
-export const redPointerPath = 'src/assets/pointer-red.svg';
+import hamburgerIconPath from '../assets/menu.svg';
+import closeIconPath from '../assets/cross.svg';
+import redPointerPath from '../assets/pointer-red.svg';
+import copyIconPath from '../assets/copy.svg';
+export { hamburgerIconPath, closeIconPath, redPointerPath, copyIconPath };
 export const tabletwidth = 1024;
 export const mobilewidth = 430;
 export const DEALS_URL =

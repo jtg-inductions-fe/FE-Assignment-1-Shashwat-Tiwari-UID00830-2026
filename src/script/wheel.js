@@ -149,8 +149,8 @@ function showResult(won) {
         <p class="deal__expiry">${getExpiryText(won)}</p>
       </div>
       <code class="deal__code">${won.code}</code>
-      <button class="deal__copy" type="button" data-copy="${won.code}" aria-label="Copy code ${won.code}">
-        <img src="src/assets/copy.svg" alt="" class="deal__copy-img" />
+      <button class="deal__copy" data-copy="${won.code}" aria-label="Copy code ${won.code}">
+        <img src="${c.copyIconPath}" alt="" class="deal__copy-img" />
       </button>
     </div>
     `;
@@ -199,9 +199,9 @@ function createList() {
             <p class="deal__expiry">${expired ? 'Deal expired' : getExpiryText(deal)}</p>
           </div>
           <code class="deal__code">${deal.code}</code>
-          <button class="deal__copy" type="button" data-copy="${deal.code}"
+          <button class="deal__copy" data-copy="${deal.code}"
                    ${deal.code}" ${expired ? 'disabled' : ''}>
-            <img src="src/assets/copy.svg" alt="" />
+            <img src="${c.copyIconPath}" alt="" />
           </button>
         </li>`;
         })
