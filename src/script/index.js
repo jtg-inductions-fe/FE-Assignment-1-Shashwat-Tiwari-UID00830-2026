@@ -45,7 +45,6 @@ function outofFocusModal(event) {
  */
 function closeModal() {
     modal.close();
-    body.style.overflow = '';
 }
 /**
  * Opens the modal.
@@ -54,7 +53,6 @@ function closeModal() {
 function openModal(e) {
     e.preventDefault();
     modal.showModal();
-    body.style.overflow = 'hidden';
 }
 
 /**

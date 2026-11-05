@@ -24,6 +24,9 @@ body {
     height: 100%;
     overflow-x: clip;
 }
+html:has(dialog[open]) {
+    overflow: hidden;
+}
 p,
 h1,
 h2,
