@@ -4,32 +4,44 @@
         <title>Travlog</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Travlog helps you discover top travel destinations around the world. Explore places, unlock special deals and plan your next trip."
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,700;1,700&display=swap"
             rel="stylesheet"
         />
+        <link rel="icon" href="src/assets/logo.svg" type="image/svg" />
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
         <header class="header">
-            <img
-                src="src/assets/logo.svg"
-                alt="Travel-Logo"
-                class="header__logo"
-            />
-            <nav class="header__navlinks" id="nav-links">
+            <a href="/" class="header__logo-link">
+                <img
+                    src="src/assets/logo.svg"
+                    alt="Travlog home"
+                    class="header__logo"
+                />
+            </a>
+            <nav
+                class="header__navlinks"
+                id="nav-links"
+                aria-label="Main Navigation"
+            >
                 <a href="#Home" class="anchor">Home</a>
                 <a href="#Discover" class="anchor">Discover</a>
-                <a href="#SpecialDeals" class="anchor">Special Deals</a>
+                <a href="#" id="openModalLink" class="anchor">Special Deals</a>
                 <a href="#Contact" class="anchor">Contact</a>
             </nav>
-            <button class="header__menu-button">
+            <button class="header__menu-button" aria-label="Open Menu">
                 <img
                     src="src/assets/menu.svg"
                     alt="Menu"
                     class="header__menu-icon"
+                    aria-hidden="true"
                 />
             </button>
             <div class="header__button-container">
@@ -181,7 +193,7 @@
                             <span id="stat-packages">500+</span>
                             <p class="paragraph">Holiday Package</p>
                         </div>
-                        <div class="card" aria-describedby="stat-airlines">
+                        <div class="card" aria-describedby="stat-hotels">
                             <span id="stat-hotels">100</span>
                             <p class="paragraph">Luxury Hotel</p>
                         </div>
@@ -219,10 +231,14 @@
                     </p>
                     <h2 class="h2">Trust our clients</h2>
                 </div>
-                <div class="testimonials__container splide">
+                <div
+                    class="testimonials__container splide"
+                    aria-label="Customer Testimonials"
+                >
                     <div class="splide__arrows">
                         <button
                             class="splide__arrow splide__arrow--prev btn-secondary"
+                            aria-label="Previous testimonial"
                         >
                             <img
                                 src="src/assets/arrow-left.svg"
@@ -231,6 +247,7 @@
                         </button>
                         <button
                             class="btn-secondary splide__arrow splide__arrow--next"
+                            aria-label="Next testimonial"
                         >
                             <img
                                 src="src/assets/arrow-right.svg"
@@ -389,11 +406,13 @@
         <footer class="footer" id="Contact">
             <div class="footer__content">
                 <div class="footer__heading">
-                    <img
-                        src="src/assets/logo.svg"
-                        alt="travel-logo"
-                        class="footer__logo"
-                    />
+                    <a href="/">
+                        <img
+                            src="src/assets/logo.svg"
+                            alt="travel-logo"
+                            class="footer__logo"
+                        />
+                    </a>
                     <h4 class="h4">Travlog</h4>
                 </div>
                 <div class="footer__paragraph-container">
@@ -479,6 +498,83 @@
                 </div>
             </div>
         </footer>
+        <dialog class="deals-modal" aria-describedby="deals-desc">
+            <button
+                class="deals-modal__close"
+                aria-label="Close special deals dialog"
+            >
+                <img
+                    src="src/assets/close-spin.svg"
+                    alt="close-spin"
+                    class="deals-modal__close-icon"
+                />
+            </button>
+            <div class="deals-modal__view">
+                <p class="deals-modal__heading spin-wheel-fonts">
+                    <img
+                        src="src/assets/gift-icon.svg"
+                        alt="special-deals"
+                        class="deals-modal__gift-icon"
+                    />
+                    SPECIAL DEALS
+                </p>
+                <span
+                    class="deals-modal__title spin-wheel-fonts"
+                    id="deals-title"
+                >
+                    Spin &amp; Win!
+                </span>
+                <p class="deals-modal__subtitle paragraph" id="deals-desc">
+                    Tap the center of the wheel to spin
+                </p>
+                <div class="deals-modal__wheel">
+                    <img
+                        src="src/assets/pointer.svg"
+                        alt="pointer"
+                        class="deals-modal__pointer"
+                    />
+                    <div class="deals-modal__disc"></div>
+                    <div class="deals-modal__loading-state paragraph">
+                        Loading...
+                    </div>
+                    <button
+                        class="deals-modal__spin-btn spin-wheel-fonts"
+                        hidden
+                    >
+                        Spin
+                    </button>
+                </div>
+                <div class="deals-modal__result" hidden>
+                    <p class="deals-modal__won spin-wheel-fonts">You won!</p>
+                    <div class="deals-modal__result-deal"></div>
+                </div>
+
+                <button class="deals-modal__view-all btn-secondary" hidden>
+                    <span>View All Unlocked Deals</span>
+                    <span class="deals-modal__badge">0</span>
+                </button>
+            </div>
+            <div class="deals-modal__listview" hidden>
+                <p class="deals-modal__heading spin-wheel-fonts">
+                    <img
+                        src="src/assets/gift-icon.svg"
+                        alt="special-deals"
+                        class="deals-modal__gift-icon"
+                    />
+                    SPECIAL DEALS
+                </p>
+                <span class="deals-modal__title spin-wheel-fonts"
+                    >Unlocked Deals</span
+                >
+                <p class="deals-modal__subtitle paragraph">
+                    All the deals you've unlocked yet!
+                </p>
+
+                <ul class="deals-modal__list"></ul>
+
+                <button class="deals-modal__back btn-secondary">Go Back</button>
+            </div>
+        </dialog>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

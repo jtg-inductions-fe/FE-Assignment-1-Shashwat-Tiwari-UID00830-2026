@@ -3,6 +3,13 @@
  */
 import * as c from './constants.js';
 import { initializeCarousel } from './splide.js';
+import {
+    initWheel,
+    spinWheel,
+    changeView,
+    changeBack,
+    copyCode,
+} from './wheel.js';
 
 const menuBtn = document.querySelector('.header__menu-button');
 const navLinks = document.getElementById('nav-links');
@@ -11,6 +18,43 @@ const btnContainer = document.querySelector('.header__button-container');
 const body = document.body;
 const footerButtons = document.querySelectorAll('.footer__trigger');
 const desktopQuery = window.matchMedia(`(min-width: ${c.mobilewidth}px)`);
+const openModalLink = document.getElementById('openModalLink');
+const closeModalBtn = document.querySelector('.deals-modal__close');
+const modal = document.querySelector('.deals-modal');
+const spinBtn = document.querySelector('.deals-modal__spin-btn');
+const resultDealElement = document.querySelector('.deals-modal__result-deal');
+const viewAllBtn = document.querySelector('.deals-modal__view-all');
+const viewWheel = document.querySelector('.deals-modal__view');
+const viewList = document.querySelector('.deals-modal__listview');
+const listEl = document.querySelector('.deals-modal__list');
+const backBtn = document.querySelector('.deals-modal__back');
+
+/**
+ * Closes the modal when the user clicks outside of it.
+ * @param {*} event The click event object.
+ */
+function outofFocusModal(event) {
+    if (event.target === modal) {
+        viewWheel.hidden = false;
+        viewList.hidden = true;
+        closeModal();
+    }
+}
+/**
+ * Closes the modal and resets the body overflow style.
+ */
+function closeModal() {
+    modal.close();
+}
+/**
+ * Opens the modal.
+ * @param {Event} e The click event object.
+ */
+function openModal(e) {
+    e.preventDefault();
+    modal.showModal();
+}
+
 /**
  * Toggles the mobile navigation menu and updates the menu icon.
  * Also handles the button container visibility for narrow mobile viewports.
@@ -172,3 +216,12 @@ navLinks.addEventListener('click', handleNavLinkClick);
 window.addEventListener('resize', handleWindowResize);
 document.addEventListener('click', outOfFocus);
 document.addEventListener('DOMContentLoaded', initializeCarousel);
+openModalLink.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', outofFocusModal);
+openModalLink.addEventListener('click', initWheel);
+spinBtn.addEventListener('click', spinWheel);
+viewAllBtn.addEventListener('click', changeView);
+backBtn.addEventListener('click', changeBack);
+resultDealElement.addEventListener('click', copyCode);
+listEl.addEventListener('click', copyCode);
