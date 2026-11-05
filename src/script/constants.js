@@ -6,7 +6,14 @@ import hamburgerIconPath from '../assets/menu.svg';
 import closeIconPath from '../assets/cross.svg';
 import redPointerPath from '../assets/pointer-red.svg';
 import copyIconPath from '../assets/copy.svg';
-export { hamburgerIconPath, closeIconPath, redPointerPath, copyIconPath };
+import tickIconPath from '../assets/tick-icon.svg';
+export {
+    hamburgerIconPath,
+    closeIconPath,
+    redPointerPath,
+    copyIconPath,
+    tickIconPath,
+};
 export const tabletwidth = 1024;
 export const mobilewidth = 430;
 export const DEALS_URL =

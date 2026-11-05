@@ -225,7 +225,9 @@ export async function copyCode(e) {
     if (!btn || btn.disabled) return;
     await navigator.clipboard.writeText(btn.dataset.copy);
     btn.classList.add('deal__copy--done');
+    btn.innerHTML = `<img src="${c.tickIconPath}" alt="Copied" />`;
     setTimeout(() => {
         btn.classList.remove('deal__copy--done');
+        btn.innerHTML = `<img src="${c.copyIconPath}" alt="" class="deal__copy-img" />`;
     }, 2000);
 }
