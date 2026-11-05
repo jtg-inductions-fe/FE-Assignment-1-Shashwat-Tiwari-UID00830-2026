@@ -14,15 +14,18 @@
             href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,700;1,700&display=swap"
             rel="stylesheet"
         />
+        <link rel="icon" href="src/assets/logo.svg" type="image/svg" />
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
         <header class="header">
-            <img
-                src="src/assets/logo.svg"
-                alt="Travel-Logo"
-                class="header__logo"
-            />
+            <a href="/" class="header__logo-link">
+                <img
+                    src="src/assets/logo.svg"
+                    alt="Travlog home"
+                    class="header__logo"
+                />
+            </a>
             <nav
                 class="header__navlinks"
                 id="nav-links"
@@ -403,11 +406,13 @@
         <footer class="footer" id="Contact">
             <div class="footer__content">
                 <div class="footer__heading">
-                    <img
-                        src="src/assets/logo.svg"
-                        alt="travel-logo"
-                        class="footer__logo"
-                    />
+                    <a href="/">
+                        <img
+                            src="src/assets/logo.svg"
+                            alt="travel-logo"
+                            class="footer__logo"
+                        />
+                    </a>
                     <h4 class="h4">Travlog</h4>
                 </div>
                 <div class="footer__paragraph-container">

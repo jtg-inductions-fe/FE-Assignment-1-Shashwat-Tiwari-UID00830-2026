@@ -9,9 +9,13 @@
     height: variables.$sm-height;
     margin: auto;
     position: relative;
+    &__logo-link {
+        display: flex;
+        align-items: center;
+        order: 1;
+    }
 
     &__logo {
-        order: 1;
         cursor: pointer;
     }
     &__menu-button {
@@ -85,6 +89,7 @@
         }
         a:focus {
             outline: 2px solid variables.$secondary-color;
+            outline-offset: -2px;
         }
     }
 }
@@ -96,11 +101,12 @@
         height: auto;
         margin: auto;
         position: relative;
-
+        &__logo-link {
+            order: 2;
+        }
         &__logo {
             width: 40px;
             height: 40px;
-            order: 2;
         }
         &__button-container {
             display: inline-block;
