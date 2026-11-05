@@ -7,7 +7,7 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem;
-    border: 1px solid variables.$deal-border;
+    border: 1px solid variables.$light-pink;
     border-radius: 12px;
     background-color: variables.$deal-bg;
     text-align: left;
@@ -20,7 +20,6 @@
     }
 
     &__title {
-        font-family: variables.$inter-font-family;
         font-size: 0.9rem;
         font-weight: 600;
         line-height: 1.3;
@@ -29,20 +28,18 @@
 
     &__expiry {
         margin-top: 0.125rem;
-        font-family: variables.$inter-font-family;
         font-size: 0.75rem;
         color: variables.$purple;
+        font-weight: normal;
     }
 
     &__code {
         padding: 0.25rem 0.5rem;
-        border: 1px solid variables.$deal-border;
+        border: 1px solid variables.$light-pink;
         border-radius: 6px;
         background-color: variables.$secondary-color;
-        font-family: monospace;
         font-size: 0.625rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.04rem;
     }
 
     &__copy {

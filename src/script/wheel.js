@@ -7,6 +7,7 @@ import { getDeals } from './api.js';
 import * as c from './constants.js';
 import { addWonDeal, getWonDeals, getWonCount, isWon } from './state.js';
 import { updateWheelStyles, getWinningIndex } from './wheel-handler.js';
+import { getExpiry, getRemainingTime } from './utils.js';
 
 const spinBtn = document.querySelector('.deals-modal__spin-btn');
 const loadingState = document.querySelector('.deals-modal__loading-state');
@@ -69,7 +70,7 @@ function renderWheel(deals) {
     updateWheelStyles(disc, deals.length);
     deals.forEach((deal) => {
         const label = document.createElement('span');
-        label.className = 'deals-modal__label';
+        label.className = 'deals-modal__label spin-wheel-fonts';
         label.textContent = deal.title;
         disc.appendChild(label);
     });
@@ -100,7 +101,7 @@ function loadWheel() {
  *
  */
 export function spinWheel() {
-    resultElement.hidden = true;
+    resultElement.classList.add('deals-modal__result--clearing');
     if (wheelDeals.length <= 1) {
         return;
     }
@@ -129,12 +130,11 @@ export function spinWheel() {
  * @returns {string} The expiry text.
  */
 function getExpiryText(deal) {
-    const remaining =
-        deal.wonAt + deal.validityDays * (24 * 60 * 60 * 1000) - Date.now();
+    const remaining = getRemainingTime(deal);
     if (remaining <= 0) return 'Expired';
-    const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
+    const days = Math.floor(remaining / c.msInADay);
     if (days >= 1) return `Expires in ${days}d`;
-    return `Expires in ${Math.max(1, Math.floor(remaining / (60 * 60 * 1000)))}h`;
+    return `Expires in ${Math.max(1, Math.floor(remaining / c.msInAnHour))}h`;
 }
 
 /**
@@ -145,26 +145,19 @@ function showResult(won) {
     resultDealElement.innerHTML = `
     <div class="deal">
       <div class="deal__info">
-        <p class="deal__title">${won.title}</p>
-        <p class="deal__expiry">${getExpiryText(won)}</p>
+        <p class="deal__title spin-wheel-fonts">${won.title}</p>
+        <p class="deal__expiry spin-wheel-fonts">${getExpiryText(won)}</p>
       </div>
-      <code class="deal__code">${won.code}</code>
+      <code class="deal__code promocode-fonts">${won.code}</code>
       <button class="deal__copy" data-copy="${won.code}" aria-label="Copy code ${won.code}">
         <img src="${c.copyIconPath}" alt="" class="deal__copy-img" />
       </button>
     </div>
     `;
     resultElement.hidden = false;
+    resultElement.classList.remove('deals-modal__result--clearing');
     badgeEl.textContent = getWonCount();
     viewAllBtn.hidden = false;
-}
-/**
- * Gets the expiry timestamp for a given deal.
- * @param {*} deal The deal object.
- * @returns {number} The expiry timestamp.
- */
-function getExpiry(deal) {
-    return deal.wonAt + deal.validityDays * (24 * 60 * 60 * 1000);
 }
 
 /**
@@ -195,10 +188,10 @@ function createList() {
             return `
         <li class="deal">
           <div class="deal__info">
-            <p class="deal__title">${deal.title}</p>
-            <p class="deal__expiry">${expired ? 'Deal expired' : getExpiryText(deal)}</p>
+            <p class="deal__title spin-wheel-fonts">${deal.title}</p>
+            <p class="deal__expiry spin-wheel-fonts">${expired ? 'Deal expired' : getExpiryText(deal)}</p>
           </div>
-          <code class="deal__code">${deal.code}</code>
+          <code class="deal__code promocode-fonts">${deal.code}</code>
           <button class="deal__copy" data-copy="${deal.code}"
                    ${deal.code}" ${expired ? 'disabled' : ''}>
             <img src="${c.copyIconPath}" alt="" />

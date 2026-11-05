@@ -26,7 +26,6 @@
         @include m.align-flex;
         gap: 0.5rem;
         color: variables.$pink;
-        font-family: variables.$inter-font-family;
         font-weight: 600;
         margin-top: 0.6rem;
         margin-bottom: 0.5rem;
@@ -106,9 +105,7 @@
         left: 50%;
         width: 75px;
         color: variables.$white;
-        font-family: variables.$inter-font-family;
         font-size: 12px;
-        font-weight: 700;
         line-height: 1.2;
         text-align: center;
         transform-origin: center;
@@ -206,8 +203,6 @@
         background-color: variables.$secondary-color;
         color: variables.$pink;
         font-size: 0.75rem;
-        font-weight: 700;
-        font-family: variables.$inter-font-family;
         cursor: pointer;
         transition: transform 4s ease-out;
 
@@ -217,23 +212,17 @@
     }
     &__title {
         @include m.align-flex;
-        font-family: variables.$inter-font-family;
         font-size: 1.5rem;
-        font-weight: 700;
         margin-top: 1rem;
         letter-spacing: 10%;
     }
 
     &__subtitle {
-        font-family: variables.$inter-font-family;
         font-size: 0.8rem;
-        font-weight: 400;
         margin-top: 0.75rem;
         margin-bottom: 1.5rem;
     }
     &__won {
-        font-family: variables.$inter-font-family;
-        font-weight: 700;
         font-size: 1rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -262,6 +251,13 @@
     &__list {
         max-height: 300px;
         overflow-y: auto;
+    }
+    &__result {
+        transition: opacity 0.3s ease;
+        &--clearing {
+            visibility: hidden;
+            opacity: 0;
+        }
     }
 }
 @include m.up('lg') {

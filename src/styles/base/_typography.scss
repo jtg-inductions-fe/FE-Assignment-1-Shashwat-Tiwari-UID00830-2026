@@ -55,6 +55,14 @@
     color: variables.$pink;
 }
 
+.spin-wheel-fonts {
+    font-family: variables.$inter-font-family;
+    font-weight: 700;
+}
+.promocode-fonts {
+    font-family: monospace;
+    font-weight: 700;
+}
 @include m.up('lg') {
     .anchor {
         font-size: f.px-to-rem(19px);
